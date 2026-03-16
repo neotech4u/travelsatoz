@@ -32,42 +32,43 @@
         .top-bar a { color: #fff; margin-left: 15px; }
 
         /* Navigation */
-        .nav { background: rgba(7, 14, 26, 0.98); padding: 12px 5%; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--glass-border); position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(10px); }
+        .nav { background: rgba(7, 14, 26, 0.98); padding: 10px 5%; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--glass-border); position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(10px); }
         
         /* LOGO SIZE FIX */
-        .logo { display: flex; align-items: center; gap: 12px; max-width: 300px; }
+        .logo { display: flex; align-items: center; gap: 12px; min-width: 200px; flex-shrink: 0; }
         .logo img { 
-            height: 48px; 
+            height: 38px !important; 
             width: auto; 
             object-fit: contain; 
             display: block;
         }
-        .logo-text .ln { font-family: Georgia, serif; font-size: 18px; font-weight: 700; color: var(--primary-gold); line-height: 1.1; }
-        .logo-text .ls { font-size: 9px; text-transform: uppercase; color: var(--text-gray); letter-spacing: 1px; }
+        .logo-text { display: flex; flex-direction: column; }
+        .logo-text .ln { font-family: Georgia, serif; font-size: 16px; font-weight: 700; color: var(--primary-gold); line-height: 1.1; }
+        .logo-text .ls { font-size: 8px; text-transform: uppercase; color: var(--text-gray); letter-spacing: 1px; }
 
-        .nav-right { display: flex; align-items: center; gap: 20px; }
+        .nav-right { display: flex; align-items: center; gap: 15px; }
         
-        /* Desktop Navigation Visibility */
-        .nav-links { display: flex; gap: 14px; align-items: center; }
-        .nav-links a { color: rgba(255, 255, 255, 0.85); font-size: 12.5px; font-weight: 600; white-space: nowrap; transition: 0.3s; text-transform: uppercase; }
+        /* Navigation Visibility - Forced for Desktop */
+        .nav-links { display: flex; gap: 12px; align-items: center; }
+        .nav-links a { color: rgba(255, 255, 255, 0.85); font-size: 11.5px; font-weight: 600; white-space: nowrap; transition: 0.3s; text-transform: uppercase; letter-spacing: 0.3px; }
         .nav-links a:hover, .nav-links a.active { color: var(--primary-gold); }
 
         .menu-toggle { display: none; background: transparent; border: none; cursor: pointer; padding: 5px; z-index: 1002; outline: none; }
-        .menu-toggle span { display: block; width: 25px; height: 2px; background: #fff; margin: 5px 0; transition: 0.3s; }
+        .menu-toggle span { display: block; width: 22px; height: 2px; background: #fff; margin: 4px 0; transition: 0.3s; }
 
-        .mobile-menu { display: none; position: fixed; top: 0; right: 0; width: 280px; height: 100vh; background: var(--bg-dark); box-shadow: -10px 0 30px rgba(0,0,0,0.5); padding: 80px 25px; flex-direction: column; gap: 20px; z-index: 1001; }
+        .mobile-menu { display: none; position: fixed; top: 0; right: 0; width: 280px; height: 100vh; background: var(--bg-dark); box-shadow: -10px 0 30px rgba(0,0,0,0.5); padding: 80px 25px; flex-direction: column; gap: 15px; z-index: 1001; }
         .mobile-menu.active { display: flex; }
-        .mobile-menu a { color: #fff; font-size: 16px; font-weight: 600; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px; }
+        .mobile-menu a { color: #fff; font-size: 15px; font-weight: 600; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px; }
 
         .lang-switch { display: flex; background: rgba(255, 255, 255, 0.05); border-radius: 20px; padding: 2px; border: 1px solid var(--glass-border); }
         .lang-btn { padding: 3px 10px; border-radius: 18px; font-size: 10px; cursor: pointer; border: none; background: transparent; color: #fff; font-weight: 600; }
         .lang-btn.active { background: var(--primary-gold); color: var(--bg-dark); }
 
         /* --- PROFESSIONAL HERO --- */
-        .hero { min-height: 50vh; width: 100%; display: flex; align-items: center; background: url('https://images.unsplash.com/photo-1520437358207-323b43b50729?w=1600&q=80') no-repeat center center; background-size: cover; position: relative; }
-        .hero-blur-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(7,14,26,0.9), rgba(7,14,26,0.6)); backdrop-filter: blur(4px); z-index: 2; }
+        .hero { min-height: 55vh; width: 100%; display: flex; align-items: center; background: url('https://images.unsplash.com/photo-1520437358207-323b43b50729?w=1600&q=80') no-repeat center center; background-size: cover; position: relative; }
+        .hero-blur-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(7,14,26,0.95), rgba(7,14,26,0.6)); backdrop-filter: blur(2px); z-index: 2; }
         .hero-container { width: 100%; max-width: 1200px; padding: 0 5%; position: relative; z-index: 10; text-align: center; }
-        .h1 { font-family: Georgia, serif; font-size: clamp(28px, 4.5vw, 52px); line-height: 1.1; color: #fff; }
+        .h1 { font-family: Georgia, serif; font-size: clamp(28px, 4.5vw, 56px); line-height: 1.1; color: #fff; }
         .h1 span { color: var(--primary-gold); font-style: italic; }
         .hsub { color: var(--text-gray); font-weight: 600; margin-top: 15px; font-size: 20px; letter-spacing: 0.5px; }
 
@@ -77,57 +78,52 @@
         .section-header .sl { color: var(--primary-gold); text-transform: uppercase; letter-spacing: 4px; font-size: 11px; margin-bottom: 10px; display: block; font-weight: 800; }
         .section-header .st { font-family: Georgia, serif; font-size: clamp(24px, 3.5vw, 40px); color: #fff; }
 
-        /* Story Grid - Modern Layout */
-        .story-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; max-width: 1200px; margin: 0 auto; }
+        .story-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 50px; align-items: center; max-width: 1200px; margin: 0 auto; }
         .story-text h2 { font-family: Georgia, serif; font-size: 30px; color: var(--primary-gold); margin-bottom: 15px; }
         .story-text p { font-size: 16px; color: rgba(255,255,255,0.8); margin-bottom: 20px; line-height: 1.8; }
         
         .story-image-wrap { position: relative; padding-bottom: 20px; }
         .story-image-wrap img { width: 100%; border-radius: 12px; border: 1px solid var(--glass-border); box-shadow: 0 15px 40px rgba(0,0,0,0.4); }
-        .brand-badge { position: absolute; bottom: 0; right: -20px; background: var(--primary-gold); color: var(--bg-dark); padding: 15px 30px; border-radius: 8px; font-weight: 900; box-shadow: 0 10px 20px rgba(0,0,0,0.3); font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+        .brand-badge { position: absolute; bottom: 0; right: -20px; background: var(--primary-gold); color: var(--bg-dark); padding: 12px 24px; border-radius: 6px; font-weight: 900; box-shadow: 0 10px 20px rgba(0,0,0,0.3); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Mission Vision Cards */
         .mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 1200px; margin: 0 auto; }
-        .mission-card { background: var(--bg-accent); border: 1px solid var(--glass-border); padding: 45px; border-radius: 20px; transition: 0.3s; position: relative; overflow: hidden; }
+        .mission-card { background: var(--bg-accent); border: 1px solid var(--glass-border); padding: 40px; border-radius: 15px; transition: 0.3s; position: relative; overflow: hidden; }
         .mission-card:hover { transform: translateY(-5px); border-color: var(--primary-gold); }
-        .m-icon { font-size: 40px; display: block; margin-bottom: 20px; }
-        .mission-card h3 { font-family: Georgia, serif; color: var(--primary-gold); margin-bottom: 15px; font-size: 24px; }
+        .m-icon { font-size: 36px; display: block; margin-bottom: 20px; }
+        .mission-card h3 { font-family: Georgia, serif; color: var(--primary-gold); margin-bottom: 12px; font-size: 22px; }
         .mission-card p { font-size: 15px; color: var(--text-gray); line-height: 1.7; }
 
-        /* Modern Timeline */
-        .timeline-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .timeline-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
         .tm-card { background: var(--glass); border: 1px solid var(--glass-border); padding: 30px; border-radius: 15px; transition: 0.3s; }
-        .tm-card:hover { background: rgba(255, 255, 255, 0.05); }
-        .tm-year { font-weight: 900; color: var(--primary-gold); font-size: 24px; margin-bottom: 15px; display: block; font-family: Georgia, serif; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px; }
-        .tm-card h4 { font-size: 18px; color: #fff; margin-bottom: 12px; font-family: Georgia, serif; }
+        .tm-year { font-weight: 900; color: var(--primary-gold); font-size: 22px; margin-bottom: 12px; display: block; font-family: Georgia, serif; border-bottom: 1px solid var(--glass-border); padding-bottom: 8px; }
+        .tm-card h4 { font-size: 17px; color: #fff; margin-bottom: 10px; font-family: Georgia, serif; }
         .tm-card p { font-size: 14px; color: var(--text-gray); line-height: 1.6; }
 
-        /* Trust Strip */
-        .trust-strip { background: linear-gradient(to right, #0a1626, #070e1a); padding: 60px 5%; text-align: center; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); margin: 40px 0; }
-        .trust-text { font-family: Georgia, serif; font-size: 22px; max-width: 900px; margin: 0 auto; color: #fff; line-height: 1.6; }
-        .trust-sub { display: block; margin-top: 15px; color: var(--primary-gold); font-weight: 800; text-transform: uppercase; letter-spacing: 3px; font-size: 12px; }
+        .trust-strip { background: linear-gradient(to right, #0a1626, #070e1a); padding: 50px 5%; text-align: center; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); margin: 40px 0; }
+        .trust-text { font-family: Georgia, serif; font-size: 20px; max-width: 850px; margin: 0 auto; color: #fff; line-height: 1.6; font-style: italic; }
+        .trust-sub { display: block; margin-top: 15px; color: var(--primary-gold); font-weight: 800; text-transform: uppercase; letter-spacing: 3px; font-size: 11px; }
 
         /* --- FOOTER --- */
         .footer { background: #040a14; border-top: 1px solid var(--glass-border); padding: 80px 5% 40px; }
         .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 40px; margin-bottom: 60px; }
-        .f-logo-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
-        .f-logo-text { font-family: Georgia, serif; font-size: 24px; color: var(--primary-gold); font-weight: 700; }
+        .f-logo-wrap { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
+        .f-logo-wrap img { height: 32px; }
+        .f-logo-text { font-family: Georgia, serif; font-size: 22px; color: var(--primary-gold); font-weight: 700; }
         .f-desc { font-size: 13px; color: var(--text-gray); max-width: 320px; line-height: 1.7; }
         
         .f-socials { display: flex; gap: 12px; margin-top: 20px; }
-        .f-social-btn { width: 42px; height: 42px; background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
-        .f-social-btn svg { width: 20px; height: 20px; fill: var(--text-gray); }
+        .f-social-btn { width: 40px; height: 40px; background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
+        .f-social-btn svg { width: 18px; height: 18px; fill: var(--text-gray); }
         .f-social-btn:hover { background: var(--primary-gold); border-color: var(--primary-gold); }
         .f-social-btn:hover svg { fill: var(--bg-dark); }
         
-        .footer h4 { color: var(--primary-gold); margin-bottom: 25px; font-size: 15px; text-transform: uppercase; letter-spacing: 1.5px; font-family: Georgia, serif; }
-        .f-list li { margin-bottom: 12px; font-size: 14px; color: var(--text-gray); }
-        .f-list a { color: var(--text-gray); transition: 0.3s; }
-        .f-list a:hover { color: #fff; padding-left: 5px; }
+        .footer h4 { color: var(--primary-gold); margin-bottom: 25px; font-size: 14px; text-transform: uppercase; letter-spacing: 1.5px; font-family: Georgia, serif; }
+        .f-list li { margin-bottom: 10px; font-size: 13.5px; color: var(--text-gray); }
+        .f-list a:hover { color: #fff; padding-left: 4px; }
 
         /* Floating WhatsApp */
         .floating-wa { position: fixed; bottom: 30px; right: 30px; background: var(--whatsapp-green); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(0,0,0,0.4); z-index: 9999; animation: pulse 2s infinite; }
-        .floating-wa svg { width: 35px; height: 35px; fill: white; }
+        .floating-wa svg { width: 32px; height: 32px; fill: white; }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
 
         /* RESPONSIVE */
@@ -192,11 +188,12 @@
                 <button class="lang-btn active" onclick="switchLanguage('en')" id="btn-en">EN</button>
                 <button class="lang-btn" onclick="switchLanguage('ta')" id="btn-ta">தமிழ்</button>
             </div>
+            <!-- Hamburger -->
             <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()" aria-label="Toggle Menu">
                 <span></span><span></span><span></span>
             </button>
         </div>
-        <!-- Mobile Menu -->
+        <!-- Mobile Dropdown -->
         <div class="mobile-menu" id="mobileMenu">
             <a href="index.html" onclick="toggleMenu()" data-i18n="nav_home">Home</a>
             <a href="about.html" onclick="toggleMenu()" data-i18n="nav_about">About Us</a>
@@ -225,65 +222,65 @@
     <section>
         <div class="story-grid">
             <div class="story-text">
-                <span class="sl" data-i18n="ab_s1_sl">Our Story</span>
-                <h2 data-i18n="ab_s1_t1">Connecting Families and Faith</h2>
-                <p data-i18n="ab_s1_p1">Since our opening in 2021, A to Z Travels & Umrah Service has been dedicated to providing seamless travel experiences for the Kadayanallur community. We understand that travel is about more than just a destination—it's about connecting with loved ones and fulfilling spiritual duties.</p>
-                <p data-i18n="ab_s1_p2">We specialize in flight bookings for the Gulf, expert visa processing, and comprehensive Hajj & Umrah packages that prioritize comfort and guidance for every pilgrim.</p>
+                <span class="sl" data-i18n="ab_s1_sl">Our Journey</span>
+                <h2 data-i18n="ab_s1_t1">Bridging Families and Faith</h2>
+                <p data-i18n="ab_s1_p1">Established in 2021, A to Z Travels & Umrah Service has grown into Kadayanallur's premier travel consultancy. We was built on the foundation of community trust, providing world-class travel standards with the warmth of local service.</p>
+                <p data-i18n="ab_s1_p2">We specialize in flight bookings for GCC countries, expert visa processing, and comprehensive Hajj & Umrah programs designed to ensure every pilgrim travels with absolute peace of mind.</p>
             </div>
             <div class="story-image-wrap">
-                <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80" alt="Flight Travel Image">
+                <img src="https://images.unsplash.com/photo-1436491865332-7a61a109c0f3?w=800&q=80" alt="Travel Image">
                 <div class="brand-badge" data-i18n="ab_exp_badge">Established 2021</div>
             </div>
         </div>
     </section>
 
-    <!-- PHILOSOPHY SECTION -->
+    <!-- MISSION & VISION -->
     <section style="background: var(--bg-accent);">
         <div class="section-header">
-            <span class="sl" data-i18n="ab_m_sl">Our Values</span>
-            <h2 class="st" data-i18n="ab_m_st">Why Choose A to Z Travels?</h2>
+            <span class="sl" data-i18n="ab_m_sl">Our Philosophy</span>
+            <h2 class="st" data-i18n="ab_m_st">Values That Drive Us</h2>
         </div>
         <div class="mission-grid">
             <div class="mission-card">
                 <span class="m-icon">🎯</span>
-                <h3 data-i18n="ab_v1_t">Commitment to Integrity</h3>
-                <p data-i18n="ab_m_desc">We provide honest, upfront pricing and transparent documentation support. Our reputation in Kadayanallur is built on years of reliable and ethical service.</p>
+                <h3 data-i18n="ab_v1_t">Unwavering Integrity</h3>
+                <p data-i18n="ab_m_desc">We believe in transparent pricing and honest advice. Every client is treated with the respect and professionalism that has made us a leader in the Tirunelveli region.</p>
             </div>
             <div class="mission-card">
                 <span class="m-icon">💎</span>
-                <h3 data-i18n="ab_v2_t">Premium Support</h3>
-                <p data-i18n="ab_v2_d">From your first WhatsApp enquiry to your final arrival, our team is there to assist you. We handle the complex government portals so you don't have to.</p>
+                <h3 data-i18n="ab_v2_t">Commitment to Excellence</h3>
+                <p data-i18n="ab_v2_d">Our goal is to make international travel effortless. We handle the paperwork, the appointments, and the details so you can focus on your journey.</p>
             </div>
         </div>
     </section>
 
     <!-- TRUST STRIP -->
     <div class="trust-strip">
-        <p class="trust-text" data-i18n="ab_lead_q">"A journey of a thousand miles begins with a single step of trust. We are honored to take that step with you."</p>
+        <p class="trust-text" data-i18n="ab_lead_q">"Connecting people is our profession, but earning your trust is our true mission."</p>
         <span class="trust-sub">— Team A to Z Travels</span>
     </div>
 
     <!-- MILESTONES -->
     <section>
         <div class="section-header">
-            <span class="sl" data-i18n="ab_j_sl">Our Growth</span>
-            <h2 class="st" data-i18n="ab_j_st">Key Milestones</h2>
+            <span class="sl" data-i18n="ab_j_sl">Our Milestones</span>
+            <h2 class="st" data-i18n="ab_j_st">A Legacy of Service</h2>
         </div>
         <div class="timeline-grid">
             <div class="tm-card">
                 <span class="tm-year">2021</span>
-                <h4 data-i18n="ab_j_t1">The Beginning</h4>
-                <p data-i18n="ab_j_d1">Launched our first office on Main Road, Kadayanallur, focusing on Gulf visit visas and ticketing.</p>
+                <h4 data-i18n="ab_j_t1">Founding</h4>
+                <p data-i18n="ab_j_d1">Launched on Main Road, Kadayanallur, providing essential Gulf visa and flight services.</p>
             </div>
             <div class="tm-card">
                 <span class="tm-year">2023</span>
-                <h4 data-i18n="ab_j_t3">Service Expansion</h4>
-                <p data-i18n="ab_j_d3">Successfully launched full Hajj & Umrah package operations with dedicated group guides.</p>
+                <h4 data-i18n="ab_j_t3">Hajj & Umrah</h4>
+                <p data-i18n="ab_j_d3">Expanded into dedicated pilgrimage groups with specialized Tamil-speaking guides.</p>
             </div>
             <div class="tm-card">
                 <span class="tm-year">2025</span>
-                <h4 data-i18n="ab_j_t4">Regional Leader</h4>
-                <p data-i18n="ab_j_d4">Served over 1,000 satisfied families across the Tirunelveli district with travel and e-services.</p>
+                <h4 data-i18n="ab_j_t4">The Trusted Standard</h4>
+                <p data-i18n="ab_j_d4">Serving 1,000+ active clients annually with a focus on digital e-services and safety.</p>
             </div>
         </div>
     </section>
@@ -293,7 +290,7 @@
         <div class="footer-grid">
             <div class="f-logo-area">
                 <div class="f-logo-wrap">
-                    <img src="logo.png" alt="A to Z Travels Footer Logo">
+                    <img src="logo.png" alt="A to Z Travels Logo">
                     <div class="f-logo-text">A to Z Travels</div>
                 </div>
                 <p class="f-desc" data-i18n="footer_desc">Trusted travel agency in Kadayanallur since 2021. Gulf visit visas, Hajj & Umrah, air tickets, e-services.</p>
@@ -307,7 +304,7 @@
             <div>
                 <h4 data-i18n="nav_services">Services</h4>
                 <ul class="f-list">
-                    <li><a href="services.html" data-i18n="svc_t1">Air Ticket Booking</a></li>
+                    <li><a href="services.html" data-i18n="svc_t1">Air Tickets</a></li>
                     <li><a href="services.html" data-i18n="svc_t4">Passport Services</a></li>
                     <li><a href="hajj-umrah.html" data-i18n="nav_hajj">Hajj & Umrah</a></li>
                 </ul>
@@ -343,15 +340,15 @@
                 'ab_s1_sl': 'Our Story', 'ab_s1_t1': 'Connecting Families and Faith',
                 'ab_s1_p1': 'Since our opening in 2021, A to Z Travels & Umrah Service has been dedicated to providing seamless travel experiences for the Kadayanallur community.',
                 'ab_s1_p2': 'We specialize in flight bookings for the Gulf, expert visa processing, and comprehensive Hajj & Umrah packages.',
-                'ab_exp_badge': 'Established 2021', 'ab_m_sl': 'Our Values', 'ab_m_st': 'Why Choose A to Z Travels?',
-                'ab_v1_t': 'Commitment to Integrity', 'ab_m_desc': 'We provide honest, upfront pricing and transparent documentation support. Our reputation in Kadayanallur is built on years of reliable service.',
-                'ab_v2_t': 'Premium Support', 'ab_v2_d': 'From your first enquiry to your final arrival, our team is there to assist you. We handle complex portals so you don\'t have to.',
+                'ab_exp_badge': 'Established 2021', 'ab_m_sl': 'Our Philosophy', 'ab_m_st': 'Integrity & Excellence',
+                'ab_v1_t': 'Our Mission', 'ab_m_desc': 'To provide the most transparent, honest, and efficient travel services in the Tirunelveli district, ensuring that every traveler feels safe and well-informed.',
+                'ab_v2_t': 'Our Vision', 'ab_v2_d': 'To expand our reach while maintaining the personal touch, becoming the leading pilgrimage and Gulf travel consultant for the entire Tamil community.',
                 'ab_lead_q': '"A journey of a thousand miles begins with a single step of trust. We are honored to take that step with you."',
                 'ab_lead_n': '— Team A to Z Travels',
-                'ab_j_sl': 'Our Growth', 'ab_j_st': 'Key Milestones',
-                'ab_j_t1': 'The Beginning', 'ab_j_d1': 'Launched our first office on Main Road, Kadayanallur, focusing on Gulf visit visas and ticketing.',
-                'ab_j_t3': 'Service Expansion', 'ab_j_d3': 'Successfully launched full Hajj & Umrah package operations with dedicated group guides.',
-                'ab_j_t4': 'Regional Leader', 'ab_j_d4': 'Served over 1,000 satisfied families across the Tirunelveli district with travel and e-services.',
+                'ab_j_sl': 'Our Milestones', 'ab_j_st': 'A Legacy of Service',
+                'ab_j_t1': 'Founding', 'ab_j_d1': 'Launched on Main Road, Kadayanallur, providing essential Gulf visa and flight services.',
+                'ab_j_t3': 'Hajj & Umrah', 'ab_j_d3': 'Expanded into dedicated pilgrimage groups with specialized Tamil-speaking guides.',
+                'ab_j_t4': 'The Trusted Standard', 'ab_j_d4': 'Serving 1,000+ active clients annually with a focus on digital e-services and safety.',
                 'footer_desc': 'Trusted travel agency in Kadayanallur since 2021. Gulf visit visas, Hajj & Umrah, air tickets, e-services.', 
                 'office_addr': '📍 445/9, First Floor, Mohideen Pallivasal Complex, Main Road, Kadayanallur – 627 751, TN.'
             },
@@ -361,15 +358,15 @@
                 'ab_s1_sl': 'எமது கதை', 'ab_s1_t1': 'குடும்பங்களையும் நம்பிக்கையையும் இணைக்கிறோம்',
                 'ab_s1_p1': '2021-ல் தொடங்கப்பட்ட A to Z Travels, கடையநல்லூர் மக்களின் பயணத் தேவைகளை பூர்த்தி செய்வதற்காக உருவாக்கப்பட்டது.',
                 'ab_s1_p2': 'வளைகுடா பயணங்கள், புனித உம்ரா பயணங்கள் மற்றும் அரசு மின்-சேவைகளில் நாங்கள் நிபுணத்துவம் பெற்றுள்ளோம்.',
-                'ab_exp_badge': '2021 முதல் சேவை', 'ab_m_sl': 'எமது மதிப்புகள்', 'ab_m_st': 'ஏன் எங்களைத் தேர்ந்தெடுக்க வேண்டும்?',
-                'ab_v1_t': 'நாணயமான சேவை', 'ab_m_desc': 'நேர்மையான விலை மற்றும் வெளிப்படையான ஆவணங்கள். கடையநல்லூரில் பல ஆண்டுகளாக நாங்கள் சம்பாதித்த நம்பிக்கை எமது பலம்.',
-                'ab_v2_t': 'சிறந்த தரம்', 'ab_v2_d': 'உங்களின் முதல் விசாரணை முதல் பயணம் முடியும் வரை நாங்கள் உங்களுக்குத் துணை நிற்போம்.',
-                'ab_lead_q': '"ஆயிரம் மைல் பயணம் ஒரு நம்பிக்கையான அடியில் தொடங்குகிறது. அந்த அடியை உங்களுடன் எடுத்து வைப்பதில் நாங்கள் பெருமிதம் கொள்கிறோம்."',
+                'ab_exp_badge': '2021 முதல் சேவை', 'ab_m_sl': 'எமது மதிப்புகள்', 'ab_m_st': 'நேர்மை மற்றும் தரம்',
+                'ab_v1_t': 'எமது நோக்கம்', 'ab_m_desc': 'திருநெல்வேலி மாவட்டத்தில் மிகவும் வெளிப்படையான மற்றும் நம்பகமான பயண சேவைகளை வழங்கி, ஒவ்வொரு பயணையும் பாதுகாப்பாக உணரச் செய்வதே எமது நோக்கம்.',
+                'ab_v2_t': 'எமது இலக்கு', 'ab_v2_d': 'தமிழ் பேசும் மக்கள் அனைவருக்கும் புனித பயணம் மற்றும் வளைகுடா பயணங்களுக்கான முதன்மையான ஆலோசகராக மாறுவதே எமது இலக்கு.',
+                'ab_lead_q': '"பயணம் என்பது வெறும் டிக்கெட் மட்டுமல்ல; அது குடும்பங்களை இணைப்பது மற்றும் ஆன்மீகக் கனவுகளை நிறைவேற்றுவது என்று நாங்கள் நம்புகிறோம்."',
                 'ab_lead_n': '— A to Z Travels குழு',
-                'ab_j_sl': 'எமது வளர்ச்சி', 'ab_j_st': 'முக்கிய மைல்கற்கள்',
+                'ab_j_sl': 'எமது மைல்கற்கள்', 'ab_j_st': 'சேவையின் வரலாறு',
                 'ab_j_t1': 'தொடக்கம்', 'ab_j_d1': 'கடையநல்லூர் மெயின் ரோட்டில் விமான டிக்கெட் மற்றும் வளைகுடா விசாக்களுடன் எமது பயணம் தொடங்கியது.',
                 'ab_j_t3': 'சேவை விரிவாக்கம்', 'ab_j_d3': 'தமிழ் பேசும் வழிகாட்டிகளுடன் ஹஜ் மற்றும் உம்ரா சேவைகளை வெற்றிகரமாகத் தொடங்கினோம்.',
-                'ab_j_t4': 'முன்னணி நிறுவனம்', 'ab_j_d4': 'திருநெல்வேலி மாவட்டத்தில் 1,000-க்கும் மேற்பட்ட குடும்பங்களுக்கு வெற்றிகரமான சேவையை வழங்கியுள்ளோம்.',
+                'ab_j_t4': 'நம்பிக்கை', 'ab_j_d4': 'திருநெல்வேலி மாவட்டத்தில் 1,000-க்கும் மேற்பட்ட குடும்பங்களுக்கு வெற்றிகரமான சேவையை வழங்கியுள்ளோம்.',
                 'footer_desc': '2021 முதல் கடையநல்லூரில் சிறந்த சேவை. வளைகுடா விசா, ஹஜ் மற்றும் உம்ரா, மின் சேவைகள்.', 
                 'office_addr': '📍 445/9, முதல் தளம், மொய்தீன் பள்ளிவாசல் காம்ப்ளக்ஸ், கடையநல்லூர் – 627 751.'
             }
