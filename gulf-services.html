@@ -32,23 +32,30 @@
         .top-bar a { color: #fff; margin-left: 15px; }
 
         /* Navigation */
-        .nav { background: rgba(5, 10, 18, 0.98); padding: 10px 5%; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--glass-border); position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(10px); }
-        .logo { display: flex; align-items: center; gap: 12px; }
-        .logo img { height: 44px; width: auto; object-fit: contain; }
+        .nav { background: rgba(5, 10, 18, 0.98); padding: 12px 5%; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--glass-border); position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(10px); }
+        
+        /* LOGO SIZE FIX */
+        .logo { display: flex; align-items: center; gap: 12px; max-width: 300px; }
+        .logo img { 
+            height: 48px; /* Standard professional height */
+            width: auto; 
+            object-fit: contain; 
+            display: block;
+        }
         .logo-text .ln { font-family: Georgia, serif; font-size: 18px; font-weight: 700; color: var(--primary-gold); line-height: 1.1; }
         .logo-text .ls { font-size: 9px; text-transform: uppercase; color: var(--text-gray); letter-spacing: 1px; }
 
         .nav-right { display: flex; align-items: center; gap: 20px; }
         
-        /* Desktop Navigation Visibility */
-        .nav-links { display: flex; gap: 14px; align-items: center; }
-        .nav-links a { color: rgba(255, 255, 255, 0.85); font-size: 12px; font-weight: 600; white-space: nowrap; transition: 0.3s; text-transform: uppercase; }
+        /* Desktop Navigation Links */
+        .nav-links { display: flex; gap: 16px; align-items: center; }
+        .nav-links a { color: rgba(255, 255, 255, 0.85); font-size: 12.5px; font-weight: 600; white-space: nowrap; transition: 0.3s; text-transform: uppercase; }
         .nav-links a:hover, .nav-links a.active { color: var(--primary-gold); }
 
         .menu-toggle { display: none; background: transparent; border: none; cursor: pointer; padding: 5px; z-index: 1002; outline: none; }
-        .menu-toggle span { display: block; width: 22px; height: 2px; background: #fff; margin: 4px 0; transition: 0.3s; }
+        .menu-toggle span { display: block; width: 25px; height: 2px; background: #fff; margin: 5px 0; transition: 0.3s; }
 
-        .mobile-menu { display: none; position: fixed; top: 0; right: 0; width: 280px; height: 100vh; background: var(--bg-dark); box-shadow: -10px 0 30px rgba(0,0,0,0.5); padding: 80px 25px; flex-direction: column; gap: 15px; z-index: 1001; }
+        .mobile-menu { display: none; position: fixed; top: 0; right: 0; width: 280px; height: 100vh; background: var(--bg-dark); box-shadow: -10px 0 30px rgba(0,0,0,0.5); padding: 80px 25px; flex-direction: column; gap: 20px; z-index: 1001; }
         .mobile-menu.active { display: flex; }
         .mobile-menu a { color: #fff; font-size: 16px; font-weight: 600; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px; }
 
@@ -57,43 +64,41 @@
         .lang-btn.active { background: var(--primary-gold); color: var(--bg-dark); }
 
         /* --- ISLAMIC HERO --- */
-        .hero { min-height: 40vh; width: 100%; display: flex; align-items: center; background: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1600&q=80') no-repeat center center; background-size: cover; position: relative; overflow: hidden; }
+        .hero { min-height: 45vh; width: 100%; display: flex; align-items: center; background: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1600&q=80') no-repeat center center; background-size: cover; position: relative; overflow: hidden; }
         .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,77,64,0.7), var(--bg-dark)); z-index: 2; }
         .hero-pattern { position: absolute; inset: 0; background-image: url('https://www.transparenttextures.com/patterns/arabesque.png'); opacity: 0.15; z-index: 3; }
         .hero-container { width: 100%; max-width: 1200px; padding: 0 5%; position: relative; z-index: 10; text-align: center; }
-        .h1 { font-family: Georgia, serif; font-size: clamp(28px, 4.5vw, 52px); line-height: 1.1; color: #fff; }
+        .h1 { font-family: Georgia, serif; font-size: clamp(30px, 5vw, 56px); line-height: 1.1; color: #fff; }
         .h1 span { color: var(--primary-gold); font-style: italic; }
-        .hero-desc { max-width: 800px; margin: 15px auto 0; font-size: 15px; color: var(--text-gray); }
+        .hero-desc { max-width: 800px; margin: 15px auto 0; font-size: 16px; color: var(--text-gray); }
 
-        /* --- GCC CARDS LAYOUT --- */
-        section { padding: 60px 5%; }
-        .section-header { text-align: center; margin-bottom: 40px; position: relative; }
-        .section-header::after { content: '◈'; color: var(--primary-gold); display: block; margin-top: 10px; font-size: 20px; }
-        .section-header .sl { color: var(--primary-gold); text-transform: uppercase; letter-spacing: 5px; font-size: 11px; margin-bottom: 8px; display: block; font-weight: 800; }
-        .section-header .st { font-family: Georgia, serif; font-size: clamp(24px, 3.5vw, 40px); color: #fff; }
+        /* --- GCC CARDS --- */
+        section { padding: 80px 5%; }
+        .section-header { text-align: center; margin-bottom: 60px; position: relative; }
+        .section-header::after { content: '◈'; color: var(--primary-gold); display: block; margin-top: 15px; font-size: 24px; }
+        .section-header .sl { color: var(--primary-gold); text-transform: uppercase; letter-spacing: 5px; font-size: 12px; margin-bottom: 10px; display: block; font-weight: 800; }
+        .section-header .st { font-family: Georgia, serif; font-size: clamp(26px, 4vw, 44px); color: #fff; }
 
-        .visa-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1300px; margin: 0 auto; }
-        .visa-card { background: var(--bg-accent); border: 1px solid var(--glass-border); border-radius: 15px; overflow: hidden; transition: 0.4s; border-top: 3px solid var(--primary-gold); }
-        .visa-card:hover { transform: translateY(-5px); border-color: var(--primary-gold); }
+        .visa-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .visa-card { background: var(--bg-accent); border: 1px solid var(--glass-border); border-radius: 20px; overflow: hidden; transition: 0.4s; border-top: 4px solid var(--primary-gold); }
+        .visa-card:hover { transform: translateY(-8px); border-color: var(--primary-gold); background: #0c1f36; }
         
-        .visa-arch { height: 90px; background: var(--islamic-green); display: flex; align-items: center; justify-content: center; clip-path: ellipse(100% 100% at 50% 0%); }
-        .visa-flag { font-size: 32px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); }
+        .visa-arch { height: 100px; background: var(--islamic-green); display: flex; align-items: center; justify-content: center; clip-path: ellipse(100% 100% at 50% 0%); }
+        .visa-flag { font-size: 40px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); }
         
-        .visa-body { padding: 20px; }
-        .visa-card h3 { font-family: Georgia, serif; font-size: 19px; color: var(--primary-gold); margin-bottom: 12px; }
-        .visa-list li { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.75); font-size: 13px; margin-bottom: 8px; }
-        .visa-list li svg { width: 12px; height: 12px; fill: var(--primary-gold); flex-shrink: 0; }
-        .btn-enq { color: var(--primary-gold); font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-top: 10px; display: inline-block; }
+        .visa-body { padding: 30px; }
+        .visa-card h3 { font-family: Georgia, serif; font-size: 22px; color: var(--primary-gold); margin-bottom: 15px; }
+        .visa-list li { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.8); font-size: 14px; margin-bottom: 12px; }
+        .visa-list li svg { width: 14px; height: 14px; fill: var(--primary-gold); flex-shrink: 0; }
 
-        /* --- PROCESS STEPS --- */
-        .process-sec { background: linear-gradient(to bottom, var(--bg-dark), #00221c); padding: 70px 5%; border-top: 1px solid var(--glass-border); }
-        .step-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
-        .step-box { background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); padding: 30px 20px; border-radius: 15px; text-align: center; }
-        .step-num { width: 44px; height: 44px; background: var(--primary-gold); color: var(--bg-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px; margin: 0 auto 15px; font-family: Georgia, serif; }
-        .step-box h4 { font-family: Georgia, serif; color: var(--primary-gold); font-size: 17px; margin-bottom: 10px; }
-        .step-box p { font-size: 12.5px; color: var(--text-gray); }
+        /* --- PROCESS --- */
+        .process-sec { background: linear-gradient(to bottom, var(--bg-dark), #002e26); padding: 80px 5%; border-top: 1px solid var(--glass-border); }
+        .step-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .step-box { background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); padding: 35px 25px; border-radius: 20px; text-align: center; }
+        .step-num { width: 50px; height: 50px; background: var(--primary-gold); color: var(--bg-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 20px; margin: 0 auto 20px; font-family: Georgia, serif; }
+        .step-box h4 { font-family: Georgia, serif; color: var(--primary-gold); font-size: 18px; margin-bottom: 10px; }
+        .step-box p { font-size: 13px; color: var(--text-gray); }
 
-        /* Application Button Style */
         .btn-wa-pulse { 
             background: var(--whatsapp-green); 
             color: white; 
@@ -115,41 +120,42 @@
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        /* --- FAQ --- */
-        .faq-container { max-width: 800px; margin: 0 auto; }
-        .faq-item { background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); border-radius: 10px; margin-bottom: 12px; transition: 0.3s; }
-        .faq-q { padding: 18px 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 15px; color: #fff; }
-        .faq-q span { color: var(--primary-gold); font-size: 11px; }
-        .faq-a { padding: 0 20px; height: 0; overflow: hidden; transition: 0.3s; font-size: 14px; color: var(--text-gray); line-height: 1.6; }
-        .faq-item.active .faq-a { padding: 0 20px 18px; height: auto; }
+        /* FAQ */
+        .faq-container { max-width: 850px; margin: 0 auto; }
+        .faq-item { background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); border-radius: 12px; margin-bottom: 15px; transition: 0.3s; }
+        .faq-q { padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 15px; color: #fff; }
+        .faq-q span { color: var(--primary-gold); font-size: 12px; }
+        .faq-a { padding: 0 20px; height: 0; overflow: hidden; transition: 0.3s ease-out; font-size: 14px; color: var(--text-gray); line-height: 1.7; }
+        .faq-item.active .faq-a { padding: 0 20px 20px; height: auto; }
         .faq-item.active span { transform: rotate(180deg); }
 
-        /* --- FOOTER --- */
+        /* FOOTER */
         .footer { background: #040a14; border-top: 1px solid var(--glass-border); padding: 80px 5% 40px; }
-        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 30px; margin-bottom: 60px; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 40px; margin-bottom: 60px; }
         .f-logo-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-        .f-logo-text { font-family: Georgia, serif; font-size: 22px; color: var(--primary-gold); font-weight: 700; }
-        .f-desc { font-size: 13px; color: var(--text-gray); max-width: 300px; line-height: 1.7; }
-        .f-socials { display: flex; gap: 10px; margin-top: 15px; }
-        .f-social-btn { width: 38px; height: 38px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
-        .f-social-btn svg { width: 18px; height: 18px; fill: var(--text-gray); }
+        .f-logo-wrap img { height: 44px; }
+        .f-logo-text { font-family: Georgia, serif; font-size: 24px; color: var(--primary-gold); font-weight: 700; }
+        .f-desc { font-size: 14px; color: var(--text-gray); max-width: 320px; line-height: 1.7; }
+        
+        .f-socials { display: flex; gap: 12px; margin-top: 20px; }
+        .f-social-btn { width: 42px; height: 42px; background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
+        .f-social-btn svg { width: 20px; height: 20px; fill: var(--text-gray); }
         .f-social-btn:hover { background: var(--primary-gold); }
-        .f-social-btn:hover svg { fill: var(--bg-dark); }
-        .footer h4 { color: var(--primary-gold); margin-bottom: 20px; font-size: 14px; text-transform: uppercase; letter-spacing: 1.5px; font-family: Georgia, serif; }
-        .f-list li { margin-bottom: 10px; font-size: 13px; color: var(--text-gray); }
+        .footer h4 { color: var(--primary-gold); margin-bottom: 25px; font-size: 15px; text-transform: uppercase; letter-spacing: 1.5px; font-family: Georgia, serif; }
+        .f-list li { margin-bottom: 12px; font-size: 14px; color: var(--text-gray); }
         .f-list a:hover { color: #fff; }
 
         /* Floating WhatsApp */
-        .floating-wa { position: fixed; bottom: 30px; right: 30px; background: var(--whatsapp-green); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(0,0,0,0.4); z-index: 9999; animation: pulse 2s infinite; }
-        .floating-wa svg { width: 32px; height: 32px; fill: white; }
+        .floating-wa { position: fixed; bottom: 30px; right: 30px; background: var(--whatsapp-green); width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(0,0,0,0.4); z-index: 9999; animation: pulse 2s infinite; }
+        .floating-wa svg { width: 35px; height: 35px; fill: white; }
 
-        /* RESPONSIVE LOGIC */
-        @media (max-width: 1024px) {
+        /* RESPONSIVE */
+        @media (max-width: 1150px) {
             .nav-links { display: none !important; }
             .menu-toggle { display: block !important; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
         }
-        @media (min-width: 1025px) {
+        @media (min-width: 1151px) {
             .nav-links { display: flex !important; }
             .menu-toggle { display: none !important; }
             .mobile-menu { display: none !important; }
@@ -186,7 +192,6 @@
             </div>
         </a>
         <div class="nav-right">
-            <!-- Desktop Menu -->
             <ul class="nav-links">
                 <li><a href="index.html" data-i18n="nav_home">Home</a></li>
                 <li><a href="about.html" data-i18n="nav_about">About Us</a></li>
@@ -201,12 +206,10 @@
                 <button class="lang-btn active" onclick="switchLanguage('en')" id="btn-en">EN</button>
                 <button class="lang-btn" onclick="switchLanguage('ta')" id="btn-ta">தமிழ்</button>
             </div>
-            <!-- Hamburger Button -->
             <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
                 <span></span><span></span><span></span>
             </button>
         </div>
-        <!-- Mobile Dropdown Sidebar -->
         <div class="mobile-menu" id="mobileMenu">
             <a href="index.html" onclick="toggleMenu()" data-i18n="nav_home">Home</a>
             <a href="about.html" onclick="toggleMenu()" data-i18n="nav_about">About Us</a>
@@ -228,7 +231,7 @@
                 <span data-i18n="gs_h1_p1">Gulf Country</span><br>
                 <span data-i18n="gs_h1_p2">Visit Visa Services</span>
             </h1>
-            <p class="hero-desc" data-i18n="gs_tagline">Tourist and family visit visas for all six GCC countries — UAE, Saudi Arabia, Qatar, Kuwait, Bahrain and Oman. Quick processing from Kadayanallur.</p>
+            <p class="hero-desc" data-i18n="gs_tagline">Tourist and family visit visas for all six GCC countries. Quick processing from Kadayanallur.</p>
         </div>
     </section>
 
@@ -262,7 +265,7 @@
                     <ul class="visa-list">
                         <li data-i18n="gs_v2_l1"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Saudi Arabia Tourist Visa</li>
                         <li data-i18n="gs_v2_l2"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Saudi Family Visit Visa</li>
-                        <li data-i18n="gs_v2_l3"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Umrah & Hajj visa (Packages)</li>
+                        <li data-i18n="gs_v2_l3"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Umrah & Hajj visa packages</li>
                     </ul>
                     <a href="https://wa.me/918973109844" class="btn-enq">Enquire →</a>
                 </div>
@@ -276,7 +279,6 @@
                     <ul class="visa-list">
                         <li data-i18n="gs_v3_l1"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Qatar Tourist & Visit Visa</li>
                         <li data-i18n="gs_v3_l2"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Family visit visa for Doha</li>
-                        <li data-i18n="gs_v3_l3"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Air tickets — Chennai to Doha</li>
                     </ul>
                     <a href="https://wa.me/918973109844" class="btn-enq">Enquire →</a>
                 </div>
@@ -290,7 +292,6 @@
                     <ul class="visa-list">
                         <li data-i18n="gs_v4_l1"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Kuwait Visit & Tourist Visa</li>
                         <li data-i18n="gs_v4_l2"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Family visit visa for Kuwait</li>
-                        <li data-i18n="gs_v4_l3"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Air tickets — Kuwait City</li>
                     </ul>
                     <a href="https://wa.me/918973109844" class="btn-enq">Enquire →</a>
                 </div>
@@ -304,7 +305,6 @@
                     <ul class="visa-list">
                         <li data-i18n="gs_v5_l1"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Bahrain Tourist & Visit Visa</li>
                         <li data-i18n="gs_v5_l2"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Family visit visa for Manama</li>
-                        <li data-i18n="gs_v5_l3"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Air tickets — Manama</li>
                     </ul>
                     <a href="https://wa.me/918973109844" class="btn-enq">Enquire →</a>
                 </div>
@@ -318,7 +318,6 @@
                     <ul class="visa-list">
                         <li data-i18n="gs_v6_l1"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Oman Tourist & Visit Visa</li>
                         <li data-i18n="gs_v6_l2"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Family visit visa for Muscat</li>
-                        <li data-i18n="gs_v6_l3"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Air tickets — Muscat</li>
                     </ul>
                     <a href="https://wa.me/918973109844" class="btn-enq">Enquire →</a>
                 </div>
@@ -370,15 +369,15 @@
         <div class="faq-container">
             <div class="faq-item" onclick="this.classList.toggle('active')">
                 <div class="faq-q" data-i18n="gs_q1">What documents are needed for a Gulf visit visa? <span>▼</span></div>
-                <div class="faq-a" data-i18n="gs_a1">A clear passport scan (front & back) with at least 6 months validity and a passport-size photograph with a white background are the standard requirements for GCC tourist visas.</div>
+                <div class="faq-a" data-i18n="gs_a1">According to standard international requirements, you need a clear passport scan (front & back) with at least 6 months validity and a recent passport-size photograph with a white background.</div>
             </div>
             <div class="faq-item" onclick="this.classList.toggle('active')">
                 <div class="faq-q" data-i18n="gs_q2">How long does a UAE tourist visa take? <span>▼</span></div>
-                <div class="faq-a" data-i18n="gs_a2">Standard UAE tourist visas are usually processed within 48 to 72 hours. Express services can often deliver the visa in less than 24 hours.</div>
+                <div class="faq-a" data-i18n="gs_a2">Standard processing for a UAE Visit Visa typically takes 48 to 72 hours. We also provide express 24-hour processing for urgent cases.</div>
             </div>
             <div class="faq-item" onclick="this.classList.toggle('active')">
                 <div class="faq-q" data-i18n="gs_q3">Can families visit Saudi Arabia on a tourist visa? <span>▼</span></div>
-                <div class="faq-a" data-i18n="gs_a3">Yes, Saudi Arabia's tourist visa allows families to visit and even perform Umrah. However, for longer family stays, the specific "Family Visit Visa" is recommended for religious and social ease.</div>
+                <div class="faq-a" data-i18n="gs_a3">Yes, Saudi Arabia's tourist visa allows families to visit and even perform Umrah. However, for long-term stays, the specific Family Visit Visa is usually more appropriate.</div>
             </div>
         </div>
     </section>
@@ -396,7 +395,6 @@
                     <a href="https://www.facebook.com/atoztravel" class="f-social-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg></a>
                     <a href="https://www.instagram.com/atozonlineservicestravels/" class="f-social-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
                     <a href="https://wa.me/918973109844" class="f-social-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.891 11.891-11.891 3.181 0 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.481 8.403 0 6.556-5.332 11.891-11.891 11.891-2.015 0-3.991-.51-5.747-1.474l-6.247 1.692zm6.75-4.414c1.554.921 3.03 1.385 4.603 1.385 5.481 0 9.941-4.459 9.941-9.941 0-2.648-1.031-5.143-2.906-7.018-1.875-1.875-4.37-2.906-7.035-2.906-5.481 0-9.941 4.459-9.941 9.941 0 1.847.51 3.528 1.474 4.864l-.97 3.543 3.734-.928zm11.367-7.38c-.066-.109-.241-.175-.506-.307-.264-.132-1.562-.77-1.804-.858-.241-.088-.418-.132-.594.132-.176.265-.682.858-.836 1.034-.154.176-.308.198-.573.066-.264-.132-1.117-.412-2.126-1.313-.785-.7-1.314-1.564-1.468-1.828-.154-.264-.016-.407.117-.539.12-.12.264-.308.396-.462.132-.154.176-.264.264-.44.088-.176.044-.33-.022-.462-.066-.132-.594-1.431-.814-1.963-.214-.517-.433-.448-.594-.456-.153-.008-.33-.008-.506-.008-.176 0-.462.066-.704.33-.242.264-.924.903-.924 2.199 0 1.296.946 2.552 1.078 2.728.132.176 1.861 2.842 4.508 3.986.63.27 1.12.432 1.503.553.633.201 1.21.172 1.665.105.508-.074 1.562-.638 1.782-1.254.22-.616.22-1.144.154-1.254z"/></svg></a>
-                    <a href="https://www.linkedin.com/company/travelsatoz/posts/?feedView=all" class="f-social-btn" target="_blank" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
                 </div>
             </div>
             <div>
@@ -451,9 +449,9 @@
                 's4_t': 'Receive Your Visa on WhatsApp', 's4_d': 'Once approved, your e-visa is sent directly to your WhatsApp. Ready to travel!',
                 'gs_wa_btn': '💬 Start Your Visa Application',
                 'faq_sl': 'Information', 'faq_st': 'Gulf Visit Visa FAQ',
-                'gs_q1': 'What documents are needed for a Gulf visit visa?', 'gs_a1': 'A clear passport scan (front & back) with at least 6 months validity and a passport-size photograph with a white background are the standard requirements for GCC tourist visas.',
-                'gs_q2': 'How long does a UAE tourist visa take?', 'gs_a2': 'Standard UAE tourist visas are usually processed within 48 to 72 hours. Express services can often deliver the visa in less than 24 hours.',
-                'gs_q3': 'Can families visit Saudi Arabia on a tourist visa?', 'gs_a3': 'Yes, Saudi Arabia\'s tourist visa allows families to visit and even perform Umrah. However, for longer family stays, the specific "Family Visit Visa" is recommended for religious and social ease.',
+                'gs_q1': 'What documents are needed for a Gulf visit visa?', 'gs_a1': 'A clear passport scan (front & back) with at least 6 months validity and a passport-size photograph with a white background are the standard requirements.',
+                'gs_q2': 'How long does a UAE tourist visa take?', 'gs_a2': 'Standard UAE tourist visas are usually processed within 48 to 72 hours. We also provide express 24-hour processing for urgent cases.',
+                'gs_q3': 'Can families visit Saudi Arabia on a tourist visa?', 'gs_a3': 'Yes, Saudi Arabia\'s tourist visa allows families to visit and even perform Umrah. However, for longer family stays, the specific Family Visit Visa is usually more appropriate.',
                 'footer_desc': 'Trusted travel agency in Kadayanallur since 2021. Gulf visit visas, Hajj & Umrah, air tickets, e-services.', 
                 'office_addr': '📍 445/9, First Floor, Mohideen Pallivasal Complex, Main Road, Kadayanallur – 627 751, TN.'
             },
@@ -476,7 +474,7 @@
                 'faq_sl': 'தகவல்கள்', 'faq_st': 'வளைகுடா விசா - அடிக்கடி கேட்கப்படும் கேள்விகள்',
                 'gs_q1': 'வளைகுடா விசாவுக்கு என்ன ஆவணங்கள் தேவை?', 'gs_a1': '6 மாத காலாவதி கொண்ட பாஸ்போர்ட் மற்றும் வெள்ளை பின்னணியில் உள்ள புகைப்படம் போதுமானது.',
                 'gs_q2': 'UAE விசா கிடைக்க எவ்வளவு காலம் ஆகும்?', 'gs_a2': 'சாதாரணமாக 2-3 நாட்கள் ஆகும். அவசர சேவை மூலம் 24 மணி நேரத்திற்குள் பெறலாம்.',
-                'gs_q3': 'சுற்றுலா விசாவில் குடும்பத்தினர் சவூதி செல்லலாமா?', 'gs_a3': 'ஆம், சவூதி சுற்றுலா விசாவில் குடும்பத்தினரைச் சந்திக்கவும் உம்ரா செய்யவும் தற்போது அனுமதி உண்டு.',
+                'gs_q3': 'சுற்றுலா விசாவில் குடும்பத்தினர் சவூதி செல்லலாமா?', 'gs_a3': 'ஆம், தற்போது சவூதி சுற்றுலா விசாவில் குடும்பத்தினரைச் சந்திக்கவும் உம்ரா செய்யவும் அனுமதி உண்டு.',
                 'footer_desc': '2021 முதல் கடையநல்லூரில் சிறந்த சேவை. வளைகுடா விசா, ஹஜ் மற்றும் உம்ரா, மின் சேவைகள்.', 
                 'office_addr': '📍 445/9, முதல் தளம், மொய்தீன் பள்ளிவாசல் காம்ப்ளக்ஸ், கடையநல்லூர் – 627 751.'
             }
