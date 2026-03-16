@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A to Z Travels & Umrah Service | Kadayanallur</title>
+    <!-- FAVICON LINK -->
+    <link rel="icon" type="image/png" href="logo.png">
+    <!-- For .jpg fallback -->
+    <link rel="shortcut icon" href="logo.jpg">
+    
     <style>
         /* Base & Variables */
         :root {
@@ -13,151 +18,154 @@
             --bg-accent: #0D1B2E;
             --text-gray: #8A9BB0;
             --whatsapp-green: #25D366;
+            --glass-border: rgba(201, 168, 76, 0.2);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg-dark); color: #fff; line-height: 1.6; overflow-x: hidden; }
-        a { text-decoration: none; transition: 0.3s; }
+        a { text-decoration: none; transition: 0.3s; color: inherit; }
         ul { list-style: none; }
 
-        /* --- TAMIL FONT SIZE REDUCTION --- */
+        /* --- TAMIL FONT SIZE --- */
         body.lang-ta { font-size: 15px; }
         body.lang-ta .h1 { font-size: clamp(24px, 4vw, 44px); line-height: 1.35; }
         body.lang-ta .nav-links a, body.lang-ta .mobile-menu a { font-size: 11px; }
-        body.lang-ta .footer h4 { font-size: 13px; }
-        body.lang-ta .f-item, body.lang-ta .w-desc, body.lang-ta .step-desc { font-size: 12px; }
 
         /* Top Bar */
         .top-bar { background: var(--dark-gold); padding: 8px 5%; font-size: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; position: relative; z-index: 1001; }
         .top-bar a { color: #fff; margin-left: 15px; }
 
         /* Navigation */
-        .nav { background: rgba(7, 14, 26, 0.98); padding: 15px 5%; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(201, 168, 76, 0.1); position: sticky; top: 0; z-index: 1000; }
-        .logo { display: flex; align-items: center; gap: 12px; }
+        .nav { background: rgba(7, 14, 26, 0.98); padding: 15px 5%; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--glass-border); position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(10px); }
+        
+        /* LOGO VISIBILITY FIX */
+        .logo { display: flex; align-items: center; gap: 12px; min-width: 220px; }
+        .logo img { 
+            height: 38px !important; 
+            width: auto; 
+            object-fit: contain; 
+            /* This white background/glow makes the dark logo elements visible on dark themes */
+            background: #fff;
+            padding: 4px;
+            border-radius: 6px;
+            box-shadow: 0 0 10px rgba(255,255,255,0.2);
+        }
         .logo-text .ln { font-family: Georgia, serif; font-size: 18px; font-weight: 700; color: var(--primary-gold); line-height: 1.2; }
         .logo-text .ls { font-size: 9px; text-transform: uppercase; color: var(--text-gray); letter-spacing: 1px; }
 
         .nav-right { display: flex; align-items: center; gap: 20px; }
         .nav-links { display: flex; gap: 18px; align-items: center; }
-        .nav-links a { color: rgba(255, 255, 255, 0.85); font-size: 13px; font-weight: 600; white-space: nowrap; transition: 0.3s; }
+        .nav-links a { color: rgba(255, 255, 255, 0.85); font-size: 13px; font-weight: 600; white-space: nowrap; transition: 0.3s; text-transform: uppercase; }
         .nav-links a:hover, .nav-links a.active { color: var(--primary-gold); }
 
         .menu-toggle { display: none; background: transparent; border: none; cursor: pointer; padding: 5px; z-index: 1002; outline: none; }
-        .menu-toggle span { display: block; width: 25px; height: 2px; background: #fff; margin: 5px 0; transition: 0.3s; transform-origin: 1px; }
-        .menu-toggle.active span:nth-child(1) { transform: rotate(45deg); }
-        .menu-toggle.active span:nth-child(2) { opacity: 0; }
-        .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg); }
+        .menu-toggle span { display: block; width: 25px; height: 2px; background: #fff; margin: 5px 0; transition: 0.3s; }
 
-        .mobile-menu { display: flex; position: fixed; top: 0; right: -100%; width: 80%; max-width: 300px; height: 100vh; background: var(--bg-dark); box-shadow: -10px 0 30px rgba(0,0,0,0.5); padding: 80px 30px 40px; flex-direction: column; gap: 20px; z-index: 1001; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        .mobile-menu.active { right: 0; }
+        .mobile-menu { display: none; position: fixed; top: 0; right: 0; width: 280px; height: 100vh; background: var(--bg-dark); box-shadow: -10px 0 30px rgba(0,0,0,0.5); padding: 80px 25px; flex-direction: column; gap: 15px; z-index: 1001; }
+        .mobile-menu.active { display: flex; }
         .mobile-menu a { color: #fff; font-size: 16px; font-weight: 600; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px; }
 
         .lang-switch { display: flex; background: rgba(255, 255, 255, 0.05); border-radius: 20px; padding: 2px; border: 1px solid rgba(201,168,76,0.3); }
         .lang-btn { padding: 3px 10px; border-radius: 18px; font-size: 10px; cursor: pointer; border: none; background: transparent; color: #fff; font-weight: 600; }
         .lang-btn.active { background: var(--primary-gold); color: var(--bg-dark); }
 
-        /* --- BLENDED HERO DESIGN --- */
-        .hero { min-height: 90vh; width: 100%; display: flex; align-items: center; background: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1600&q=80') no-repeat center center; background-size: cover; position: relative; overflow: hidden; }
-        .hero-blur-overlay { position: absolute; inset: 0; width: 100%; height: 100%; backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); mask-image: linear-gradient(to right, black 30%, rgba(0,0,0,0.8) 45%, transparent 75%); -webkit-mask-image: linear-gradient(to right, black 30%, rgba(0,0,0,0.8) 45%, transparent 75%); z-index: 2; }
-        .hero-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(7,14,26,0.85) 0%, rgba(7,14,26,0.4) 40%, transparent 100%); z-index: 1; }
-        .hero-container { width: 100%; max-width: 1200px; padding: 0 5%; position: relative; z-index: 10; display: flex; align-items: center; }
-        .hero-content { max-width: 700px; }
+        /* --- HERO --- */
+        .hero { min-height: 85vh; width: 100%; display: flex; align-items: center; background: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1600&q=80') no-repeat center center; background-size: cover; position: relative; overflow: hidden; }
+        .hero-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(7,14,26,0.9) 0%, rgba(7,14,26,0.4) 50%, transparent 100%); z-index: 1; }
+        .hero-container { width: 100%; max-width: 1200px; padding: 0 5%; position: relative; z-index: 10; }
         .badge { display: inline-block; padding: 6px 14px; border-radius: 20px; border: 1px solid rgba(201,168,76,0.4); color: var(--primary-gold); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; background: rgba(201,168,76,0.1); }
-        .h1 { font-family: Georgia, serif; font-size: clamp(28px, 4.5vw, 52px); line-height: 1.15; margin-bottom: 25px; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+        .h1 { font-family: Georgia, serif; font-size: clamp(28px, 4.5vw, 52px); line-height: 1.15; margin-bottom: 25px; color: #fff; }
         .hl { color: var(--primary-gold); font-style: italic; }
-        .hsub { font-size: 17px; color: rgba(255,255,255,0.9); line-height: 1.8; margin-bottom: 40px; }
-        .hbtns { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 50px; }
+        .hsub { font-size: 17px; color: rgba(255,255,255,0.9); line-height: 1.8; margin-bottom: 40px; max-width: 650px; }
+        .hbtns { display: flex; gap: 15px; flex-wrap: wrap; }
         .btn-gold { background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold)); color: var(--bg-dark); padding: 14px 30px; border-radius: 4px; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
         .btn-outline { border: 1px solid rgba(255,255,255,0.4); color: #fff; padding: 14px 30px; border-radius: 4px; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
-        .stats { display: flex; gap: 50px; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 35px; }
-        .stat-item .n { font-family: Georgia, serif; font-size: 32px; font-weight: 700; color: var(--primary-gold); }
-        .stat-item .l { font-size: 11px; color: #ccc; text-transform: uppercase; letter-spacing: 1.5px; }
+
+        /* --- STATS STRIP --- */
+        .stats-section { background: var(--bg-accent); padding: 40px 5%; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; text-align: center; }
+        .stat-item h3 { font-family: Georgia, serif; font-size: 36px; color: var(--primary-gold); margin-bottom: 5px; }
+        .stat-item p { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: var(--text-gray); font-weight: 700; }
 
         /* --- SECTIONS --- */
-        section { padding: 90px 5%; }
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-header .sl { color: var(--primary-gold); text-transform: uppercase; letter-spacing: 4px; font-size: 12px; margin-bottom: 12px; display: block; }
-        .section-header .st { font-family: Georgia, serif; font-size: clamp(24px, 4vw, 40px); line-height: 1.2; }
+        section { padding: 80px 5%; }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header .sl { color: var(--primary-gold); text-transform: uppercase; letter-spacing: 4px; font-size: 11px; margin-bottom: 10px; display: block; font-weight: 800; }
+        .section-header .st { font-family: Georgia, serif; font-size: clamp(24px, 3.5vw, 40px); color: #fff; }
 
-        /* --- UPCOMING PACKAGES --- */
-        .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
-        .package-card { background: var(--bg-accent); border: 1px solid rgba(201,168,76,0.15); border-radius: 15px; overflow: hidden; transition: 0.4s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-        .package-card:hover { transform: translateY(-10px); border-color: var(--primary-gold); }
-        .pkg-img { height: 250px; overflow: hidden; position: relative; border-bottom: 2px solid var(--primary-gold); background: #000; }
-        .pkg-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s ease; filter: brightness(0.8); display: block; }
-        .package-card:hover .pkg-img img { transform: scale(1.1); filter: brightness(1); }
-        .pkg-tag { position: absolute; top: 15px; right: 15px; background: var(--primary-gold); color: var(--bg-dark); padding: 5px 14px; border-radius: 20px; font-size: 11px; font-weight: 800; z-index: 5; box-shadow: 0 4px 10px rgba(0,0,0,0.4); }
-        .pkg-body { padding: 25px; }
-        .pkg-title { font-family: Georgia, serif; font-size: 22px; color: #fff; margin-bottom: 12px; }
-        .pkg-meta { display: flex; justify-content: space-between; font-size: 12px; color: var(--text-gray); margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 15px; }
-        .pkg-price { font-size: 26px; color: var(--primary-gold); font-weight: 800; }
-        .pkg-price span { font-size: 13px; color: var(--text-gray); font-weight: 400; }
+        /* Service Cards Grid */
+        .svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
+        .svc-card { background: var(--bg-accent); border: 1px solid rgba(201, 168, 76, 0.1); border-radius: 12px; padding: 40px; transition: 0.3s; }
+        .svc-card:hover { transform: translateY(-8px); border-color: var(--primary-gold); background: #11233d; }
+        .svc-card .icon { font-size: 42px; margin-bottom: 20px; display: block; }
+        .svc-card h3 { font-family: Georgia, serif; color: var(--primary-gold); font-size: 22px; margin-bottom: 15px; }
+        .svc-card p { font-size: 15px; color: var(--text-gray); line-height: 1.7; margin-bottom: 20px; }
+        .svc-link { color: var(--primary-gold); font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* --- PROCESS SECTION --- */
-        .process-bg { background: #040a14; }
-        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
-        .step-card { text-align: center; position: relative; }
-        .step-num { width: 40px; height: 40px; background: var(--primary-gold); color: var(--bg-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; margin: 0 auto 20px; font-size: 18px; }
-        .step-title { font-family: Georgia, serif; color: var(--primary-gold); margin-bottom: 10px; font-size: 18px; }
-        .step-desc { font-size: 13px; color: var(--text-gray); }
+        /* Hajj & Umrah Specials */
+        .pkg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .pkg-card { background: var(--bg-accent); border: 1px solid var(--glass-border); border-radius: 12px; overflow: hidden; position: relative; transition: 0.3s; }
+        .pkg-card:hover { transform: translateY(-10px); border-color: var(--primary-gold); }
+        .pkg-img { height: 220px; background-size: cover; background-position: center; position: relative; }
+        .pkg-tag { position: absolute; top: 15px; right: 15px; background: var(--primary-gold); color: var(--bg-dark); padding: 5px 12px; border-radius: 4px; font-size: 10px; font-weight: 900; text-transform: uppercase; }
+        .pkg-body { padding: 30px; }
+        .pkg-body h3 { font-family: Georgia, serif; color: var(--primary-gold); font-size: 20px; margin-bottom: 10px; }
+        .pkg-info { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 15px; }
+        .pkg-price { font-size: 24px; font-weight: 800; }
+        .pkg-days { font-size: 14px; color: var(--text-gray); }
 
-        /* --- FLOATING WHATSAPP --- */
-        .floating-wa { position: fixed; bottom: 30px; right: 30px; background: var(--whatsapp-green); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(0,0,0,0.3); z-index: 9999; animation: pulse 2s infinite; }
-        .floating-wa svg { width: 35px; height: 35px; fill: white; }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+        /* Process Steps */
+        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
+        .process-box { background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); padding: 40px 30px; border-radius: 12px; text-align: center; }
+        .proc-num { width: 50px; height: 50px; background: var(--primary-gold); color: var(--bg-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 20px; margin: 0 auto 20px; font-family: Georgia, serif; }
+        .process-box h4 { font-family: Georgia, serif; color: var(--primary-gold); margin-bottom: 10px; font-size: 18px; }
+        .process-box p { font-size: 14px; color: var(--text-gray); line-height: 1.6; }
 
-        /* --- SERVICES GRID --- */
-        .bg-pattern { background: radial-gradient(circle at 50% 50%, #0d1b2e 0%, #070e1a 100%); }
-        .grid-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1400px; margin: 0 auto; }
-        .service-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 35px 25px; transition: 0.4s; }
-        .service-card:hover { border-color: var(--primary-gold); background: rgba(201, 168, 76, 0.05); transform: translateY(-10px); }
-        .service-icon { font-size: 32px; margin-bottom: 20px; color: var(--primary-gold); }
-        .service-card h3 { color: var(--primary-gold); margin-bottom: 15px; font-family: Georgia, serif; font-size: 21px; }
-        .svc-list li { font-size: 14px; color: rgba(255,255,255,0.65); margin-bottom: 8px; padding-left: 18px; position: relative; }
-        .svc-list li::before { content: '•'; position: absolute; left: 0; color: var(--primary-gold); }
-        .sbtn { display: inline-flex; align-items: center; gap: 8px; color: var(--primary-gold); font-size: 12px; font-weight: 600; text-transform: uppercase; border: 1px solid rgba(201,168,76,0.3); padding: 8px 16px; border-radius: 4px; margin-top: 20px; }
-        .view-all-container { text-align: center; margin-top: 50px; }
-        .btn-view-all { background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold)); color: var(--bg-dark); padding: 14px 35px; border-radius: 30px; font-weight: 800; font-size: 14px; box-shadow: 0 6px 20px rgba(201,168,76,0.3); }
-
-        /* --- FOOTER --- */
-        .footer { background: #040a14; border-top: 1px solid rgba(201, 168, 76, 0.2); padding: 80px 5% 40px; }
-        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 40px; margin-bottom: 60px; }
-        .f-logo-area { display: flex; flex-direction: column; gap: 15px; }
-        .f-logo-text { font-family: Georgia, serif; font-size: 24px; color: var(--primary-gold); font-weight: 700; }
-        .f-logo-sub { font-size: 11px; text-transform: uppercase; color: var(--text-gray); margin-top: -5px; letter-spacing: 1px; }
-        .f-desc { font-size: 14px; color: var(--text-gray); max-width: 320px; line-height: 1.7; }
+        /* --- REDESIGNED FOOTER --- */
+        .footer { background: #030811; border-top: 1px solid rgba(201, 168, 76, 0.2); padding: 80px 5% 40px; color: #f0f0f0; }
+        .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1.2fr 1.3fr; gap: 50px; margin-bottom: 60px; }
         
-        .f-socials { display: flex; gap: 12px; margin-top: 15px; }
-        .f-social-btn { width: 42px; height: 42px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
-        .f-social-btn svg { width: 20px; height: 20px; fill: var(--text-gray); transition: 0.3s; }
-        .f-social-btn:hover { background: rgba(201, 168, 76, 0.15); border-color: var(--primary-gold); transform: translateY(-3px); }
-        .f-social-btn:hover svg { fill: var(--primary-gold); }
+        .f-col h4 { color: var(--primary-gold); font-family: Georgia, serif; font-size: 16px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; position: relative; padding-bottom: 10px; }
+        .f-col h4::after { content: ''; position: absolute; bottom: 0; left: 0; width: 30px; height: 2px; background: var(--primary-gold); }
 
-        .footer h4 { color: var(--primary-gold); margin-bottom: 25px; font-size: 15px; text-transform: uppercase; letter-spacing: 1.5px; font-family: Georgia, serif; }
-        .f-list li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
-        .f-list a, .f-item { color: var(--text-gray); font-size: 14px; transition: 0.3s; }
-        .f-list a:hover { color: #fff; }
-        .f-code { font-size: 10px; color: rgba(255,255,255,0.4); font-weight: 700; width: 22px; display: inline-block; }
+        .f-about .f-logo-text { font-family: Georgia, serif; font-size: 24px; color: var(--primary-gold); font-weight: 700; display: block; margin-bottom: 20px; }
+        .f-about p { font-size: 14px; color: var(--text-gray); line-height: 1.8; margin-bottom: 25px; }
+        
+        .f-socials { display: flex; gap: 12px; }
+        .f-social-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
+        .f-social-icon svg { width: 18px; height: 18px; fill: var(--text-gray); }
+        .f-social-icon:hover { background: var(--primary-gold); border-color: var(--primary-gold); transform: translateY(-3px); }
+        .f-social-icon:hover svg { fill: var(--bg-dark); }
 
-        .f-hours { margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; }
-        .f-hours-title { color: var(--primary-gold); font-weight: 700; font-size: 14px; margin-bottom: 5px; display: block; }
-        .f-hours-text { font-size: 13px; color: var(--text-gray); }
-        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; display: flex; justify-content: space-between; font-size: 12px; color: var(--text-gray); flex-wrap: wrap; gap: 10px; }
+        .f-links li { margin-bottom: 15px; }
+        .f-links a { font-size: 14px; color: var(--text-gray); display: flex; align-items: center; gap: 8px; transition: 0.3s; }
+        .f-links a:hover { color: var(--primary-gold); padding-left: 5px; }
+        .f-links a::before { content: '→'; color: var(--primary-gold); font-size: 12px; }
 
-        /* --- RESPONSIVE BREAKPOINTS --- */
+        .f-contact-item { display: flex; gap: 15px; margin-bottom: 20px; }
+        .f-contact-icon { width: 32px; height: 32px; background: rgba(201,168,76,0.1); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .f-contact-icon svg { width: 16px; height: 16px; fill: var(--primary-gold); }
+        .f-contact-text { font-size: 13.5px; color: var(--text-gray); line-height: 1.5; }
+        .f-contact-text strong { color: #fff; display: block; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; }
+
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .f-copy { font-size: 12px; color: rgba(255,255,255,0.4); }
+
+        /* Floating WhatsApp */
+        .floating-wa { position: fixed; bottom: 30px; right: 30px; background: var(--whatsapp-green); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(0,0,0,0.4); z-index: 9999; animation: pulse 2s infinite; }
+        .floating-wa svg { width: 32px; height: 32px; fill: white; }
+
+        /* RESPONSIVE */
         @media (max-width: 1024px) {
             .nav-links { display: none; }
             .menu-toggle { display: block; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-top { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 768px) {
-            .hero { background-position: 75% center; min-height: 100vh; }
-            .hero-blur-overlay { mask-image: none; background: rgba(7, 14, 26, 0.7); backdrop-filter: blur(8px); }
-            .hero-container { text-align: center; justify-content: center; }
-            .hbtns, .stats { justify-content: center; }
-            .stats { gap: 30px; }
-            .footer-grid { grid-template-columns: 1fr; }
-            section { padding: 60px 5%; }
+            .hero-container { text-align: center; }
+            .hbtns { justify-content: center; }
+            .footer-top { grid-template-columns: 1fr; }
+            .footer-bottom { justify-content: center; text-align: center; }
         }
     </style>
 </head>
@@ -180,6 +188,7 @@
     <!-- NAVIGATION -->
     <nav class="nav">
         <a class="logo" href="index.html">
+            <img src="logo.jpg" alt="A to Z Travels Logo">
             <div class="logo-text">
                 <div class="ln">A to Z Travels</div>
                 <div class="ls">Umrah & Gulf Services</div>
@@ -189,9 +198,8 @@
             <ul class="nav-links">
                 <li><a href="index.html" class="active" data-i18n="nav_home">Home</a></li>
                 <li><a href="about.html" data-i18n="nav_about">About Us</a></li>
-                <li><a href="services.html" data-i18n="nav_services">Services</a></li>
                 <li><a href="hajj-umrah.html" data-i18n="nav_hajj">Hajj & Umrah</a></li>
-                <li><a href="gulf-services.html" data-i18n="nav_gulf">Gulf Services</a></li>
+                <li><a href="services.html" data-i18n="nav_services">Services</a></li>
                 <li><a href="eservices.html" data-i18n="nav_eservices">e-Services</a></li>
                 <li><a href="social-media.html" data-i18n="nav_social">Social Media</a></li>
                 <li><a href="contact.html" data-i18n="nav_contact">Contact Us</a></li>
@@ -200,26 +208,24 @@
                 <button class="lang-btn active" onclick="switchLanguage('en')" id="btn-en">EN</button>
                 <button class="lang-btn" onclick="switchLanguage('ta')" id="btn-ta">தமிழ்</button>
             </div>
-            <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()" aria-label="Toggle Menu">
+            <button class="menu-toggle" id="menuToggle" onclick="this.classList.toggle('active'); document.getElementById('mobileMenu').classList.toggle('active');" aria-label="Toggle Menu">
                 <span></span><span></span><span></span>
             </button>
         </div>
         <div class="mobile-menu" id="mobileMenu">
-            <a href="index.html" onclick="toggleMenu()" data-i18n="nav_home">Home</a>
-            <a href="about.html" onclick="toggleMenu()" data-i18n="nav_about">About Us</a>
-            <a href="services.html" onclick="toggleMenu()" data-i18n="nav_services">Services</a>
-            <a href="hajj-umrah.html" onclick="toggleMenu()" data-i18n="nav_hajj">Hajj & Umrah</a>
-            <a href="gulf-services.html" onclick="toggleMenu()" data-i18n="nav_gulf">Gulf Services</a>
-            <a href="eservices.html" onclick="toggleMenu()" data-i18n="nav_eservices">e-Services</a>
-            <a href="social-media.html" onclick="toggleMenu()" data-i18n="nav_social">Social Media</a>
-            <a href="contact.html" onclick="toggleMenu()" data-i18n="nav_contact">Contact Us</a>
+            <a href="index.html" data-i18n="nav_home">Home</a>
+            <a href="about.html" data-i18n="nav_about">About Us</a>
+            <a href="hajj-umrah.html" data-i18n="nav_hajj">Hajj & Umrah</a>
+            <a href="services.html" data-i18n="nav_services">Services</a>
+            <a href="eservices.html" data-i18n="nav_eservices">e-Services</a>
+            <a href="social-media.html" data-i18n="nav_social">Social Media</a>
+            <a href="contact.html" data-i18n="nav_contact">Contact Us</a>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-shade"></div>
-        <div class="hero-blur-overlay"></div>
         <div class="hero-container">
             <div class="hero-content">
                 <div class="badge" data-i18n="hero_badge">☽ Trusted Since 2021</div>
@@ -235,215 +241,240 @@
                     <a href="services.html" class="btn-gold" data-i18n="btn_ticket">✈ Book Air Ticket</a>
                     <a href="hajj-umrah.html" class="btn-outline" data-i18n="btn_umrah">☽ Hajj & Umrah</a>
                 </div>
-                <div class="stats">
-                    <div class="stat-item">
-                        <div class="n">1000+</div>
-                        <div class="l" data-i18n="stat_clients">Clients Served</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="n">5+</div>
-                        <div class="l" data-i18n="stat_years">Years Experience</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="n">100%</div>
-                        <div class="l" data-i18n="stat_safe">Safe Travel</div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- UPCOMING PACKAGES -->
-    <section>
-        <div class="section-header">
-            <span class="sl" data-i18n="pkg_sl">Specials</span>
-            <h2 class="st" data-i18n="pkg_st">Upcoming Hajj & Umrah Groups</h2>
-        </div>
-        <div class="packages-grid">
-            <!-- Ramadan Umrah 2025 -->
-            <div class="package-card">
-                <div class="pkg-img">
-                    <img src="https://images.unsplash.com/photo-1553755088-ef1973c7b4a1?q=80" alt="Holy Makkah Kaaba">
-                    <div class="pkg-tag" data-i18n="pkg_tag1">Limited Seats</div>
-                </div>
-                <div class="pkg-body">
-                    <h3 class="pkg-title" data-i18n="pkg_t1">Ramadan Umrah 2025</h3>
-                    <div class="pkg-meta">
-                        <span data-i18n="pkg_days1">📅 14 Days</span> 
-                    </div>
-                    <div class="pkg-price">₹89,000 <span>/ person</span></div>
-                    <a href="https://wa.me/918973109844?text=I'm%20interested%20in%20Ramadan%20Umrah%202025" class="sbtn" style="width:100%; justify-content:center; margin-top:20px;">Book Now</a>
-                </div>
+    <!-- STATS STRIP -->
+    <div class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3 data-i18n="st_1_n">2021</h3>
+                <p data-i18n="st_1_l">Established</p>
             </div>
-            <!-- Umrah Deluxe Package -->
-            <div class="package-card">
-                <div class="pkg-img">
-                    <img src="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=1000&q=80" alt="Madinah Prophet Mosque">
-                    <div class="pkg-tag" data-i18n="pkg_tag2">Premium Experience</div>
-                </div>
-                <div class="pkg-body">
-                    <h3 class="pkg-title" data-i18n="pkg_t2">Umrah Deluxe Package</h3>
-                    <div class="pkg-meta">
-                        <span data-i18n="pkg_flexible">📅 Flexible Dates</span> 
-                    </div>
-                    <div class="pkg-price"><small style="font-size: 13px; font-weight: 400; color: #8A9BB0;" data-i18n="pkg_starts">Starts from</small> ₹95,000</div>
-                    <a href="https://wa.me/918973109844?text=I'm%20interested%20in%20the%20Umrah%20Deluxe%20Package" class="sbtn" style="width:100%; justify-content:center; margin-top:20px;">Enquire Now</a>
-                </div>
+            <div class="stat-item">
+                <h3 data-i18n="st_2_n">1000+</h3>
+                <p data-i18n="st_2_l">Happy Clients</p>
             </div>
-        </div>
-    </section>
-
-    <!-- PROCESS SECTION -->
-    <section class="process-bg">
-        <div class="section-header">
-            <span class="sl" data-i18n="proc_sl">How it Works</span>
-            <h2 class="st" data-i18n="proc_st">Our 4-Step Travel Process</h2>
-        </div>
-        <div class="process-grid">
-            <div class="step-card">
-                <div class="step-num">1</div>
-                <h3 class="step-title" data-i18n="s1_t">Consultation</h3>
-                <p class="step-desc" data-i18n="s1_d">Message us on WhatsApp or visit our Kadayanallur office.</p>
-            </div>
-            <div class="step-card">
-                <div class="step-num">2</div>
-                <h3 class="step-title" data-i18n="s2_t">Documentation</h3>
-                <p class="step-desc" data-i18n="s2_d">We handle all your visa and passport paperwork expertly.</p>
-            </div>
-            <div class="step-card">
-                <div class="step-num">3</div>
-                <h3 class="step-title" data-i18n="s3_t">Booking</h3>
-                <p class="step-desc" data-i18n="s3_d">Secure your tickets and hotels at the guaranteed best price.</p>
-            </div>
-            <div class="step-card">
-                <div class="step-num">4</div>
-                <h3 class="step-title" data-i18n="s4_t">Departure</h3>
-                <p class="step-desc" data-i18n="s4_d">Receive your complete kit and fly with total peace of mind.</p>
+            <div class="stat-item">
+                <h3 data-i18n="st_3_n">100%</h3>
+                <p data-i18n="st_3_l">Visa Success</p>
             </div>
         </div>
     </section>
 
     <!-- WHAT WE DO -->
-    <section class="bg-pattern">
+    <section>
         <div class="section-header">
-            <span class="sl" data-i18n="svc_sl">Services</span>
-            <h2 class="st" data-i18n="svc_st">Comprehensive Solutions</h2>
+            <span class="sl" data-i18n="svc_sl">What We Do</span>
+            <h2 class="st" data-i18n="svc_st">Complete Travel & Documentation Services</h2>
         </div>
-        <div class="grid-services">
-            <article class="service-card">
-                <div class="service-icon">✈️</div>
+        <div class="svc-grid">
+            <div class="svc-card">
+                <span class="icon">✈️</span>
                 <h3 data-i18n="svc_t1">Air Ticket Booking</h3>
-                <ul class="svc-list">
-                    <li data-i18n="svc_t1_l1">Cheapest flights to UAE, Saudi, Qatar</li>
-                    <li data-i18n="svc_t1_l2">Domestic flights across India</li>
-                </ul>
-                <a href="services.html" class="sbtn" data-i18n="svc_learn">Learn More →</a>
-            </article>
-            <article class="service-card">
-                <div class="service-icon">🕌</div>
+                <p data-i18n="svc_d1_new">Cheapest flights to UAE, Saudi, Qatar and domestic routes across India. Group booking specialists.</p>
+                <a href="services.html" class="svc-link" data-i18n="svc_more">Learn More →</a>
+            </div>
+            <div class="svc-card">
+                <span class="icon">🕌</span>
                 <h3 data-i18n="svc_t2">Hajj & Umrah</h3>
-                <ul class="svc-list">
-                    <li data-i18n="svc_t2_l1">Premium Umrah from Tamil Nadu</li>
-                    <li data-i18n="svc_t2_l2">Group travel with certified guides</li>
-                </ul>
-                <a href="hajj-umrah.html" class="sbtn" data-i18n="svc_learn">View Packages →</a>
-            </article>
-            <article class="service-card">
-                <div class="service-icon">🏛️</div>
-                <h3 data-i18n="svc_t5">e-Services</h3>
-                <ul class="svc-list">
-                    <li data-i18n="svc_t5_l1">Community & Income certificates</li>
-                    <li data-i18n="svc_t5_l2">Aadhaar & Passport services</li>
-                </ul>
-                <a href="eservices.html" class="sbtn" data-i18n="svc_learn">Learn More →</a>
-            </article>
+                <p data-i18n="svc_d2_new">Premium Umrah from Tamil Nadu. Safe group travel with experienced, certified Tamil guides.</p>
+                <a href="hajj-umrah.html" class="svc-link" data-i18n="svc_pkg">View Packages →</a>
+            </div>
+            <div class="svc-card">
+                <span class="icon">🏛️</span>
+                <h3 data-i18n="nav_eservices">e-Services</h3>
+                <p data-i18n="svc_d4_new">Community & Income certificates, Aadhaar, PAN card, and all TN government e-District services.</p>
+                <a href="eservices.html" class="svc-link" data-i18n="svc_more">Learn More →</a>
+            </div>
         </div>
-        <div class="view-all-container">
-            <a href="services.html" class="btn-view-all" data-i18n="svc_all">View All Services →</a>
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="services.html" class="btn-outline" style="border-color: var(--primary-gold); color: var(--primary-gold);" data-i18n="btn_all">View All Services →</a>
+        </div>
+    </section>
+
+    <!-- UPCOMING SPECIALS -->
+    <section style="background: rgba(13, 27, 46, 0.3);">
+        <div class="section-header">
+            <span class="sl" data-i18n="hj_sl">Specials</span>
+            <h2 class="st" data-i18n="hj_st">Upcoming Hajj & Umrah Groups</h2>
+        </div>
+        <div class="pkg-grid">
+            <div class="pkg-card">
+                <div class="pkg-img" style="background-image: url('https://images.unsplash.com/photo-1542840411-bc6689d021c3?w=800&q=80')">
+                    <div class="pkg-tag" data-i18n="pkg_tag1">Limited Seats</div>
+                </div>
+                <div class="pkg-body">
+                    <h3 data-i18n="pkg_t1">Ramadan Umrah 2025</h3>
+                    <div class="pkg-info">
+                        <span class="pkg-days" data-i18n="pkg_days1">📅 14 Days</span>
+                        <span class="pkg-price">₹89,000</span>
+                    </div>
+                    <a href="https://wa.me/918973109844?text=Ramadan%20Umrah%20Booking" class="btn-gold" style="width:100%; display:block; text-align:center;" data-i18n="btn_book">Book Now</a>
+                </div>
+            </div>
+            <div class="pkg-card">
+                <div class="pkg-img" style="background-image: url('https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=800&q=80')">
+                    <div class="pkg-tag" data-i18n="pkg_tag2">Premium Experience</div>
+                </div>
+                <div class="pkg-body">
+                    <h3 data-i18n="pkg_t2">Umrah Deluxe Package</h3>
+                    <div class="pkg-info">
+                        <span class="pkg-days" data-i18n="pkg_flexible">📅 Flexible Dates</span>
+                        <span class="pkg-price" style="font-size:18px;">₹95,000 <small>Starts</small></span>
+                    </div>
+                    <a href="https://wa.me/918973109844?text=Umrah%20Deluxe%20Inquiry" class="btn-outline" style="width:100%; display:block; text-align:center; border-color:var(--primary-gold); color:#fff;" data-i18n="btn_enquire">Enquire Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section>
+        <div class="section-header">
+            <span class="sl" data-i18n="proc_sl">How it Works</span>
+            <h2 class="st" data-i18n="proc_st">Our 4-Step Travel Process</h2>
+        </div>
+        <div class="process-grid">
+            <div class="process-box">
+                <div class="proc-num">1</div>
+                <h4 data-i18n="s1_t">Consultation</h4>
+                <p data-i18n="s1_d">Message us on WhatsApp or visit our Kadayanallur office.</p>
+            </div>
+            <div class="process-box">
+                <div class="proc-num">2</div>
+                <h4 data-i18n="s2_t">Documentation</h4>
+                <p data-i18n="s2_d">We handle all your visa and passport paperwork expertly.</p>
+            </div>
+            <div class="process-box">
+                <div class="proc-num">3</div>
+                <h4 data-i18n="s3_t">Booking</h4>
+                <p data-i18n="s3_d">Secure your tickets and hotels at the guaranteed best price.</p>
+            </div>
+            <div class="process-box">
+                <div class="proc-num">4</div>
+                <h4 data-i18n="s4_t">Departure</h4>
+                <p data-i18n="s4_d">Receive your complete kit and fly with total peace of mind.</p>
+            </div>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="footer">
-        <div class="footer-grid">
-            <div class="f-logo-area">
-                <div>
-                    <div class="f-logo-text">A to Z Travels</div>
-                    <div class="f-logo-sub">& UMRAH SERVICE</div>
-                </div>
-                <p class="f-desc" data-i18n="footer_desc">Trusted travel agency in Kadayanallur since 2021. Gulf visit visas, Hajj & Umrah, air tickets, e-services.</p>
+        <div class="footer-top">
+            <!-- Company Info -->
+            <div class="f-col f-about">
+                <span class="f-logo-text">A to Z Travels</span>
+                <p data-i18n="footer_desc">Kadayanallur's premier travel consultancy since 2021. Bridging global travel standards with personalized local care for every Tamil family.</p>
                 <div class="f-socials">
-                    <a href="https://www.facebook.com/atoztravel" class="f-social-btn" target="_blank" title="Facebook">
+                    <a href="https://www.facebook.com/atoztravel" class="f-social-icon" target="_blank" aria-label="Facebook">
                         <svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
                     </a>
-                    <a href="https://www.instagram.com/atozonlineservicestravels/" class="f-social-btn" target="_blank" title="Instagram">
+                    <a href="https://www.instagram.com/atozonlineservicestravels/" class="f-social-icon" target="_blank" aria-label="Instagram">
                         <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     </a>
-                    <a href="https://wa.me/918973109844" class="f-social-btn" target="_blank" title="WhatsApp">
+                    <a href="https://wa.me/918973109844" class="f-social-icon" target="_blank" aria-label="WhatsApp">
                         <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.891 11.891-11.891 3.181 0 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.481 8.403 0 6.556-5.332 11.891-11.891 11.891-2.015 0-3.991-.51-5.747-1.474l-6.247 1.692zm6.75-4.414c1.554.921 3.03 1.385 4.603 1.385 5.481 0 9.941-4.459 9.941-9.941 0-2.648-1.031-5.143-2.906-7.018-1.875-1.875-4.37-2.906-7.035-2.906-5.481 0-9.941 4.459-9.941 9.941 0 1.847.51 3.528 1.474 4.864l-.97 3.543 3.734-.928zm11.367-7.38c-.066-.109-.241-.175-.506-.307-.264-.132-1.562-.77-1.804-.858-.241-.088-.418-.132-.594.132-.176.265-.682.858-.836 1.034-.154.176-.308.198-.573.066-.264-.132-1.117-.412-2.126-1.313-.785-.7-1.314-1.564-1.468-1.828-.154-.264-.016-.407.117-.539.12-.12.264-.308.396-.462.132-.154.176-.264.264-.44.088-.176.044-.33-.022-.462-.066-.132-.594-1.431-.814-1.963-.214-.517-.433-.448-.594-.456-.153-.008-.33-.008-.506-.008-.176 0-.462.066-.704.33-.242.264-.924.903-.924 2.199 0 1.296.946 2.552 1.078 2.728.132.176 1.861 2.842 4.508 3.986.63.27 1.12.432 1.503.553.633.201 1.21.172 1.665.105.508-.074 1.562-.638 1.782-1.254.22-.616.22-1.144.154-1.254z"/></svg>
                     </a>
-                    <a href="https://www.linkedin.com/company/travelsatoz/posts/?feedView=all" class="f-social-btn" target="_blank" title="LinkedIn">
+                    <a href="https://www.linkedin.com/company/travelsatoz/posts/?feedView=all" class="f-social-icon" target="_blank">
                         <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                     </a>
                 </div>
             </div>
-            <div>
-                <h4 data-i18n="nav_services">Services</h4>
-                <ul class="f-list">
+
+            <div class="f-col">
+                <h4 data-i18n="f_travel">Travel Excellence</h4>
+                <ul class="f-links">
                     <li><a href="services.html" data-i18n="svc_t1">Air Ticket Booking</a></li>
-                    <li><a href="services.html" data-i18n="svc_t4">Passport Services</a></li>
-                    <li><a href="gulf-services.html" data-i18n="svc_t3">Gulf Visit Visa</a></li>
+                    <li><a href="gulf-services.html" data-i18n="svc_t3">Gulf Visit Visas</a></li>
                     <li><a href="hajj-umrah.html" data-i18n="nav_hajj">Hajj & Umrah</a></li>
+                    <li><a href="services.html" data-i18n="svc_t4_p">Passport Services</a></li>
                 </ul>
             </div>
-            <div>
-                <h4 data-i18n="f_gulf">Gulf Countries</h4>
-                <ul class="f-list">
-                    <li><span class="f-code">AE</span><span class="f-item">UAE</span></li>
-                    <li><span class="f-code">SA</span><span class="f-item">Saudi Arabia</span></li>
-                    <li><span class="f-code">QA</span><span class="f-item">Qatar</span></li>
-                    <li><span class="f-code">KW</span><span class="f-item">Kuwait</span></li>
+
+            <div class="f-col">
+                <h4 data-i18n="f_digital">Digital e-Services</h4>
+                <ul class="f-links">
+                    <li><a href="eservices.html" data-i18n="es_c1_t">Revenue Certificates</a></li>
+                    <li><a href="eservices.html" data-i18n="es_c2_t">Smart Card Services</a></li>
+                    <li><a href="eservices.html" data-i18n="es_edu_t">College Admissions</a></li>
+                    <li><a href="eservices.html" data-i18n="es_con_t">Building Elevation</a></li>
                 </ul>
             </div>
-            <div>
-                <h4 data-i18n="nav_contact">Contact</h4>
-                <ul class="f-list">
-                    <li><span class="f-item">Phone: 8973109844</span></li>
-                    <li><span class="f-item">Email: a2zkdnl@gmail.com</span></li>
-                    <li><a href="contact.html" class="f-item" data-i18n="office_addr">📍 445/9, First Floor, Mohideen Pallivasal Complex, Main Road, Kadayanallur – 627 751, TN.</a></li>
-                </ul>
-                <div class="f-hours">
-                    <span class="f-hours-title" data-i18n="h_title">Hours</span>
-                    <p class="f-hours-text">Mon–Sat: 9AM–7PM<br>Sun: 10AM–2PM</p>
+
+            <div class="f-col">
+                <h4 data-i18n="f_touch">Connect with Us</h4>
+                <div class="f-contact-item">
+                    <div class="f-contact-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    </div>
+                    <div class="f-contact-text">
+                        <strong data-i18n="f_office">Main Office</strong>
+                        445/9, First Floor, Mohideen Pallivasal Complex, Main Road, Kadayanallur – 627 751.
+                    </div>
+                </div>
+                <div class="f-contact-item">
+                    <div class="f-contact-icon">
+                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.82 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1H3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    </div>
+                    <div class="f-contact-text">
+                        <strong data-i18n="f_phone">Phone Support</strong>
+                        +91 8973109844
+                    </div>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 A to Z Travels & Umrah Service • a2zkdnl@gmail.com • Main Road, Kadayanallur – 627 751</p>
+            <div class="f-copy" data-i18n="footer_copy">
+                &copy; 2025 A to Z Travels & Umrah Service. All rights reserved.
+            </div>
         </div>
     </footer>
 
     <script>
         const translations = {
             'en': {
-                'nav_home': 'Home', 'nav_about': 'About Us', 'nav_services': 'Services', 'nav_hajj': 'Hajj & Umrah', 'nav_gulf': 'Gulf Services', 'nav_eservices': 'e-Services', 'nav_social': 'Social Media', 'nav_contact': 'Contact Us',
+                'nav_home': 'Home', 'nav_about': 'About Us', 'nav_hajj': 'Hajj & Umrah', 'nav_services': 'Services', 'nav_eservices': 'e-Services', 'nav_social': 'Social Media', 'nav_contact': 'Contact Us',
                 'hero_badge': '☽ Trusted Since 2021', 'hero_h1_p1': 'Your Trusted Partner for', 'hero_h1_p2': 'Gulf, Hajj & Umrah', 'hero_h1_p3': 'Travel Services', 'hero_desc': 'Specialising in air ticket booking to Gulf countries, Hajj and Umrah packages, Gulf visit visas, passport services, and government e-services in Kadayanallur.',
-                'btn_ticket': '✈ Book Air Ticket', 'btn_umrah': '☽ Hajj & Umrah', 'stat_clients': 'Clients Served', 'stat_years': 'Years Experience', 'stat_safe': 'Safe Travel',
-                'svc_sl': 'What We Do', 'svc_st': 'Complete Travel & Documentation Services', 'svc_t1': 'Air Ticket Booking', 'svc_t2': 'Hajj & Umrah', 'svc_t3': 'Gulf Visit Visa', 'svc_t4': 'Passport Services', 'svc_t5': 'TN e-Services', 'svc_all': 'View All Services →',
-                'footer_desc': 'Trusted travel agency in Kadayanallur since 2021. Gulf visit visas, Hajj & Umrah, air tickets, e-services.', 
-                'f_gulf': 'Gulf Countries', 'h_title': 'Hours', 'office_addr': '📍 445/9, First Floor, Mohideen Pallivasal Complex, Main Road, Kadayanallur – 627 751, TN.',
-                'pkg_sl': 'Specials', 'pkg_st': 'Upcoming Hajj & Umrah Groups', 'pkg_t1': 'Ramadan Umrah 2025', 'pkg_t2': 'Umrah Deluxe Package', 'pkg_tag1': 'Limited Seats', 'pkg_tag2': 'Premium Experience', 'pkg_days1': '📅 14 Days', 'pkg_flexible': '📅 Flexible Dates', 'pkg_starts': 'Starts from',
-                'proc_sl': 'How it Works', 'proc_st': 'Our 4-Step Travel Process', 's1_t': 'Consultation', 's1_d': 'Message us on WhatsApp or visit our Kadayanallur office.', 's2_t': 'Documentation', 's2_d': 'We handle all your visa and passport paperwork expertly.', 's3_t': 'Booking', 's3_d': 'Secure your tickets and hotels at the guaranteed best price.', 's4_t': 'Departure', 's4_d': 'Receive your complete kit and fly with total peace of mind.'
+                'btn_ticket': '✈ Book Air Ticket', 'btn_umrah': '☽ Hajj & Umrah',
+                'st_1_n': '2021', 'st_1_l': 'Established', 'st_2_n': '1000+', 'st_2_l': 'Happy Clients', 'st_3_n': '100%', 'st_3_l': 'Visa Success',
+                'svc_sl': 'What We Do', 'svc_st': 'Complete Travel & Documentation Services',
+                'svc_t1': 'Air Ticket Booking', 'svc_t2': 'Hajj & Umrah', 'svc_t4': 'Passport Services',
+                'svc_d1_new': 'Cheapest flights to UAE, Saudi, Qatar and domestic routes across India.', 'svc_d2_new': 'Premium Umrah from Tamil Nadu. Safe group travel with expert guides.', 'svc_d4_new': 'Community & Income certificates, Aadhaar, PAN card, and TN government services.',
+                'svc_more': 'Learn More →', 'svc_pkg': 'View Packages →', 'btn_all': 'View All Services →',
+                'hj_sl': 'Specials', 'hj_st': 'Upcoming Hajj & Umrah Groups',
+                'pkg_tag1': 'Limited Seats', 'pkg_t1': 'Ramadan Umrah 2025', 'pkg_days1': '📅 14 Days', 'btn_book': 'Book Now',
+                'pkg_tag2': 'Premium Experience', 'pkg_t2': 'Umrah Deluxe Package', 'pkg_flexible': '📅 Flexible Dates', 'btn_enquire': 'Enquire Now',
+                'proc_sl': 'How it Works', 'proc_st': 'Our 4-Step Travel Process',
+                's1_t': 'Consultation', 's1_d': 'Message us on WhatsApp or visit our Kadayanallur office.',
+                's2_t': 'Documentation', 's2_d': 'We handle all your visa and passport paperwork expertly.',
+                's3_t': 'Booking', 's3_d': 'Secure your tickets and hotels at the guaranteed best price.',
+                's4_t': 'Departure', 's4_d': 'Receive your complete kit and fly with total peace of mind.',
+                'footer_desc': 'Kadayanallur\'s premier travel consultancy since 2021.', 'footer_copy': '© 2025 A to Z Travels & Umrah Service.',
+                'f_travel': 'Travel Excellence', 'f_digital': 'Digital e-Services', 'f_touch': 'Connect with Us', 'f_office': 'Main Office', 'f_phone': 'Phone Support',
+                'svc_t4_p': 'Passport Services', 'es_c1_t': 'Revenue Certificates', 'es_c2_t': 'Smart Card Services', 'es_edu_t': 'College Admissions', 'es_con_t': 'Building Elevation', 'svc_t3': 'Gulf Visit Visas'
             },
             'ta': {
                 'nav_home': 'முகப்பு', 'nav_about': 'எங்களைப் பற்றி', 'nav_services': 'சேவைகள்', 'nav_hajj': 'ஹஜ் & உம்ரா', 'nav_gulf': 'வளைகுடா சேவைகள்', 'nav_eservices': 'மின் சேவைகள்', 'nav_social': 'சமூக ஊடகம்', 'nav_contact': 'தொடர்பு கொள்ள',
-                'hero_badge': '☽ 2021 முதல் நம்பகமான சேவை', 'hero_h1_p1': 'உங்கள் நம்பகமான', 'hero_h1_p2': 'வளைகுடா, ஹஜ் & உம்ரா', 'hero_h1_p3': 'பயண சேவை நிறுவனம்', 'hero_desc': 'வளைகுடா நாடுகளுக்கான விமான டிக்கெட் முன்பதிவு, ஹஜ் மற்றும் உம்ரா பேக்கேஜ்கள், விசிட் விசா மற்றும் மின் சேவைகள் கடையநல்லூரில் வழங்குகிறோம்.',
-                'btn_ticket': '✈ டிக்கெட் புக் செய்க', 'btn_umrah': '☽ ஹஜ் & உம்ரா', 'stat_clients': 'வாடிக்கையாளர்கள்', 'stat_years': 'ஆண்டு அனுபவம்', 'stat_safe': 'பாதுகாப்பான பயணம்',
-                'svc_sl': 'எமது சேவைகள்', 'svc_st': 'முழுமையான பயண மற்றும் ஆவண சேவைகள்', 'svc_t1': 'விமான டிக்கெட்', 'svc_t2': 'ஹஜ் & உம்ரா', 'svc_t3': 'வளைகுடா விசா', 'svc_t4': 'பாஸ்போர்ட் சேவை', 'svc_t5': 'மின் சேவைகள்', 'svc_all': 'அனைத்து சேவைகள் →',
-                'footer_desc': '2021 முதல் கடையநல்லூரில் சிறந்த சேவை. வளைகுடா விசா, ஹஜ் மற்றும் உம்ரா, மின் சேவைகள்.', 
-                'f_gulf': 'வளைகுடா நாடுகள்', 'h_title': 'நேரம்', 'office_addr': '📍 445/9, முதல் தளம், மொய்தீன் பள்ளிவாசல் காம்ப்ளக்ஸ், கடையநல்லூர் – 627 751.',
-                'pkg_sl': 'சிறப்புத் திட்டங்கள்', 'pkg_st': 'வரவிருக்கும் ஹஜ் & உம்ரா குழுக்கள்', 'pkg_t1': 'ரம்ஜான் உம்ரா 2025', 'pkg_t2': 'உம்ரா டீலக்ஸ் பேக்கேஜ்', 'pkg_tag1': 'குறைந்த இடங்கள்', 'pkg_tag2': 'சிறந்த அனுபவம்', 'pkg_days1': '📅 14 நாட்கள்', 'pkg_flexible': '📅 நெகிழ்வான தேதிகள்', 'pkg_starts': 'ஆரம்ப விலை',
-                'proc_sl': 'செயல்முறை', 'proc_st': 'எமது 4-படி பயண நடைமுறை', 's1_t': 'ஆலோசனை', 's1_d': 'வாட்ஸ்அப் மூலம் அல்லது எமது கடையநல்லூர் அலுவலகத்திற்கு வரவும்.', 's2_t': 'ஆவணங்கள்', 's2_d': 'உங்கள் விசா மற்றும் பாஸ்போர்ட் வேலைகளை நாங்கள் கையாள்கிறோம்.', 's3_t': 'முன்பதிவு', 's3_d': 'குறைந்த விலையில் உங்கள் டிக்கெட் மற்றும் ஹோட்டல்களை உறுதி செய்யவும்.', 's4_t': 'புறப்பாடு', 's4_d': 'உங்கள் கிட் பெற்று முழு நிம்மதியுடன் பயணம் செய்யுங்கள்.'
+                'hero_badge': '☽ 2021 முதல் நம்பகமான சேவை', 'hero_h1_p1': 'உங்கள் நம்பகமான', 'hero_h1_p2': 'வளைகுடா, ஹஜ் & உம்ரா', 'hero_h1_p3': 'பயண சேவை நிறுவனம்', 'hero_desc': 'வளைகுடா நாடுகளுக்கான விமான டிக்கெட் முன்பதிவு, ஹஜ் மற்றும் உம்ரா பேக்கேஜ்கள் மற்றும் மின் சேவைகள் கடையநல்லூரில் வழங்குகிறோம்.',
+                'btn_ticket': '✈ டிக்கெட் புக் செய்க', 'btn_umrah': '☽ ஹஜ் & உம்ரா',
+                'st_1_n': '2021', 'st_1_l': 'தொடக்கம்', 'st_2_n': '1000+', 'st_2_l': 'வாடிக்கையாளர்கள்', 'st_3_n': '100%', 'st_3_l': 'விசா வெற்றி',
+                'svc_sl': 'நாங்கள் செய்வது', 'svc_st': 'முழுமையான பயண மற்றும் ஆவண சேவைகள்',
+                'svc_t1': 'விமான டிக்கெட்', 'svc_t2': 'ஹஜ் & உம்ரா', 'nav_eservices': 'மின் சேவைகள்',
+                'svc_d1_new': 'UAE, சவூதி, கத்தார் மற்றும் இந்தியா முழுவதும் மலிவான விமான டிக்கெட்டுகள்.', 'svc_d2_new': 'தமிழ்நாட்டின் சிறந்த உம்ரா பயணம். அனுபவம் வாய்ந்த வழிகாட்டிகளுடன் பாதுகாப்பான பயணம்.', 'svc_d4_new': 'வருமானச் சான்றிதழ், ஆதார், பான் கார்டு மற்றும் அனைத்து தமிழக மின்-மாவட்ட சேவைகள்.',
+                'svc_more': 'மேலும் அறிய →', 'svc_pkg': 'பேக்கேஜ்களைப் பார்க்க →', 'btn_all': 'அனைத்து சேவைகளையும் பார்க்க →',
+                'hj_sl': 'சிறப்பு பேக்கேஜ்', 'hj_st': 'அடுத்த ஹஜ் & உம்ரா குழுக்கள்',
+                'pkg_tag1': 'குறைந்த இடங்கள்', 'pkg_t1': 'ரம்ஜான் உம்ரா 2025', 'pkg_days1': '📅 14 நாட்கள்', 'btn_book': 'முன்பதிவு செய்க',
+                'pkg_tag2': 'சிறந்த அனுபவம்', 'pkg_t2': 'உம்ரா டீலக்ஸ் பேக்கேஜ்', 'pkg_flexible': '📅 விருப்பமான தேதிகள்', 'btn_enquire': 'இப்போது விசாரிக்கவும்',
+                'proc_sl': 'செயல்படும் முறை', 'proc_st': 'எமது 4-படி பயண முறை',
+                's1_t': 'ஆலோசனை', 's1_d': 'வாட்ஸ்அப் அல்லது அலுவலகம் மூலம் எங்களைத் தொடர்பு கொள்ளுங்கள்.',
+                's2_t': 'ஆவணங்கள்', 's2_d': 'உங்களின் விசா மற்றும் பாஸ்போர்ட் வேலைகளை நாங்கள் கவனிப்போம்.',
+                's3_t': 'முன்பதிவு', 's3_d': 'குறைந்த விலையில் விமான டிக்கெட் மற்றும் ஹோட்டல்களை உறுதி செய்வோம்.',
+                's4_t': 'புறப்பாடு', 's4_d': 'அனைத்து கிட்களையும் பெற்றுக்கொண்டு நிம்மதியாகப் பயணம் செய்யுங்கள்.',
+                'footer_desc': '2021 முதல் கடையநல்லூரில் சிறந்த சேவை.', 'footer_copy': '© 2025 A to Z Travels & Umrah Service.',
+                'f_travel': 'சிறந்த பயணச் சேவைகள்', 'f_digital': 'டிஜிட்டல் மின்-சேவைகள்', 'f_touch': 'எங்களைத் தொடர்பு கொள்ள', 'f_office': 'தலைமை அலுவலகம்', 'f_phone': 'தொலைபேசி உதவி',
+                'svc_t4_p': 'பாஸ்போர்ட் சேவை', 'es_c1_t': 'வருவாய்த்துறை சான்றிதழ்', 'es_c2_t': 'ரேஷன் கார்டு சேவை', 'es_edu_t': 'கல்லூரி சேர்க்கை', 'es_con_t': 'வீட்டு வரைபடம்', 'svc_t3': 'வளைகுடா விசா'
             }
         };
 
@@ -460,9 +491,7 @@
 
         function toggleMenu() {
             const menu = document.getElementById('mobileMenu');
-            const toggle = document.getElementById('menuToggle');
             menu.classList.toggle('active');
-            toggle.classList.toggle('active');
         }
 
         window.onload = () => {
