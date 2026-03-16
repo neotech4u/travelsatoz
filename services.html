@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services | A to Z Travels & Umrah Service</title>
+    <title>Our Services | A to Z Travels Kadayanallur</title>
     <style>
         /* Base & Variables */
         :root {
             --primary-gold: #C9A84C;
             --dark-gold: #8B6914;
-            --bg-dark: #070E1A;
-            --bg-accent: #0D1B2E;
-            --text-gray: #8A9BB0;
+            --islamic-green: #004d40;
+            --bg-dark: #050a12;
+            --bg-accent: #0a1626;
+            --text-gray: #a0aec0;
             --whatsapp-green: #25D366;
-            --glass: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(201, 168, 76, 0.2);
+            --glass-border: rgba(201, 168, 76, 0.3);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -24,105 +24,116 @@
 
         /* --- TAMIL FONT SIZE --- */
         body.lang-ta { font-size: 15px; }
-        body.lang-ta .h1 { font-size: clamp(22px, 3.5vw, 40px); }
+        body.lang-ta .h1 { font-size: clamp(22px, 4vw, 42px); line-height: 1.3; }
         body.lang-ta .nav-links a { font-size: 11px; }
 
         /* Top Bar */
-        .top-bar { background: var(--dark-gold); padding: 6px 5%; font-size: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; position: relative; z-index: 1001; }
+        .top-bar { background: var(--dark-gold); padding: 8px 5%; font-size: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; position: relative; z-index: 1001; }
         .top-bar a { color: #fff; margin-left: 15px; }
 
         /* Navigation */
-        .nav { background: rgba(7, 14, 26, 0.98); padding: 10px 5%; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--glass-border); position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(10px); }
-        .logo { display: flex; align-items: center; gap: 10px; min-width: 180px; }
-        .logo img { height: 40px; width: auto; object-fit: contain; }
+        .nav { background: rgba(5, 10, 18, 0.98); padding: 15px 5%; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--glass-border); position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(10px); }
+        
+        /* LOGO SIZE FIX - 38px professional constraint */
+        .logo { display: flex; align-items: center; gap: 12px; min-width: 200px; flex-shrink: 0; }
+        .logo img { height: 38px !important; width: auto; object-fit: contain; display: block; }
         .logo-text .ln { font-family: Georgia, serif; font-size: 16px; font-weight: 700; color: var(--primary-gold); line-height: 1.1; }
         .logo-text .ls { font-size: 8px; text-transform: uppercase; color: var(--text-gray); letter-spacing: 1px; }
 
-        .nav-right { display: flex; align-items: center; gap: 15px; }
+        .nav-right { display: flex; align-items: center; gap: 20px; }
         
+        /* Desktop Navigation Visibility */
         .nav-links { display: flex; gap: 12px; align-items: center; }
-        .nav-links a { color: rgba(255, 255, 255, 0.85); font-size: 11.5px; font-weight: 600; white-space: nowrap; transition: 0.3s; text-transform: uppercase; letter-spacing: 0.5px; }
+        .nav-links a { color: rgba(255, 255, 255, 0.85); font-size: 11.5px; font-weight: 600; white-space: nowrap; transition: 0.3s; text-transform: uppercase; letter-spacing: 0.3px; }
         .nav-links a:hover, .nav-links a.active { color: var(--primary-gold); }
 
         .menu-toggle { display: none; background: transparent; border: none; cursor: pointer; padding: 5px; z-index: 1002; outline: none; }
         .menu-toggle span { display: block; width: 22px; height: 2px; background: #fff; margin: 4px 0; transition: 0.3s; }
 
-        .mobile-menu { display: none; position: fixed; top: 0; right: 0; width: 280px; height: 100vh; background: var(--bg-dark); box-shadow: -5px 0 20px rgba(0,0,0,0.5); padding: 80px 25px; flex-direction: column; gap: 15px; z-index: 1001; }
+        .mobile-menu { display: none; position: fixed; top: 0; right: 0; width: 280px; height: 100vh; background: var(--bg-dark); box-shadow: -10px 0 30px rgba(0,0,0,0.5); padding: 80px 25px; flex-direction: column; gap: 15px; z-index: 1001; }
         .mobile-menu.active { display: flex; }
-        .mobile-menu a { color: #fff; font-size: 15px; font-weight: 600; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px; }
+        .mobile-menu a { color: #fff; font-size: 16px; font-weight: 600; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px; }
 
         .lang-switch { display: flex; background: rgba(255, 255, 255, 0.05); border-radius: 20px; padding: 2px; border: 1px solid var(--glass-border); }
-        .lang-btn { padding: 2px 8px; border-radius: 18px; font-size: 10px; cursor: pointer; border: none; background: transparent; color: #fff; font-weight: 600; }
+        .lang-btn { padding: 3px 10px; border-radius: 18px; font-size: 10px; cursor: pointer; border: none; background: transparent; color: #fff; font-weight: 600; }
         .lang-btn.active { background: var(--primary-gold); color: var(--bg-dark); }
 
-        /* --- HERO --- */
-        .hero { min-height: 30vh; width: 100%; display: flex; align-items: center; background: url('https://images.unsplash.com/photo-1436491865332-7a61a109c0f3?w=1600&q=80') no-repeat center center; background-size: cover; position: relative; }
-        .hero-blur-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(7,14,26,0.9), rgba(7,14,26,0.5)); backdrop-filter: blur(4px); z-index: 2; }
-        .hero-container { width: 100%; max-width: 1200px; padding: 0 5%; position: relative; z-index: 10; }
-        .h1 { font-family: Georgia, serif; font-size: clamp(24px, 4vw, 44px); line-height: 1.1; color: #fff; }
+        /* --- HERO SECTION --- */
+        .hero { min-height: 45vh; width: 100%; display: flex; align-items: center; background: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1600&q=80') no-repeat center center; background-size: cover; position: relative; overflow: hidden; }
+        .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,77,64,0.7), var(--bg-dark)); z-index: 2; }
+        .hero-pattern { position: absolute; inset: 0; background-image: url('https://www.transparenttextures.com/patterns/arabesque.png'); opacity: 0.15; z-index: 3; }
+        .hero-container { width: 100%; max-width: 1200px; padding: 0 5%; position: relative; z-index: 10; text-align: center; }
+        .h1 { font-family: Georgia, serif; font-size: clamp(28px, 4.5vw, 52px); line-height: 1.1; color: #fff; }
+        .h1 span { color: var(--primary-gold); font-style: italic; }
+        .hero-desc { max-width: 800px; margin: 15px auto 0; font-size: 15px; color: var(--text-gray); font-weight: 500; }
 
-        /* --- CONTENT --- */
-        section { padding: 40px 5%; }
-        .section-header { text-align: center; margin-bottom: 30px; }
-        .section-header .sl { color: var(--primary-gold); text-transform: uppercase; letter-spacing: 4px; font-size: 11px; margin-bottom: 10px; display: block; font-weight: 800; }
-        .section-header .st { font-family: Georgia, serif; font-size: clamp(22px, 3vw, 36px); line-height: 1.1; }
+        /* --- SECTION HEADERS --- */
+        section { padding: 60px 5%; }
+        .section-header { text-align: center; margin-bottom: 40px; position: relative; }
+        .section-header::after { content: '◈'; color: var(--primary-gold); display: block; margin-top: 10px; font-size: 20px; }
+        .section-header .sl { color: var(--primary-gold); text-transform: uppercase; letter-spacing: 5px; font-size: 11px; margin-bottom: 8px; display: block; font-weight: 800; }
+        .section-header .st { font-family: Georgia, serif; font-size: clamp(24px, 3.5vw, 40px); color: #fff; margin-bottom: 10px; }
+        .section-header .sd { max-width: 700px; margin: 0 auto; font-size: 14px; color: var(--text-gray); line-height: 1.6; }
 
-        .service-block { max-width: 1200px; margin: 0 auto 40px; }
-        .service-row { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: flex-start; }
-        
-        .svc-content-box h2 { font-family: Georgia, serif; font-size: 28px; color: var(--primary-gold); margin-bottom: 15px; }
-        .svc-content-box p { font-size: 15px; color: var(--text-gray); margin-bottom: 20px; line-height: 1.6; }
+        /* --- GCC VISA GRID --- */
+        .visa-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1300px; margin: 0 auto; }
+        .visa-card { background: var(--bg-accent); border: 1px solid var(--glass-border); border-radius: 15px; overflow: hidden; transition: 0.4s; border-top: 3px solid var(--primary-gold); }
+        .visa-card:hover { transform: translateY(-5px); border-color: var(--primary-gold); background: #0c1f36; }
+        .visa-arch { height: 90px; background: var(--islamic-green); display: flex; align-items: center; justify-content: center; clip-path: ellipse(100% 100% at 50% 0%); }
+        .visa-flag { font-size: 32px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); }
+        .visa-body { padding: 20px; }
+        .visa-card h3 { font-family: Georgia, serif; font-size: 19px; color: var(--primary-gold); margin-bottom: 12px; }
+        .list-style li { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.75); font-size: 13px; margin-bottom: 8px; }
+        .list-style li svg { width: 12px; height: 12px; fill: var(--primary-gold); flex-shrink: 0; }
+        .btn-link { color: var(--primary-gold); font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-top: 10px; display: inline-block; }
 
-        .feature-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
-        .feature-item { display: flex; align-items: center; gap: 8px; color: #fff; font-size: 13px; font-weight: 600; padding: 10px; background: var(--glass); border-radius: 6px; border: 1px solid rgba(255,255,255,0.05); }
-        .feature-item svg { width: 16px; height: 16px; fill: var(--primary-gold); flex-shrink: 0; }
+        /* --- TICKETS & PASSPORT SERVICES --- */
+        .services-row { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .svc-box { background: rgba(255, 255, 255, 0.02); border: 1px solid var(--glass-border); border-radius: 20px; padding: 40px; position: relative; overflow: hidden; }
+        .svc-box h3 { font-family: Georgia, serif; font-size: 24px; color: var(--primary-gold); margin-bottom: 20px; }
+        .svc-box p { font-size: 14.5px; color: var(--text-gray); margin-bottom: 25px; line-height: 1.7; }
+        .badge-urgent { background: #ff4d4d; color: white; padding: 4px 10px; border-radius: 4px; font-size: 10px; font-weight: 900; margin-left: 10px; vertical-align: middle; }
 
-        .info-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-        .info-card { background: rgba(201,168,76,0.05); border: 1px solid var(--glass-border); padding: 20px; border-radius: 12px; }
-        .info-card h4 { color: var(--primary-gold); margin-bottom: 12px; font-family: Georgia, serif; font-size: 17px; }
-        .info-card ul li { font-size: 13px; color: rgba(255,255,255,0.8); margin-bottom: 6px; position: relative; padding-left: 18px; }
-        .info-card ul li::before { content: '→'; position: absolute; left: 0; color: var(--primary-gold); font-weight: 800; }
+        /* --- PROCESS STEPS --- */
+        .process-sec { background: linear-gradient(to bottom, var(--bg-dark), #00221c); padding: 70px 5%; border-top: 1px solid var(--glass-border); }
+        .step-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
+        .step-box { background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); padding: 30px 20px; border-radius: 15px; text-align: center; }
+        .step-num { width: 44px; height: 44px; background: var(--primary-gold); color: var(--bg-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px; margin: 0 auto 15px; font-family: Georgia, serif; }
 
-        /* FAQ */
-        .faq-container { max-width: 850px; margin: 0 auto; }
-        .faq-item { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 8px; margin-bottom: 10px; transition: 0.3s; }
-        .faq-item:hover { border-color: var(--primary-gold); }
-        .faq-q { padding: 15px 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 15px; }
-        .faq-q span { color: var(--primary-gold); font-size: 10px; transition: 0.3s; }
+        .btn-wa-pulse { background: var(--whatsapp-green); color: white; padding: 16px 36px; border-radius: 50px; font-weight: 800; font-size: 14px; display: inline-flex; align-items: center; gap: 12px; text-transform: uppercase; letter-spacing: 1.5px; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); animation: btnPulse 2s infinite; cursor: pointer; margin-top: 30px; }
+        @keyframes btnPulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+
+        /* --- FAQ --- */
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-item { background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); border-radius: 10px; margin-bottom: 12px; transition: 0.3s; }
+        .faq-q { padding: 18px 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 15px; color: #fff; }
+        .faq-q span { color: var(--primary-gold); font-size: 11px; }
         .faq-a { padding: 0 20px; height: 0; overflow: hidden; transition: 0.3s ease-out; font-size: 14px; color: var(--text-gray); line-height: 1.6; }
-        .faq-item.active .faq-a { padding: 0 20px 15px; height: auto; }
+        .faq-item.active .faq-a { padding: 0 20px 18px; height: auto; }
         .faq-item.active span { transform: rotate(180deg); }
 
-        .btn-svc { background: var(--primary-gold); color: var(--bg-dark); padding: 10px 25px; border-radius: 4px; font-weight: 800; font-size: 13px; display: inline-flex; align-items: center; gap: 8px; text-transform: uppercase; }
-
-        /* FOOTER */
-        .footer { background: #040a14; border-top: 1px solid var(--glass-border); padding: 60px 5% 30px; }
-        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 40px; margin-bottom: 40px; }
-        .f-logo-area { display: flex; flex-direction: column; gap: 15px; }
-        .f-logo-wrap { display: flex; align-items: center; gap: 12px; }
-        .f-logo-wrap img { height: 40px; }
-        .f-logo-text { font-family: Georgia, serif; font-size: 24px; color: var(--primary-gold); font-weight: 700; }
-        .f-desc { font-size: 13px; color: var(--text-gray); line-height: 1.6; max-width: 300px; }
-        .f-socials { display: flex; gap: 12px; margin-top: 15px; }
-        .f-social-btn { width: 40px; height: 40px; background: var(--glass); border: 1px solid var(--glass-border); border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
+        /* --- FOOTER --- */
+        .footer { background: #040a14; border-top: 1px solid var(--glass-border); padding: 80px 5% 40px; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 30px; margin-bottom: 60px; }
+        .f-logo-wrap { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+        .f-logo-text { font-family: Georgia, serif; font-size: 22px; color: var(--primary-gold); font-weight: 700; }
+        .f-desc { font-size: 13px; color: var(--text-gray); max-width: 300px; line-height: 1.7; }
+        .f-socials { display: flex; gap: 10px; margin-top: 15px; }
+        .f-social-btn { width: 38px; height: 38px; background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
         .f-social-btn svg { width: 18px; height: 18px; fill: var(--text-gray); }
-        .f-social-btn:hover { background: var(--primary-gold); border-color: var(--primary-gold); }
-        .f-social-btn:hover svg { fill: var(--bg-dark); }
+        .f-social-btn:hover { background: var(--primary-gold); }
         .footer h4 { color: var(--primary-gold); margin-bottom: 20px; font-size: 14px; text-transform: uppercase; letter-spacing: 1.5px; font-family: Georgia, serif; }
         .f-list li { margin-bottom: 10px; font-size: 13px; color: var(--text-gray); }
-        .f-list a { color: var(--text-gray); }
-        .f-list a:hover { color: #fff; padding-left: 4px; }
 
         /* Floating WhatsApp */
         .floating-wa { position: fixed; bottom: 30px; right: 30px; background: var(--whatsapp-green); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(0,0,0,0.4); z-index: 9999; animation: pulse 2s infinite; }
         .floating-wa svg { width: 32px; height: 32px; fill: white; }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
 
         /* RESPONSIVE */
         @media (max-width: 1024px) {
             .nav-links { display: none !important; }
             .menu-toggle { display: block !important; }
-            .service-row { grid-template-columns: 1fr; gap: 30px; }
+            .services-row { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
         }
         @media (min-width: 1025px) {
@@ -131,9 +142,7 @@
             .mobile-menu { display: none !important; }
         }
         @media (max-width: 768px) {
-            .hero-blur-overlay { mask-image: none; background: rgba(7, 14, 26, 0.7); }
             .hero-container { text-align: center; }
-            .feature-list { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -166,161 +175,221 @@
         <div class="nav-right">
             <ul class="nav-links">
                 <li><a href="index.html" data-i18n="nav_home">Home</a></li>
-                <li><a href="about.html" data-i18n="nav_about">About</a></li>
-                <li><a href="services.html" class="active" data-i18n="nav_services">Services</a></li>
+                <li><a href="about.html" data-i18n="nav_about">About Us</a></li>
                 <li><a href="hajj-umrah.html" data-i18n="nav_hajj">Hajj & Umrah</a></li>
-                <li><a href="gulf-services.html" data-i18n="nav_gulf">Gulf</a></li>
+                <li><a href="services.html" class="active" data-i18n="nav_services">Services</a></li>
                 <li><a href="eservices.html" data-i18n="nav_eservices">e-Services</a></li>
-                <li><a href="social-media.html" data-i18n="nav_social">Social</a></li>
-                <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+                <li><a href="social-media.html" data-i18n="nav_social">Social Media</a></li>
+                <li><a href="contact.html" data-i18n="nav_contact">Contact Us</a></li>
             </ul>
             <div class="lang-switch">
                 <button class="lang-btn active" onclick="switchLanguage('en')" id="btn-en">EN</button>
                 <button class="lang-btn" onclick="switchLanguage('ta')" id="btn-ta">தமிழ்</button>
             </div>
-            <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
+            <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()" aria-label="Toggle Menu">
                 <span></span><span></span><span></span>
             </button>
         </div>
         <div class="mobile-menu" id="mobileMenu">
             <a href="index.html" onclick="toggleMenu()" data-i18n="nav_home">Home</a>
-            <a href="about.html" onclick="toggleMenu()" data-i18n="nav_about">About</a>
-            <a href="services.html" onclick="toggleMenu()" data-i18n="nav_services">Services</a>
+            <a href="about.html" onclick="toggleMenu()" data-i18n="nav_about">About Us</a>
             <a href="hajj-umrah.html" onclick="toggleMenu()" data-i18n="nav_hajj">Hajj & Umrah</a>
-            <a href="gulf-services.html" onclick="toggleMenu()" data-i18n="nav_gulf">Gulf</a>
+            <a href="services.html" onclick="toggleMenu()" data-i18n="nav_services">Services</a>
             <a href="eservices.html" onclick="toggleMenu()" data-i18n="nav_eservices">e-Services</a>
-            <a href="social-media.html" onclick="toggleMenu()" data-i18n="nav_social">Social</a>
-            <a href="contact.html" onclick="toggleMenu()" data-i18n="nav_contact">Contact</a>
+            <a href="social-media.html" onclick="toggleMenu()" data-i18n="nav_social">Social Media</a>
+            <a href="contact.html" onclick="toggleMenu()" data-i18n="nav_contact">Contact Us</a>
         </div>
     </nav>
 
-    <!-- HERO -->
+    <!-- HERO SECTION -->
     <section class="hero">
-        <div class="hero-blur-overlay"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-pattern"></div>
         <div class="hero-container">
             <h1 class="h1">
-                <span data-i18n="svc_h1_p1">Professional Solutions for</span><br>
-                <span class="hl" data-i18n="svc_h1_p2">Global Travel</span>
+                <span data-i18n="gs_h1_p1">Professional</span><br>
+                <span class="hl" data-i18n="gs_h1_p2">Travel Services</span>
             </h1>
+            <p class="hero-desc" data-i18n="gs_tagline">Your comprehensive partner for global travel, pilgrimage, and official government documentation.</p>
         </div>
     </section>
 
-    <!-- AIR TICKETS -->
-    <section>
-        <div class="service-block">
-            <div class="service-row">
-                <div class="svc-content-box">
-                    <span class="sl">✈ ️Air Tickets</span>
-                    <h2 data-i18n="air_t">Air Ticket Booking: Gulf & Beyond</h2>
-                    <p data-i18n="air_d">Best air ticket prices for Gulf travel from Kadayanallur and Tirunelveli. We compare fares across Emirates, Air India, IndiGo, Air Arabia, flydubai and more. Same-day ticket issuance on WhatsApp.</p>
-                    
-                    <div class="feature-list">
-                        <div class="feature-item"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> <span data-i18n="air_f1">Best fare comparison</span></div>
-                        <div class="feature-item"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> <span data-i18n="air_f2">Group booking available</span></div>
-                        <div class="feature-item"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> <span data-i18n="air_f3">Passport matching</span></div>
-                        <div class="feature-item"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> <span data-i18n="air_f4">Baggage guidance</span></div>
-                    </div>
-                    
-                    <a href="https://wa.me/918973109844" class="btn-svc">
-                        <span data-i18n="air_btn">✈ Book Ticket Now</span>
-                    </a>
-                </div>
-                <div class="info-grid">
-                    <div class="info-card">
-                        <h4 data-i18n="dest_t">Destinations We Cover</h4>
-                        <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
-                            <li data-i18n="dest_1">Dubai & Abu Dhabi</li>
-                            <li data-i18n="dest_2">Riyadh & Jeddah</li>
-                            <li data-i18n="dest_3">Doha, Qatar</li>
-                            <li data-i18n="dest_4">Kuwait City</li>
-                            <li data-i18n="dest_5">Muscat, Oman</li>
-                            <li data-i18n="dest_6">Manama, Bahrain</li>
-                        </ul>
-                    </div>
-                    <div class="info-card">
-                        <h4 data-i18n="how_t">How to Book — 4 Simple Steps</h4>
-                        <ul>
-                            <li data-i18n="step_1">Share details (date, destination)</li>
-                            <li data-i18n="step_2">We compare best fares</li>
-                            <li data-i18n="step_3">Confirm choice & Pay</li>
-                            <li data-i18n="step_4">Get e-ticket on WhatsApp</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PASSPORT -->
-    <section class="bg-accent-sec">
-        <div class="service-block">
-            <div class="service-row">
-                <div class="info-grid">
-                    <div class="info-card">
-                        <h4 data-i18n="docs_t">Required Documents</h4>
-                        <ul>
-                            <li data-i18n="doc_1">Aadhaar Card (Original & Copy)</li>
-                            <li data-i18n="doc_2">Birth Certificate / School TC</li>
-                            <li data-i18n="doc_3">Address Proof (Voter ID)</li>
-                            <li data-i18n="doc_4">2 Recent photographs</li>
-                            <li data-i18n="doc_5">Community Certificate</li>
-                        </ul>
-                    </div>
-                    <div class="info-card" style="border-left: 4px solid var(--primary-gold);">
-                        <h4 data-i18n="tat_t">⚡ Tatkal Processing</h4>
-                        <p style="font-size: 13px;" data-i18n="tat_d">Ready in 1–3 working days. Ideal for emergency travel needs. We handle form filling and appointment scheduling at PSK Tirunelveli.</p>
-                    </div>
-                </div>
-                <div class="svc-content-box">
-                    <span class="sl">📘 Passport</span>
-                    <h2 data-i18n="pass_t">Passport Services: KNL & TVL</h2>
-                    <p data-i18n="pass_d">Applying for or renewing a passport is simple with A to Z Travels. We assist with document preparation, online form filling, and appointment scheduling.</p>
-                    
-                    <div class="feature-list">
-                        <div class="feature-item"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> <span data-i18n="pass_f1">Fresh Applications</span></div>
-                        <div class="feature-item"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> <span data-i18n="pass_f2">Renewal Services</span></div>
-                        <div class="feature-item"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> <span data-i18n="pass_f3">Lost/Damaged Re-issue</span></div>
-                        <div class="feature-item"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> <span data-i18n="pass_f4">Minor Passport</span></div>
-                    </div>
-                    
-                    <a href="https://wa.me/918973109844" class="btn-svc">
-                        <span data-i18n="pass_btn">📘 Enquire Now</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ SECTION -->
+    <!-- GCC VISAS SECTION -->
     <section>
         <div class="section-header">
-            <span class="sl">Help Centre</span>
-            <h2 class="st" data-i18n="faq_t">Frequently Asked Questions</h2>
+            <span class="sl" data-i18n="gs_sl">GCC Countries</span>
+            <h2 class="st" data-i18n="gs_st">Gulf Visit Visa Services for Tamil Families</h2>
+            <p class="sd" data-i18n="gs_visa_desc">Tourist and family visit visas for all six GCC countries — UAE, Saudi Arabia, Qatar, Kuwait, Bahrain and Oman. Quick processing from Kadayanallur.</p>
+        </div>
+        <div class="visa-grid">
+            <!-- UAE -->
+            <div class="visa-card">
+                <div class="visa-arch"><span class="visa-flag">🇦🇪</span></div>
+                <div class="visa-body">
+                    <h3 data-i18n="gs_v1_t">UAE — Dubai & Abu Dhabi</h3>
+                    <ul class="list-style">
+                        <li data-i18n="gs_v1_l1"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Tourist Visa — 30 & 60 days</li>
+                        <li data-i18n="gs_v1_l2"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> UAE Family Visit Visa</li>
+                    </ul>
+                    <a href="https://wa.me/918973109844" class="btn-link">Enquire →</a>
+                </div>
+            </div>
+            <!-- Saudi -->
+            <div class="visa-card">
+                <div class="visa-arch"><span class="visa-flag">🇸🇦</span></div>
+                <div class="visa-body">
+                    <h3 data-i18n="gs_v2_t">Saudi Arabia</h3>
+                    <ul class="list-style">
+                        <li data-i18n="gs_v2_l1"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Saudi Arabia Tourist Visa</li>
+                        <li data-i18n="gs_v2_l2"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Saudi Family Visit Visa</li>
+                    </ul>
+                    <a href="https://wa.me/918973109844" class="btn-link">Enquire →</a>
+                </div>
+            </div>
+            <!-- Qatar -->
+            <div class="visa-card">
+                <div class="visa-arch"><span class="visa-flag">🇶🇦</span></div>
+                <div class="visa-body">
+                    <h3 data-i18n="gs_v3_t">Qatar — Doha</h3>
+                    <ul class="list-style">
+                        <li data-i18n="gs_v3_l1"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Qatar Tourist Visa</li>
+                        <li data-i18n="gs_v3_l2"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Doha Family Visit Visa</li>
+                    </ul>
+                    <a href="https://wa.me/918973109844" class="btn-link">Enquire →</a>
+                </div>
+            </div>
+            <!-- Kuwait -->
+            <div class="visa-card">
+                <div class="visa-arch"><span class="visa-flag">🇰🇼</span></div>
+                <div class="visa-body">
+                    <h3 data-i18n="gs_v4_t">Kuwait</h3>
+                    <ul class="list-style">
+                        <li data-i18n="gs_v4_l1"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Kuwait Visit & Tourist Visa</li>
+                        <li data-i18n="gs_v4_l2"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Family Visit Visa</li>
+                    </ul>
+                    <a href="https://wa.me/918973109844" class="btn-link">Enquire →</a>
+                </div>
+            </div>
+            <!-- Bahrain -->
+            <div class="visa-card">
+                <div class="visa-arch"><span class="visa-flag">🇧🇭</span></div>
+                <div class="visa-body">
+                    <h3 data-i18n="gs_v5_t">Bahrain</h3>
+                    <ul class="list-style">
+                        <li data-i18n="gs_v5_l1"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Bahrain Tourist & Visit Visa</li>
+                        <li data-i18n="gs_v5_l2"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Manama Family Visit Visa</li>
+                    </ul>
+                    <a href="https://wa.me/918973109844" class="btn-link">Enquire →</a>
+                </div>
+            </div>
+            <!-- Oman -->
+            <div class="visa-card">
+                <div class="visa-arch"><span class="visa-flag">🇴🇲</span></div>
+                <div class="visa-body">
+                    <h3 data-i18n="gs_v6_t">Oman — Muscat</h3>
+                    <ul class="list-style">
+                        <li data-i18n="gs_v6_l1"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Oman Tourist & Visit Visa</li>
+                        <li data-i18n="gs_v6_l2"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Muscat Family Visit Visa</li>
+                    </ul>
+                    <a href="https://wa.me/918973109844" class="btn-link">Enquire →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TICKETS & PASSPORT SERVICES -->
+    <section style="background: rgba(0,0,0,0.15);">
+        <div class="section-header">
+            <span class="sl" data-i18n="svc_sl">Essential Services</span>
+            <h2 class="st" data-i18n="svc_st">Ticketing & Documentation</h2>
+        </div>
+        <div class="services-row">
+            <div class="svc-box">
+                <h3 data-i18n="air_t">✈ Air Ticket Booking</h3>
+                <p data-i18n="air_d">Best air ticket prices for Gulf travel from Kadayanallur. We compare Emirates, Air India, IndiGo, and more. Same-day WhatsApp issuance.</p>
+                <ul class="list-style">
+                    <li data-i18n="air_f1"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Fare Comparison</li>
+                    <li data-i18n="air_f2"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Passport Name Matching</li>
+                </ul>
+                <a href="https://wa.me/918973109844" class="btn-link">Book Now →</a>
+            </div>
+            <div class="svc-box">
+                <h3 data-i18n="pass_t">📘 Passport Services</h3>
+                <p data-i18n="pass_d">Applying or renewing is simple with A to Z. Assistance for forms and appointments at PSK Tirunelveli.</p>
+                <ul class="list-style">
+                    <li><span data-i18n="pass_f1">Fresh & Renewal</span> <span class="badge-urgent" data-i18n="tat_t_tag">TATKAL AVAILABLE</span></li>
+                    <li data-i18n="pass_f3"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Lost / Damaged Re-issue</li>
+                </ul>
+                <a href="https://wa.me/918973109844" class="btn-link">Enquire Now →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="process-sec">
+        <div class="section-header">
+            <span class="sl" data-i18n="proc_sl">Simple Process</span>
+            <h2 class="st" data-i18n="proc_st">4-Step Visa Process</h2>
+        </div>
+        <div class="step-grid">
+            <div class="step-box">
+                <div class="step-num">1</div>
+                <h4 data-i18n="s1_t">WhatsApp Passport</h4>
+                <p data-i18n="s1_d">Send clear scans of your passport via WhatsApp.</p>
+            </div>
+            <div class="step-box">
+                <div class="step-num">2</div>
+                <h4 data-i18n="s2_t">Eligibility Check</h4>
+                <p data-i18n="s2_d">We confirm the visa type and processing fee.</p>
+            </div>
+            <div class="step-box">
+                <div class="step-num">3</div>
+                <h4 data-i18n="s3_t">Application Submission</h4>
+                <p data-i18n="s3_d">We submit and track the status for you.</p>
+            </div>
+            <div class="step-box">
+                <div class="step-num">4</div>
+                <h4 data-i18n="s4_t">Receive Visa</h4>
+                <p data-i18n="s4_d">APPROVED! Your e-visa is sent to your WhatsApp.</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 10px;">
+            <a href="https://wa.me/918973109844?text=I%20want%20to%20apply%20for%20a%20Gulf%20Visit%20Visa" class="btn-wa-pulse">
+                <span data-i18n="gs_wa_btn">💬 Start Your Visa Application</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section>
+        <div class="section-header">
+            <span class="sl" data-i18n="faq_sl">Information</span>
+            <h2 class="st" data-i18n="faq_st">Frequently Asked Questions</h2>
         </div>
         <div class="faq-container">
             <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-q" data-i18n="gs_q1">What documents are needed for a Gulf visit visa? <span>▼</span></div>
+                <div class="faq-a" data-i18n="gs_a1">A clear passport scan (front & back) with at least 6 months validity and a white-background photo are the standard requirements.</div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('active')">
                 <div class="faq-q" data-i18n="q1">How long does a fresh passport take in Tamil Nadu? <span>▼</span></div>
-                <div class="faq-a" data-i18n="a1">Standard applications usually take 15-20 days including police verification. Tatkal applications can be ready in 1-3 working days.</div>
+                <div class="faq-a" data-i18n="a1">Standard applications usually take 15-20 days including police verification. Tatkal can be ready in 1-3 working days.</div>
             </div>
             <div class="faq-item" onclick="this.classList.toggle('active')">
                 <div class="faq-q" data-i18n="q2">Can you book group air tickets for Gulf travel? <span>▼</span></div>
-                <div class="faq-a" data-i18n="a2">Yes, we specialize in group bookings for families and commercial teams travelling to UAE, Saudi, and Qatar.</div>
-            </div>
-            <div class="faq-item" onclick="this.classList.toggle('active')">
-                <div class="faq-q" data-i18n="q3">What documents are needed for a 30-day Dubai visit visa? <span>▼</span></div>
-                <div class="faq-a" data-i18n="a3">You typically need a clear passport copy (front & back) and a passport-size photograph with a white background.</div>
+                <div class="faq-a" data-i18n="a2">Yes, we specialize in group bookings for families and commercial teams travelling to UAE, Saudi, and Qatar with exclusive fare discounts.</div>
             </div>
             <div class="faq-item" onclick="this.classList.toggle('active')">
                 <div class="faq-q" data-i18n="q4">Are Umrah packages inclusive of food? <span>▼</span></div>
-                <div class="faq-a" data-i18n="a4">We offer both Economy and Deluxe packages. Deluxe packages usually include full catering services, while Economy focuses on travel essentials. Please note that laundry services are not included.</div>
-            </div>
-            <div class="faq-item" onclick="this.classList.toggle('active')">
-                <div class="faq-q" data-i18n="q5">Which TN government certificates can you help with? <span>▼</span></div>
-                <div class="faq-a" data-i18n="a5">We assist with Income, Community, Nativity, and First Graduate certificates through the official e-District portal.</div>
+                <div class="faq-a" data-i18n="a4">Yes, full catering services (daily buffet) are included in our premium packages. Please note that personal laundry services are not included.</div>
             </div>
             <div class="faq-item" onclick="this.classList.toggle('active')">
                 <div class="faq-q" data-i18n="q6">Do you assist with GAMCA medical appointments? <span>▼</span></div>
-                <div class="faq-a" data-i18n="a6">Yes, we handle the registration and appointment scheduling for GAMCA medical check-ups required for Gulf work visas.</div>
+                <div class="faq-a" data-i18n="a6">Yes, we handle the registration and appointment scheduling for GAMCA medical check-ups required for Gulf work visas at authorized clinics.</div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('active')">
+                <div class="faq-q" data-i18n="q5">Which TN government certificates can you help with? <span>▼</span></div>
+                <div class="faq-a" data-i18n="a5">We provide professional assistance for Income, Community, Nativity, and First Graduate certificates through the official TN e-District portal.</div>
             </div>
         </div>
     </section>
@@ -330,52 +399,44 @@
         <div class="footer-grid">
             <div class="f-logo-area">
                 <div class="f-logo-wrap">
-                    <img src="logo.png" alt="A to Z Travels Footer Logo">
                     <div class="f-logo-text">A to Z Travels</div>
                 </div>
                 <p class="f-desc" data-i18n="footer_desc">Trusted travel agency in Kadayanallur since 2021. Gulf visit visas, Hajj & Umrah, air tickets, e-services.</p>
                 <div class="f-socials">
-                    <a href="https://www.facebook.com/atoztravel" class="f-social-btn" target="_blank">
-                        <svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
-                    </a>
-                    <a href="https://www.instagram.com/atozonlineservicestravels/" class="f-social-btn" target="_blank">
-                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                    </a>
-                    <a href="https://wa.me/918973109844" class="f-social-btn" target="_blank">
-                        <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.891 11.891-11.891 3.181 0 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.481 8.403 0 6.556-5.332 11.891-11.891 11.891-2.015 0-3.991-.51-5.747-1.474l-6.247 1.692zm6.75-4.414c1.554.921 3.03 1.385 4.603 1.385 5.481 0 9.941-4.459 9.941-9.941 0-2.648-1.031-5.143-2.906-7.018-1.875-1.875-4.37-2.906-7.035-2.906-5.481 0-9.941 4.459-9.941 9.941 0 1.847.51 3.528 1.474 4.864l-.97 3.543 3.734-.928zm11.367-7.38c-.066-.109-.241-.175-.506-.307-.264-.132-1.562-.77-1.804-.858-.241-.088-.418-.132-.594.132-.176.265-.682.858-.836 1.034-.154.176-.308.198-.573.066-.264-.132-1.117-.412-2.126-1.313-.785-.7-1.314-1.564-1.468-1.828-.154-.264-.016-.407.117-.539.12-.12.264-.308.396-.462.132-.154.176-.264.264-.44.088-.176.044-.33-.022-.462-.066-.132-.594-1.431-.814-1.963-.214-.517-.433-.448-.594-.456-.153-.008-.33-.008-.506-.008-.176 0-.462.066-.704.33-.242.264-.924.903-.924 2.199 0 1.296.946 2.552 1.078 2.728.132.176 1.861 2.842 4.508 3.986.63.27 1.12.432 1.503.553.633.201 1.21.172 1.665.105.508-.074 1.562-.638 1.782-1.254.22-.616.22-1.144.154-1.254z"/></svg>
-                    </a>
-                    <a href="https://www.linkedin.com/company/travelsatoz/posts/?feedView=all" class="f-social-btn" target="_blank">
-                        <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    </a>
+                    <a href="https://www.facebook.com/atoztravel" class="f-social-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg></a>
+                    <a href="https://www.instagram.com/atozonlineservicestravels/" class="f-social-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                    <a href="https://wa.me/918973109844" class="f-social-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.891 11.891-11.891 3.181 0 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.481 8.403 0 6.556-5.332 11.891-11.891 11.891-2.015 0-3.991-.51-5.747-1.474l-6.247 1.692zm6.75-4.414c1.554.921 3.03 1.385 4.603 1.385 5.481 0 9.941-4.459 9.941-9.941 0-2.648-1.031-5.143-2.906-7.018-1.875-1.875-4.37-2.906-7.035-2.906-5.481 0-9.941 4.459-9.941 9.941 0 1.847.51 3.528 1.474 4.864l-.97 3.543 3.734-.928zm11.367-7.38c-.066-.109-.241-.175-.506-.307-.264-.132-1.562-.77-1.804-.858-.241-.088-.418-.132-.594.132-.176.265-.682.858-.836 1.034-.154.176-.308.198-.573.066-.264-.132-1.117-.412-2.126-1.313-.785-.7-1.314-1.564-1.468-1.828-.154-.264-.016-.407.117-.539.12-.12.264-.308.396-.462.132-.154.176-.264.264-.44.088-.176.044-.33-.022-.462-.066-.132-.594-1.431-.814-1.963-.214-.517-.433-.448-.594-.456-.153-.008-.33-.008-.506-.008-.176 0-.462.066-.704.33-.242.264-.924.903-.924 2.199 0 1.296.946 2.552 1.078 2.728.132.176 1.861 2.842 4.508 3.986.63.27 1.12.432 1.503.553.633.201 1.21.172 1.665.105.508-.074 1.562-.638 1.782-1.254.22-.616.22-1.144.154-1.254z"/></svg></a>
+                    <a href="https://www.linkedin.com/company/travelsatoz/posts/?feedView=all" class="f-social-btn" target="_blank" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
                 </div>
             </div>
             <div>
-                <h4 data-i18n="nav_services">Services</h4>
+                <h4 data-i18n="nav_services">Other Services</h4>
                 <ul class="f-list">
-                    <li><a href="services.html" data-i18n="air_t">Air Tickets</a></li>
-                    <li><a href="services.html" data-i18n="pass_t">Passport Services</a></li>
                     <li><a href="hajj-umrah.html" data-i18n="nav_hajj">Hajj & Umrah</a></li>
+                    <li><a href="eservices.html" data-i18n="nav_eservices">e-Services</a></li>
                 </ul>
             </div>
             <div>
-                <h4 data-i18n="f_gulf">Gulf Countries</h4>
+                <h4 data-i18n="f_gulf">Gulf Support</h4>
                 <ul class="f-list">
-                    <li>AE - UAE</li>
-                    <li>SA - Saudi Arabia</li>
-                    <li>QA - Qatar</li>
-                    <li>KW - Kuwait</li>
+                    <li>🇦🇪 UAE</li>
+                    <li>🇸🇦 Saudi Arabia</li>
+                    <li>🇶🇦 Qatar</li>
+                    <li>🇰🇼 Kuwait</li>
+                    <li>🇧🇭 Bahrain</li>
+                    <li>🇴🇲 Oman</li>
                 </ul>
             </div>
             <div>
                 <h4 data-i18n="nav_contact">Contact</h4>
                 <ul class="f-list">
-                    <li>8973109844</li>
-                    <li>a2zkdnl@gmail.com</li>
-                    <li><a href="contact.html" data-i18n="office_addr">📍 445/9, First Floor, Mohideen Pallivasal Complex, Main Road, Kadayanallur – 627 751, TN.</a></li>
+                    <li>Phone: 8973109844</li>
+                    <li>Email: a2zkdnl@gmail.com</li>
+                    <li><a href="contact.html" data-i18n="office_addr">📍 445/9, Main Road, Kadayanallur – 627 751.</a></li>
                 </ul>
             </div>
         </div>
-        <div class="footer-bottom">
+        <div class="footer-bottom" style="text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; font-size: 12px; color: var(--text-gray);">
             <p>&copy; 2025 A to Z Travels & Umrah Service • Kadayanallur</p>
         </div>
     </footer>
@@ -383,46 +444,58 @@
     <script>
         const translations = {
             'en': {
-                'nav_home': 'Home', 'nav_about': 'About Us', 'nav_services': 'Services', 'nav_hajj': 'Hajj & Umrah', 'nav_gulf': 'Gulf Services', 'nav_eservices': 'e-Services', 'nav_social': 'Social Media', 'nav_contact': 'Contact Us',
-                'svc_h1_p1': 'Professional Solutions for', 'svc_h1_p2': 'Global Travel',
-                'air_t': 'Air Ticket Booking: Gulf & Beyond', 'air_d': 'Best air ticket prices for Gulf travel from Kadayanallur and Tirunelveli. We compare fares across Emirates, Air India, IndiGo, Air Arabia, flydubai and more. Same-day ticket issuance on WhatsApp.',
-                'air_f1': 'Best fare comparison', 'air_f2': 'Group booking available', 'air_f3': 'Passport matching', 'air_f4': 'Baggage guidance', 'air_btn': '✈ Book Ticket Now',
-                'dest_t': 'Destinations We Cover', 'dest_1': 'Dubai & Abu Dhabi', 'dest_2': 'Riyadh & Jeddah', 'dest_3': 'Doha, Qatar', 'dest_4': 'Kuwait City', 'dest_5': 'Muscat, Oman', 'dest_6': 'Manama, Bahrain',
-                'how_t': 'How to Book — 4 Simple Steps', 'step_1': 'Share travel details', 'step_2': 'We compare best fares', 'step_3': 'Confirm choice & Pay', 'step_4': 'Get e-ticket on WhatsApp',
-                'pass_t': 'Passport Services: KNL & TVL', 'pass_d': 'Applying for or renewing a passport is simple with A to Z Travels. We assist with document preparation, online form filling, and appointment scheduling at PSK Tirunelveli.',
-                'pass_f1': 'Fresh Applications', 'pass_f2': 'Renewal Services', 'pass_f3': 'Lost/Damaged Re-issue', 'pass_f4': 'Minor Passport', 'pass_btn': '📘 Enquire Now',
-                'docs_t': 'Documents Required', 'doc_1': 'Aadhaar Card (Original & Copy)', 'doc_2': 'Birth Certificate / School TC', 'doc_3': 'Address Proof (Voter ID)', 'doc_4': '2 Recent photographs', 'doc_5': 'Community Certificate',
-                'tat_t': '⚡ Tatkal Processing', 'tat_d': 'Ready in 1–3 working days. Ideal for emergency travel needs.',
-                'faq_t': 'Frequently Asked Questions', 
-                'q1': 'How long does a fresh passport take in Tamil Nadu?', 'a1': 'Standard applications usually take 15-20 days including police verification. Tatkal applications can be ready in 1-3 working days.',
-                'q2': 'Can you book group air tickets for Gulf travel?', 'a2': 'Yes, we specialize in group bookings for families and commercial teams travelling to UAE, Saudi, and Qatar.',
-                'q3': 'What documents are needed for a 30-day Dubai visit visa?', 'a3': 'You typically need a clear passport copy (front & back) and a passport-size photograph with a white background.',
-                'q4': 'Are Umrah packages inclusive of food?', 'a4': 'We offer both Economy and Deluxe packages. Deluxe packages usually include full catering services, while Economy focuses on travel essentials. Please note that laundry services are not included.',
-                'q5': 'Which TN government certificates can you help with?', 'a5': 'We assist with Income, Community, Nativity, and First Graduate certificates through the official e-District portal.',
-                'q6': 'Do you assist with GAMCA medical appointments?', 'a6': 'Yes, we handle the registration and appointment scheduling for GAMCA medical check-ups required for Gulf work visas.',
-                'footer_desc': 'Trusted travel agency in Kadayanallur since 2021. Gulf visit visas, Hajj & Umrah, air tickets, e-services.', 
-                'office_addr': '📍 445/9, First Floor, Mohideen Pallivasal Complex, Main Road, Kadayanallur – 627 751, TN.'
+                'nav_home': 'Home', 'nav_about': 'About Us', 'nav_hajj': 'Hajj & Umrah', 'nav_services': 'Services', 'nav_eservices': 'e-Services', 'nav_social': 'Social Media', 'nav_contact': 'Contact Us',
+                'gs_h1_p1': 'Professional', 'gs_h1_p2': 'Travel Services', 'gs_tagline': 'Your comprehensive partner for global travel, pilgrimage, and official government documentation.',
+                'gs_sl': 'GCC Countries', 'gs_st': 'Gulf Visit Visa Services for Tamil Families',
+                'gs_visa_desc': 'Tourist and family visit visas for all six GCC countries — UAE, Saudi Arabia, Qatar, Kuwait, Bahrain and Oman. Quick processing from Kadayanallur.',
+                'gs_v1_t': 'UAE — Dubai & Abu Dhabi', 'gs_v1_l1': 'Tourist Visa — 30 & 60 days', 'gs_v1_l2': 'UAE Family Visit Visa',
+                'gs_v2_t': 'Saudi Arabia', 'gs_v2_l1': 'Saudi Arabia Tourist Visa', 'gs_v2_l2': 'Saudi Family Visit Visa',
+                'gs_v3_t': 'Qatar — Doha', 'gs_v3_l1': 'Qatar Tourist Visa', 'gs_v3_l2': 'Doha Family Visit Visa',
+                'gs_v4_t': 'Kuwait', 'gs_v4_l1': 'Kuwait Visit & Tourist Visa', 'gs_v4_l2': 'Family Visit Visa',
+                'gs_v5_t': 'Bahrain', 'gs_v5_l1': 'Bahrain Tourist & Visit Visa', 'gs_v5_l2': 'Manama Family Visit Visa',
+                'gs_v6_t': 'Oman — Muscat', 'gs_v6_l1': 'Oman Tourist & Visit Visa', 'gs_v6_l2': 'Muscat Family Visit Visa',
+                'svc_sl': 'Essential Services', 'svc_st': 'Ticketing & Documentation',
+                'air_t': '✈ Air Ticket Booking', 'air_d': 'Best air ticket prices for Gulf travel from Kadayanallur. Same-day WhatsApp issuance.',
+                'air_f1': 'Fare Comparison', 'air_f2': 'Passport Name Matching',
+                'pass_t': '📘 Passport Services', 'pass_d': 'Applying or renewing is simple with A to Z. Assistance for appointments at PSK Tirunelveli.',
+                'pass_f1': 'Fresh & Renewal', 'pass_f3': 'Lost / Damaged Re-issue',
+                'tat_t_tag': 'TATKAL AVAILABLE', 'proc_sl': 'Simple Process', 'proc_st': '4-Step Visa Process',
+                'gs_wa_btn': '💬 Start Your Visa Application',
+                'faq_sl': 'Information', 'faq_st': 'Frequently Asked Questions',
+                'gs_q1': 'What documents are needed for a Gulf visit visa?', 'gs_a1': 'A clear passport scan (front & back) and a white-background photo are the standard requirements.',
+                'q1': 'How long does a fresh passport take in Tamil Nadu?', 'a1': 'Standard applications take 15-20 days. Tatkal can be ready in 1-3 working days.',
+                'q2': 'Can you book group air tickets for Gulf travel?', 'a2': 'Yes, we specialize in group bookings for families and commercial teams travelling to UAE, Saudi, and Qatar with exclusive fare discounts.',
+                'q4': 'Are Umrah packages inclusive of food?', 'a4': 'Yes, full catering services are included in our premium packages. However, please note that personal laundry services are not included.',
+                'q6': 'Do you assist with GAMCA medical appointments?', 'a6': 'Yes, we handle the registration and appointment scheduling for GAMCA medical check-ups required for Gulf work visas at authorized clinics.',
+                'q5': 'Which TN government certificates can you help with?', 'a5': 'We provide professional assistance for Income, Community, Nativity, and First Graduate certificates through the official TN e-District portal.',
+                'gs_q3': 'Can families visit Saudi Arabia on a tourist visa?', 'gs_a3': 'Yes, Saudi tourist visas allow family visits and Umrah.',
+                'footer_desc': 'Trusted travel agency since 2021. Gulf visit visas, Hajj & Umrah, air tickets, e-services.', 
+                'office_addr': '📍 445/9, Main Road, Kadayanallur – 627 751.'
             },
             'ta': {
-                'nav_home': 'முகப்பு', 'nav_about': 'எங்களைப் பற்றி', 'nav_services': 'சேவைகள்', 'nav_hajj': 'ஹஜ் & உம்ரா', 'nav_gulf': 'வளைகுடா சேவைகள்', 'nav_eservices': 'மின் சேவைகள்', 'nav_social': 'சமூக ஊடகம்', 'nav_contact': 'தொடர்பு கொள்ள',
-                'svc_h1_p1': 'உலகளாவிய பயணத்திற்கான', 'svc_h1_p2': 'சிறந்த தீர்வுகள்',
-                'air_t': 'விமான டிக்கெட் முன்பதிவு', 'air_d': 'வளைகுடா நாடுகளுக்கு குறைந்த விலையில் டிக்கெட் முன்பதிவு. எமிரேட்ஸ், ஏர் இந்தியா, இண்டிகோ என அனைத்து ஏர்லைன்ஸ் டிக்கெட்டுகளும் வாட்ஸ்அப்பில் அன்றைய தினமே வழங்கப்படும்.',
-                'air_f1': 'குறைந்த விலை ஒப்பீடு', 'air_f2': 'குழு முன்பதிவு', 'air_f3': 'பாஸ்போர்ட் சரிபார்ப்பு', 'air_f4': 'லக்கேஜ் வழிகாட்டுதல்', 'air_btn': '✈ டிக்கெட் முன்பதிவு',
-                'dest_t': 'நாங்கள் சேவை செய்யும் இடங்கள்', 'dest_1': 'துபாய் & அபுதாபி', 'dest_2': 'ரியாத் & ஜித்தார்', 'dest_3': 'தோஹா, கத்தார்', 'dest_4': 'குவைத் சிட்டி', 'dest_5': 'ஓமன்', 'dest_6': 'பஹ்ரைன்',
-                'how_t': 'முன்பதிவு செய்ய — 4 படிகள்', 'step_1': 'விவரங்களை பகிரவும்', 'step_2': 'விலைகளை ஒப்பிடுவோம்', 'step_3': 'விருப்பத்தை உறுதி செய்யவும்', 'step_4': 'வாட்ஸ்அப்பில் டிக்கெட்',
-                'pass_t': 'பாஸ்போர்ட் சேவைகள்', 'pass_d': 'பாஸ்போர்ட் விண்ணப்பிப்பது அல்லது புதுப்பிப்பது எளிது. ஆவண தயாரிப்பு மற்றும் அப்பாயிண்ட்மெண்டிற்கு நாங்கள் உதவுகிறோம்.',
-                'pass_f1': 'புதிய பாஸ்போர்ட்', 'pass_f2': 'புதுப்பித்தல்', 'pass_f3': 'தொலைந்த பாஸ்போர்ட்', 'pass_f4': 'மைனர் பாஸ்போர்ட்', 'pass_btn': '📘 இப்போது விசாரிக்கவும்',
-                'docs_t': 'தேவையான ஆவணங்கள்', 'doc_1': 'ஆதார் கார்டு (அசல்)', 'doc_2': 'பிறப்புச் சான்றிதழ் / TC', 'doc_3': 'இருப்பிடச் சான்று', 'doc_4': '2 புகைப்படங்கள்', 'doc_5': 'சாதிச் சான்றிதழ்',
-                'tat_t': '⚡ தத்கல் செயலாக்கம்', 'tat_d': '1-3 வேலை நாட்களில் தயார். அவசர காலத்திற்கு ஏற்றது.',
-                'faq_t': 'அடிக்கடி கேட்கப்படும் கேள்விகள்', 
-                'q1': 'புதிய பாஸ்போர்ட் பெற எவ்வளவு காலம் ஆகும்?', 'a1': 'சாதாரண முறையில் 15-20 நாட்கள். தத்கல் முறையில் 1-3 நாட்கள் ஆகும்.',
-                'q2': 'குழுவாக டிக்கெட் புக் செய்யலாமா?', 'a2': 'ஆம், குடும்பங்கள் மற்றும் குழுக்களுக்கு சிறப்பு தள்ளுபடி உண்டு.',
-                'q3': 'துபாய் விசிட் விசாவுக்கு என்ன ஆவணங்கள் தேவை?', 'a3': 'உங்களுக்கு பாஸ்போர்ட் நகல் மற்றும் வெள்ளை பின்னணியில் உள்ள புகைப்படம் தேவைப்படும்.',
+                'nav_home': 'முகப்பு', 'nav_about': 'எங்களைப் பற்றி', 'nav_hajj': 'ஹஜ் & உம்ரா', 'nav_services': 'சேவைகள்', 'nav_eservices': 'மின் சேவைகள்', 'nav_social': 'சமூக ஊடகம்', 'nav_contact': 'தொடர்பு கொள்ள',
+                'gs_h1_p1': 'தொழில்முறை', 'gs_h1_p2': 'பயணச் சேவைகள்', 'gs_tagline': 'உலகளாவிய பயணம், புனித யாத்திரை மற்றும் அதிகாரப்பூர்வ அரசு ஆவணங்களுக்கான உங்களின் முழுமையான பங்குதாரர்.',
+                'gs_sl': 'GCC நாடுகள்', 'gs_st': 'தமிழ் குடும்பங்களுக்கான வளைகுடா விசா சேவைகள்',
+                'gs_visa_desc': 'UAE, சவூதி அரேபியா, கத்தார், குவைத், பஹ்ரைன் மற்றும் ஓமன் ஆகிய ஆறு GCC நாடுகளுக்கும் சுற்றுலா மற்றும் குடும்ப விசிட் விசாக்கள் கடையநல்லூரிலிருந்து விரைவாக பெற்றுத் தரப்படும்.',
+                'gs_v1_t': 'UAE — துபாய் & அபுதாபி', 'gs_v1_l1': 'சுற்றுலா விசா — 30 & 60 நாட்கள்', 'gs_v1_l2': 'UAE குடும்ப விசிட் விசா',
+                'gs_v2_t': 'சவூதி அரேபியா', 'gs_v2_l1': 'சவூதி அரேபியா சுற்றுலா விசா', 'gs_v2_l2': 'சவூதி குடும்ப விசிட் விசா',
+                'gs_v3_t': 'கத்தார் — தோஹா', 'gs_v3_l1': 'கத்தார் சுற்றுலா விசா', 'gs_v3_l2': 'தோஹா குடும்ப விசிட் விசா',
+                'gs_v4_t': 'குவைத்', 'gs_v4_l1': 'குவைத் விசிட் மற்றும் சுற்றுலா விசா', 'gs_v4_l2': 'குவைத் குடும்ப விசிட் விசா',
+                'gs_v5_t': 'பஹ்ரைன்', 'gs_v5_l1': 'பஹ்ரைன் சுற்றுலா விசா', 'gs_v5_l2': 'மனாமா குடும்ப விசிட் விசா',
+                'gs_v6_t': 'ஓமன் — மஸ்கட்', 'gs_v6_l1': 'ஓமன் சுற்றுலா விசா', 'gs_v6_l2': 'மஸ்கட் குடும்ப விசிட் விசா',
+                'air_t': '✈ விமான டிக்கெட் முன்பதிவு', 'air_d': 'கடையநல்லூரிலிருந்து வளைகுடா நாடுகளுக்கு குறைந்த விலையில் டிக்கெட் முன்பதிவு.',
+                'pass_t': 'பாஸ்போர்ட் சேவைகள்', 'pass_d': 'புதிய பாஸ்போர்ட் அல்லது புதுப்பித்தல் சேவைகளை நாங்கள் எளிதாக்குகிறோம்.',
+                'tat_t_tag': 'தத்கல் வசதி உண்டு', 'proc_sl': 'எளிமையான முறை', 'proc_st': '4-படி விசா செயல்முறை',
+                'gs_wa_btn': '💬 விசா விண்ணப்பத்தைத் தொடங்கவும்',
+                'gs_q1': 'வளைகுடா விசாவுக்கு என்ன ஆவணங்கள் தேவை?', 'gs_a1': 'பாஸ்போர்ட் நகல் மற்றும் வெள்ளை பின்னணியில் உள்ள புகைப்படம் போதுமானது.',
+                'q1': 'புதிய பாஸ்போர்ட் பெற எவ்வளவு காலம் ஆகும்?', 'a1': 'சாதாரண முறையில் 15-20 நாட்கள் ஆகும். தத்கல் முறையில் 1-3 நாட்களில் பெறலாம்.',
+                'q2': 'குழுவாக டிக்கெட் புக் செய்யலாமா?', 'a2': 'ஆம், குடும்பங்கள் மற்றும் வணிகக் குழுக்களுக்கு வளைகுடா நாடுகளுக்கு சிறப்பு தள்ளுபடி உண்டு.',
                 'q4': 'உம்ரா பேக்கேஜ்களில் உணவு வசதி உண்டா?', 'a4': 'ஆம், எமது டீலக்ஸ் பேக்கேஜ்களில் முழுமையான உணவு வசதிகள் சேர்க்கப்பட்டுள்ளன. சலவை (Laundry) வசதிகள் இதில் சேர்க்கப்படவில்லை.',
                 'q5': 'எந்த அரசு சான்றிதழ்களுக்கு நீங்கள் உதவுகிறீர்கள்?', 'a5': 'வருமானம், சாதி மற்றும் இருப்பிடச் சான்றிதழ்களுக்கு நாங்கள் மின்-சேவை மூலம் உதவுகிறோம்.',
                 'q6': 'GAMCA மருத்துவ அப்பாயிண்ட்மெண்டிற்கு உதவுகிறீர்களா?', 'a6': 'ஆம், வளைகுடா வேலை விசாக்களுக்கு தேவையான GAMCA மருத்துவ அப்பாயிண்ட்மெண்ட்களை நாங்கள் செய்து தருகிறோம்.',
+                'gs_q3': 'சுற்றுலா விசாவில் குடும்பத்தினர் சவூதி செல்லலாமா?', 'a3': 'ஆம், தற்போது சவூதி சுற்றுலா விசாவில் குடும்பத்தினரைச் சந்திக்கவும் உம்ரா செய்யவும் அனுமதி உண்டு.',
                 'footer_desc': '2021 முதல் கடையநல்லூரில் சிறந்த சேவை. வளைகுடா விசா, ஹஜ் மற்றும் உம்ரா, மின் சேவைகள்.', 
-                'office_addr': '📍 445/9, முதல் தளம், மொய்தீன் பள்ளிவாசல் காம்ப்ளக்ஸ், கடையநல்லூர் – 627 751.'
+                'office_addr': '📍 445/9, மெயின் ரோடு, கடையநல்லூர் – 627 751.'
             }
         };
 
