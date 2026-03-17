@@ -1,220 +1,465 @@
-<style>
-.a2z *{box-sizing:border-box;margin:0;padding:0;}
-.a2z{font-family:'Segoe UI',Tahoma,Arial,sans-serif;color:#fff;background:#070E1A;width:100%;}
-.a2z a{text-decoration:none;}
-.a2z .tb{background:#8B6914;padding:7px 4%;font-size:12px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:5px;}
-.a2z .tb a{color:#fff;margin-left:14px;}.a2z .tb a:hover{color:#E8C96A;}
-.a2z .nav{background:rgba(7,14,26,0.97);padding:12px 4%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(201,168,76,0.2);position:sticky;top:0;z-index:999;}
-.a2z .logo{display:flex;align-items:center;gap:10px;}
-.a2z .logo img{width:44px;height:44px;object-fit:contain;}
-.a2z .logo .ln{font-size:16px;font-weight:700;color:#C9A84C;line-height:1.2;font-family:Georgia,serif;}
-.a2z .logo .ls{font-size:9px;color:#8A9BB0;letter-spacing:1.5px;text-transform:uppercase;}
-.a2z .navlinks{display:flex;gap:20px;list-style:none;align-items:center;}
-.a2z .navlinks a{color:rgba(255,255,255,0.82);font-size:13px;font-weight:500;padding:5px 0;border-bottom:2px solid transparent;transition:color .25s,border-color .25s;}
-.a2z .navlinks a:hover{color:#C9A84C;border-color:#C9A84C;}
-.a2z .navcta{background:linear-gradient(135deg,#C9A84C,#8B6914);color:#070E1A!important;padding:7px 16px;border-radius:20px;font-weight:700!important;border-bottom:none!important;}
-.a2z .ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
-.a2z .ham span{display:block;width:22px;height:2px;background:#fff;}
-.a2z .mmenu{display:none;background:#070E1A;padding:20px 4%;flex-direction:column;gap:16px;border-bottom:1px solid rgba(201,168,76,0.18);}
-.a2z .mmenu.open{display:flex;}
-.a2z .mmenu a{color:#fff;font-size:18px;font-family:Georgia,serif;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.07);}
-.a2z .mmenu a:hover{color:#C9A84C;}
-.a2z .hero{padding:70px 4% 60px;background:linear-gradient(135deg,#020810,#070E1A,#0A1628);position:relative;overflow:hidden;}
-.a2z .hero::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cg fill='none' stroke='%23C9A84C' stroke-width='0.4' opacity='0.1'%3E%3Cpolygon points='60,8 80,30 80,70 60,92 40,70 40,30'/%3E%3C/g%3E%3C/svg%3E");}
-.a2z .badge{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(201,168,76,0.3);padding:5px 14px;border-radius:20px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:18px;background:rgba(201,168,76,0.05);}
-.a2z .h1{font-family:Georgia,serif;font-size:clamp(28px,5vw,56px);font-weight:700;line-height:1.12;margin-bottom:15px;position:relative;z-index:2;}
-.a2z .hl{background:linear-gradient(135deg,#C9A84C,#E8C96A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.a2z .hsub{font-size:15px;color:rgba(255,255,255,0.65);line-height:1.85;margin-bottom:26px;max-width:550px;position:relative;z-index:2;}
-.a2z .hbtns{display:flex;gap:11px;flex-wrap:wrap;position:relative;z-index:2;}
-.a2z .stats{display:flex;gap:28px;margin-top:38px;padding-top:22px;border-top:1px solid rgba(201,168,76,0.2);flex-wrap:wrap;}
-.a2z .stat .n{font-family:Georgia,serif;font-size:26px;font-weight:700;color:#C9A84C;}
-.a2z .stat .l{font-size:11px;color:#8A9BB0;margin-top:2px;}
-.a2z .btn-g{background:linear-gradient(135deg,#C9A84C,#8B6914);color:#070E1A;padding:12px 22px;border-radius:26px;font-weight:700;font-size:13.5px;display:inline-flex;align-items:center;gap:7px;cursor:pointer;border:none;font-family:inherit;transition:opacity .25s;}
-.a2z .btn-g:hover{opacity:0.88;}
-.a2z .btn-o{border:1px solid rgba(201,168,76,0.35);color:#fff;padding:12px 22px;border-radius:26px;font-size:13.5px;display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.04);transition:color .25s,border-color .25s;}
-.a2z .btn-o:hover{border-color:#C9A84C;color:#C9A84C;}
-.a2z section{padding:68px 4%;}
-.a2z .bg2{background:#0D1B2E;}
-.a2z .pat{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cg fill='none' stroke='%23C9A84C' stroke-width='0.3' opacity='0.1'%3E%3Cpolygon points='40,5 55,20 55,45 40,60 25,45 25,20'/%3E%3C/g%3E%3C/svg%3E");}
-.a2z .sl{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#C9A84C;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
-.a2z .sl::before,.a2z .sl::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,#C9A84C,transparent);max-width:32px;}
-.a2z .sl::after{background:linear-gradient(270deg,#C9A84C,transparent);}
-.a2z .st{font-family:Georgia,serif;font-size:clamp(22px,3.8vw,40px);font-weight:700;margin-bottom:12px;line-height:1.22;}
-.a2z .ss{color:#8A9BB0;font-size:14.5px;line-height:1.8;max-width:520px;}
-.a2z .tc{text-align:center;}.a2z .tc .ss{margin:0 auto;}
-.a2z .gld{color:#C9A84C;}
-.a2z .g-auto{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:18px;}
-.a2z .g2{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
-.a2z .card{background:rgba(255,255,255,0.03);border:1px solid rgba(201,168,76,0.2);border-radius:16px;padding:24px;transition:border-color .3s;}
-.a2z .card:hover{border-color:#C9A84C;}
-.a2z .ci{font-size:30px;margin-bottom:13px;}
-.a2z .ct{font-family:Georgia,serif;font-size:17px;color:#C9A84C;margin-bottom:9px;}
-.a2z .cl{list-style:none;margin-bottom:17px;}
-.a2z .cl li{font-size:13px;color:rgba(255,255,255,0.64);padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;gap:7px;}
-.a2z .cl li::before{content:'◆';color:#C9A84C;font-size:6px;flex-shrink:0;margin-top:6px;}
-.a2z .sbtn{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;color:#C9A84C;border:1px solid rgba(201,168,76,0.25);padding:7px 15px;border-radius:15px;transition:all .25s;font-weight:500;}
-.a2z .sbtn:hover{background:#C9A84C;color:#070E1A;border-color:#C9A84C;}
-.a2z .ph{padding:58px 4% 48px;background:linear-gradient(135deg,#020810,#070E1A,#0A1628);text-align:center;position:relative;overflow:hidden;}
-.a2z .ph::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cg fill='none' stroke='%23C9A84C' stroke-width='0.4' opacity='0.07'%3E%3Ccircle cx='60' cy='60' r='50'/%3E%3Cpolygon points='60,10 80,35 80,70 60,95 40,70 40,35'/%3E%3C/g%3E%3C/svg%3E");}
-.a2z .ph h1{font-family:Georgia,serif;font-size:clamp(24px,5vw,50px);font-weight:700;position:relative;z-index:2;line-height:1.15;}
-.a2z .ph p{color:rgba(255,255,255,0.6);font-size:14.5px;max-width:550px;margin:12px auto 0;line-height:1.8;position:relative;z-index:2;}
-.a2z .bc{display:flex;justify-content:center;gap:8px;font-size:12px;color:#8A9BB0;margin-top:13px;position:relative;z-index:2;}
-.a2z .bc a{color:#C9A84C;}
-.a2z .ag{display:grid;grid-template-columns:1.2fr 0.8fr;gap:45px;align-items:center;}
-.a2z .atp{color:rgba(255,255,255,0.7);line-height:1.88;margin-bottom:12px;font-size:14px;}
-.a2z .fl{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px;}
-.a2z .feat{display:flex;align-items:center;gap:7px;font-size:12.5px;color:rgba(255,255,255,0.82);}
-.a2z .feat::before{content:'✦';color:#C9A84C;font-size:8px;}
-.a2z .acard{background:linear-gradient(135deg,rgba(201,168,76,0.07),rgba(11,61,46,0.1));border:1px solid rgba(201,168,76,0.25);border-radius:18px;padding:30px;text-align:center;}
-.a2z .acard img{width:90px;height:90px;object-fit:contain;margin-bottom:12px;}
-.a2z .acti{font-family:Georgia,serif;font-size:16px;color:#C9A84C;margin-bottom:5px;}
-.a2z .acd{color:#8A9BB0;font-size:12.5px;line-height:1.7;}
-.a2z .adiv{width:44px;height:2px;background:linear-gradient(90deg,#C9A84C,#8B6914);margin:12px auto;border-radius:2px;}
-.a2z .acnums{display:flex;justify-content:space-around;margin-top:14px;}
-.a2z .acnums .an{font-family:Georgia,serif;font-size:21px;color:#C9A84C;}
-.a2z .acnums .al{font-size:10px;color:#8A9BB0;letter-spacing:1px;}
-.a2z .tc-card{background:rgba(255,255,255,0.03);border:1px solid rgba(201,168,76,0.18);border-radius:14px;padding:22px;transition:border-color .3s;}
-.a2z .tc-card:hover{border-color:#C9A84C;}
-.a2z .ts{color:#C9A84C;font-size:12px;margin-bottom:9px;}
-.a2z .ttx{font-size:12.5px;color:rgba(255,255,255,0.64);line-height:1.8;margin-bottom:12px;font-style:italic;}
-.a2z .tnm{font-family:Georgia,serif;font-size:13px;color:#C9A84C;}
-.a2z .tlc{font-size:11px;color:#8A9BB0;}
-.a2z .wcard{padding:22px 14px;border:1px solid rgba(201,168,76,0.18);border-radius:14px;background:rgba(255,255,255,0.02);text-align:center;transition:border-color .3s;}
-.a2z .wcard:hover{border-color:#C9A84C;}
-.a2z .wi{font-size:27px;margin-bottom:9px;}
-.a2z .wt{font-family:Georgia,serif;font-size:14px;color:#C9A84C;margin-bottom:4px;}
-.a2z .wd{font-size:12px;color:#8A9BB0;line-height:1.62;}
-.a2z .footer{background:#070E1A;border-top:1px solid rgba(201,168,76,0.2);padding:44px 4% 20px;}
-.a2z .fg{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:28px;margin-bottom:30px;}
-.a2z .fd{font-size:12px;color:#8A9BB0;line-height:1.8;margin-top:10px;max-width:240px;}
-.a2z .fs{display:flex;gap:8px;margin-top:12px;}
-.a2z .fsi{width:33px;height:33px;border-radius:8px;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.18);display:flex;align-items:center;justify-content:center;font-size:14px;text-decoration:none;transition:background .25s;}
-.a2z .fsi:hover{background:#C9A84C;}
-.a2z .fc h3{font-family:Georgia,serif;color:#C9A84C;font-size:13px;margin-bottom:12px;}
-.a2z .fc ul{list-style:none;}
-.a2z .fc ul li{margin-bottom:7px;}
-.a2z .fc ul li a{font-size:12px;color:#8A9BB0;transition:color .25s;}
-.a2z .fc ul li a:hover{color:#C9A84C;}
-.a2z .fh{margin-top:13px;font-size:11.5px;color:#8A9BB0;line-height:1.8;}
-.a2z .fb{border-top:1px solid rgba(201,168,76,0.15);padding-top:16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:5px;}
-.a2z .fcp{font-size:11px;color:#8A9BB0;}
-.a2z .wa{position:fixed;bottom:22px;right:22px;z-index:9999;width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,#25D366,#128C7E);display:flex;align-items:center;justify-content:center;font-size:23px;text-decoration:none;box-shadow:0 4px 17px rgba(37,211,102,0.44);animation:a2zpw 2.5s infinite;}
-@keyframes a2zpw{0%,100%{box-shadow:0 4px 17px rgba(37,211,102,0.44);}50%{box-shadow:0 4px 34px rgba(37,211,102,0.68);}}
-.a2z .faq-item{border:1px solid rgba(201,168,76,0.18);border-radius:12px;margin-bottom:8px;overflow:hidden;}
-.a2z .fq{padding:14px 17px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:13.5px;font-weight:500;transition:background .25s;}
-.a2z .fq:hover{background:rgba(201,168,76,0.05);}
-.a2z .fq .arr{color:#C9A84C;font-size:15px;transition:transform .3s;flex-shrink:0;}
-.a2z .fq.open .arr{transform:rotate(180deg);}
-.a2z .fa{max-height:0;overflow:hidden;transition:max-height .4s,padding .3s;}
-.a2z .fa.open{max-height:200px;padding:0 17px 13px;}
-.a2z .fa p{font-size:13px;color:#8A9BB0;line-height:1.78;}
-@media(max-width:900px){.a2z .fg{grid-template-columns:1fr 1fr;}.a2z .ag{grid-template-columns:1fr;}.a2z .acnums{max-width:260px;margin:14px auto 0;}}
-@media(max-width:650px){.a2z .navlinks{display:none!important;}.a2z .ham{display:flex!important;}.a2z section{padding:50px 4%;}.a2z .fg{grid-template-columns:1fr;}.a2z .g2,.a2z .g-auto{grid-template-columns:1fr;}.a2z .tb{flex-direction:column;text-align:center;}.a2z .hero{padding:50px 4% 40px;}.a2z .fl{grid-template-columns:1fr;}}
-</style>
-<div class="a2z" id="a2z-wrap"><div class="tb"><span>📍 Main Road, Kadayanallur – 627 751</span><div style="display:flex;align-items:center;flex-wrap:wrap;gap:2px;"><a href="tel:+918973109844">📞 8973109844</a><a href="tel:+918300985240">📞 8300985240</a><a href="https://wa.me/918973109844" target="_blank">💬 WhatsApp</a><a href="/cdn-cgi/l/email-protection#cdacffb7a6a9a3a18daaa0aca4a1e3aea2a0" style="color:#fff;">✉&nbsp;<span class="__cf_email__" data-cfemail="d5b4e7afbeb1bbb995b2b8b4bcb9fbb6bab8">[email&#160;protected]</span></a></div></div><div class="mmenu" id="a2z-mm"><a href="index.html">Home</a><a href="about.html">About Us</a><a href="services.html">Services</a><a href="hajj-umrah.html">Hajj &amp; Umrah</a><a href="gulf-services.html">Gulf Services</a><a href="eservices.html">e-Services</a><a href="social-media.html">Social Media</a><a href="contact.html">Contact Us</a></div><div class="nav"><a class="logo" href="index.html"><img src="data:image/png;base64,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" alt="A to Z Travels Logo" width="44" height="44"><div><div class="ln">A to Z Travels</div><div class="ls">Umrah &amp; Gulf Visit Visa</div></div></a><ul class="navlinks"><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="hajj-umrah.html">Hajj &amp; Umrah</a></li><li><a href="gulf-services.html">Gulf Services</a></li><li><a href="eservices.html">e-Services</a></li><li><a href="social-media.html">Social Media</a></li><li><a href="contact.html" style="color:#C9A84C;">Contact Us</a></li></ul><div class="ham" onclick="(function(){document.getElementById('a2z-mm').classList.toggle('open');})()"><span></span><span></span><span></span></div></div>
-<style>
-.a2z .cgrid{display:grid;grid-template-columns:1fr 1fr;gap:42px;margin-top:28px;align-items:start;}
-.a2z .cii{display:flex;align-items:flex-start;gap:12px;margin-bottom:16px;}
-.a2z .cion{width:40px;height:40px;border-radius:10px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
-.a2z .clbl{font-size:10px;color:#8A9BB0;margin-bottom:3px;letter-spacing:1px;text-transform:uppercase;}
-.a2z .cval{font-size:13.5px;color:#fff;line-height:1.6;}
-.a2z .cval a{color:#C9A84C;text-decoration:none;}
-.a2z .cval a:hover{text-decoration:underline;}
-.a2z .cform{background:rgba(255,255,255,0.03);border:1px solid rgba(201,168,76,0.2);border-radius:16px;padding:26px;}
-.a2z .ftl{font-family:Georgia,serif;font-size:18px;color:#C9A84C;margin-bottom:18px;}
-.a2z .fg2{margin-bottom:13px;}
-.a2z .fg2 label{font-size:10px;color:#8A9BB0;letter-spacing:1px;text-transform:uppercase;margin-bottom:5px;display:block;}
-.a2z .fg2 input,.a2z .fg2 select,.a2z .fg2 textarea{width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.2);border-radius:9px;padding:11px 13px;color:#fff;font-family:inherit;font-size:13.5px;outline:none;transition:border .25s;box-sizing:border-box;}
-.a2z .fg2 input:focus,.a2z .fg2 select:focus,.a2z .fg2 textarea:focus{border-color:#C9A84C;}
-.a2z .fg2 select option{background:#0D1B2E;}
-.a2z .fg2 textarea{resize:vertical;min-height:78px;}
-.a2z .hgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:15px;}
-.a2z .hbox{background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.18);border-radius:10px;padding:11px 13px;}
-.a2z .hday{font-size:10px;color:#8A9BB0;margin-bottom:3px;letter-spacing:1px;text-transform:uppercase;}
-.a2z .htime{font-size:13px;color:#fff;font-weight:500;}
-.a2z .map-wrap{border-radius:16px;overflow:hidden;border:2px solid rgba(201,168,76,0.25);margin-top:22px;}
-.a2z .map-wrap iframe{width:100%;height:340px;border:none;display:block;}
-.a2z .social-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
-.a2z .soc-btn{display:inline-flex;align-items:center;gap:7px;padding:8px 15px;border-radius:20px;border:1px solid rgba(201,168,76,0.25);background:rgba(201,168,76,0.05);color:#C9A84C;font-size:12px;text-decoration:none;transition:all .25s;}
-.a2z .soc-btn:hover{background:#C9A84C;color:#070E1A;border-color:#C9A84C;}
-@media(max-width:680px){.a2z .cgrid{grid-template-columns:1fr;}.a2z .hgrid{grid-template-columns:1fr;}}
-</style>
-<div class="ph"><h1>Contact <span class="gld">A to Z Travels</span></h1><p>Visit our office in Kadayanallur, call either number, or WhatsApp anytime. We're here for Gulf visit visas, Hajj &amp; Umrah, air tickets, passport and all documentation needs.</p><div class="bc"><a href="index.html">Home</a> › <span>Contact</span></div></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | A to Z Travels Kadayanallur</title>
+    
+    <!-- FAVICON -->
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="shortcut icon" href="logo.jpg">
+    
+    <style>
+        /* Base & Variables */
+        :root {
+            --primary-gold: #C9A84C;
+            --dark-gold: #8B6914;
+            --bg-dark: #070E1A;
+            --bg-accent: #0D1B2E;
+            --text-gray: #8A9BB0;
+            --whatsapp-green: #25D366;
+            --glass-border: rgba(201, 168, 76, 0.2);
+        }
 
-<section class="bg2">
-<div class="tc" style="margin-bottom:0;"><div class="sl">Get In Touch</div><h2 class="st">Visit Us or <span class="gld">WhatsApp Anytime</span></h2></div>
-<div class="cgrid">
-<div>
-  <h3 style="font-family:Georgia,serif;font-size:17px;color:#C9A84C;margin-bottom:18px;">Our Contact Details</h3>
-  <div class="cii"><div class="cion">📍</div><div><div class="clbl">Address</div><div class="cval">A to Z Travels &amp; Umrah Service<br>445/9, First Floor<br>Mohideen Pallivasal Complex<br>Main Road, Kadayanallur – 627 751<br>Tirunelveli District, Tamil Nadu</div></div></div>
-  <div class="cii"><div class="cion">📞</div><div><div class="clbl">Phone</div><div class="cval"><a href="tel:+918973109844">📞 8973109844</a><br><a href="tel:+918300985240">📞 8300985240</a></div></div></div>
-  <div class="cii"><div class="cion">💬</div><div><div class="clbl">WhatsApp</div><div class="cval"><a href="https://wa.me/918973109844" target="_blank">8973109844 — Chat Now</a><br><a href="https://wa.me/918300985240" target="_blank">8300985240 — Chat Now</a></div></div></div>
-  <div class="cii"><div class="cion">✉️</div><div><div class="clbl">Email</div><div class="cval"><a href="mailto:a2zkdnl@gmail.com" style="color:#C9A84C;">a2zkdnl@gmail.com</a></div></div></div>
-  <div class="cii"><div class="cion">✉️</div><div><div class="clbl">Email</div><div class="cval"><a href="/cdn-cgi/l/email-protection#b6d784ccddd2d8daf6d1dbd7dfda98d5d9db"><span class="__cf_email__" data-cfemail="2f4e1d55444b41436f48424e4643014c4042">[email&#160;protected]</span></a></div></div></div>
-  <div class="cii"><div class="cion">🔗</div><div><div class="clbl">LinkedIn</div><div class="cval"><a href="https://www.linkedin.com/company/travelsatoz/posts/?feedView=all" target="_blank">A to Z Travels on LinkedIn</a></div></div></div>
-  <div class="cii"><div class="cion">🏙️</div><div><div class="clbl">Area Served</div><div class="cval">Kadayanallur, Sankarankoil, Tenkasi,<br>Tirunelveli &amp; surrounding areas</div></div></div>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg-dark); color: #fff; line-height: 1.6; overflow-x: hidden; }
+        a { text-decoration: none; transition: 0.3s; color: inherit; }
+        ul { list-style: none; }
 
-  <h4 style="font-family:Georgia,serif;color:#C9A84C;font-size:14px;margin:17px 0 11px;">Follow Us</h4>
-  <div class="social-links">
-    <a href="https://facebook.com" target="_blank" class="soc-btn">📘 Facebook</a>
-    <a href="https://www.instagram.com/atozonlineservicestravels/" target="_blank" class="soc-btn">📸 Instagram</a>
-    <a href="https://www.linkedin.com/company/travelsatoz/posts/?feedView=all" target="_blank" class="soc-btn">🔗 LinkedIn</a>
-    <a href="https://wa.me/918973109844" target="_blank" class="soc-btn">💬 WhatsApp</a>
-  </div>
+        /* --- TAMIL FONT SIZE --- */
+        body.lang-ta { font-size: 15px; }
+        body.lang-ta .h1 { font-size: clamp(24px, 4vw, 44px); line-height: 1.35; }
+        body.lang-ta .nav-links a, body.lang-ta .mobile-menu a { font-size: 11px; }
 
-  <h4 style="font-family:Georgia,serif;color:#C9A84C;font-size:14px;margin:18px 0 11px;">Office Hours</h4>
-  <div class="hgrid">
-    <div class="hbox"><div class="hday">Mon – Friday</div><div class="htime">9:00 AM – 7:00 PM</div></div>
-    <div class="hbox"><div class="hday">Saturday</div><div class="htime">9:00 AM – 6:00 PM</div></div>
-    <div class="hbox"><div class="hday">Sunday</div><div class="htime">10:00 AM – 2:00 PM</div></div>
-    <div class="hbox"><div class="hday">WhatsApp</div><div class="htime">Available 24/7</div></div>
-  </div>
+        /* Top Bar */
+        .top-bar { background: var(--dark-gold); padding: 8px 5%; font-size: 12px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; position: relative; z-index: 1001; }
+        .top-bar a { color: #fff; margin-left: 15px; }
 
-  <!-- GOOGLE MAP with Street View default -->
-  <div class="map-wrap">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d490.8!2d77.3476120!3d9.0856019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0685831847d6cb%3A0x4f48ab47c761e071!2sA%20To%20Z%20Tours%20%26%20Travels%2C%20Kadayanallur!5e0!3m2!1sen!2sin!4v1741440000000" width="100%" height="380" style="border:none;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="A to Z Travels & Umrah Service location - Kadayanallur"></iframe>
-  </div>
-  <div style="text-align:center;margin-top:10px;">
-    <a href="https://www.google.com/maps/place/A+To+Z+Tours+%26+Travels/@9.0856378,77.3468857,18.5z/data=!4m6!3m5!1s0x3b0685831847d6cb:0x4f48ab47c761e071!8m2!3d9.0856019!4d77.347612!16s%2Fg%2F11nry661wp" target="_blank" class="sbtn">📍 Open in Google Maps →</a>
-  </div>
-</div>
+        /* Navigation */
+        .nav { background: rgba(7, 14, 26, 0.98); padding: 15px 5%; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--glass-border); position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(10px); }
+        
+        .logo { display: flex; align-items: center; gap: 12px; min-width: 220px; }
+        .logo img { 
+            height: 38px !important; 
+            width: auto; 
+            object-fit: contain; 
+            background: #fff;
+            padding: 4px;
+            border-radius: 6px;
+            box-shadow: 0 0 15px rgba(255,255,255,0.15);
+        }
+        .logo-text .ln { font-family: Georgia, serif; font-size: 18px; font-weight: 700; color: var(--primary-gold); line-height: 1.2; }
+        .logo-text .ls { font-size: 9px; text-transform: uppercase; color: var(--text-gray); letter-spacing: 1px; }
 
-<div>
-  <div class="cform">
-    <div class="ftl">Send an Enquiry</div>
-    <div class="fg2"><label>Your Name *</label><input type="text" id="a2z-fn" placeholder="Your full name" required></div>
-    <div class="fg2"><label>Phone / WhatsApp *</label><input type="tel" id="a2z-fp" placeholder="+91 XXXXX XXXXX"></div>
-    <div class="fg2"><label>Service Required *</label><select id="a2z-fs"><option value="">Select a service...</option><option>Air Ticket — Gulf</option><option>Air Ticket — Domestic</option><option>Passport Fresh Application</option><option>Passport Renewal / Tatkal</option><option>Gulf Visit Visa — UAE</option><option>Gulf Visit Visa — Saudi Arabia</option><option>Gulf Visit Visa — Qatar / Kuwait / Bahrain / Oman</option><option>Umrah Package</option><option>Hajj Package</option><option>Tamil Nadu Certificate</option><option>Social Media Marketing</option><option>Other Enquiry</option></select></div>
-    <div class="fg2"><label>Message</label><textarea id="a2z-fm" placeholder="Tell us what you need..."></textarea></div>
-    <button class="btn-g" style="width:100%;justify-content:center;" onclick="a2zSubmit()">💬 Send via WhatsApp</button>
-    <div id="a2z-ok" style="display:none;text-align:center;padding:11px;background:rgba(11,61,46,0.3);border:1px solid #145C3F;border-radius:9px;color:#C9A84C;margin-top:9px;font-size:13px;">✅ Opening WhatsApp — we will respond shortly, InshaAllah!</div>
-  </div>
-</div>
-</div>
-</section>
+        .nav-right { display: flex; align-items: center; gap: 20px; }
+        .nav-links { display: flex; gap: 14px; align-items: center; }
+        .nav-links a { color: rgba(255, 255, 255, 0.85); font-size: 11.5px; font-weight: 600; white-space: nowrap; transition: 0.3s; text-transform: uppercase; letter-spacing: 0.5px; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary-gold); }
 
-<section class="pat" style="text-align:center;">
-  <div class="sl" style="justify-content:center;">Quick Contact</div>
-  <h2 class="st">Need Immediate Help?</h2>
-  <p style="color:#8A9BB0;font-size:14px;max-width:420px;margin:0 auto 24px;line-height:1.8;">Call or WhatsApp either number — we respond in Tamil and English, any time.</p>
-  <div style="display:flex;gap:11px;justify-content:center;flex-wrap:wrap;">
-    <a href="tel:+918973109844" class="btn-g" style="text-decoration:none;">📞 8973109844</a>
-    <a href="tel:+918300985240" class="btn-g" style="background:linear-gradient(135deg,#7a5a10,#4a3800);" style="text-decoration:none;">📞 8300985240</a>
-    <a href="https://wa.me/918973109844?text=Assalamu%20Alaikum%2C%20I%20need%20help" class="btn-o" target="_blank" style="text-decoration:none;">💬 WhatsApp</a>
-    <a href="/cdn-cgi/l/email-protection#badb88c0d1ded4d6faddd7dbd3d694d9d5d7" class="btn-g" style="background:linear-gradient(135deg,#1a3a5c,#0d2540);" style="text-decoration:none;">✉ Email Us</a>
-  </div>
-</section>
+        .menu-toggle { display: none; background: transparent; border: none; cursor: pointer; padding: 5px; z-index: 1002; outline: none; }
+        .menu-toggle span { display: block; width: 25px; height: 2px; background: #fff; margin: 5px 0; transition: 0.3s; }
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-function a2zSubmit(){
-  var n=document.getElementById('a2z-fn').value.trim(),
-      p=document.getElementById('a2z-fp').value.trim(),
-      s=document.getElementById('a2z-fs').value,
-      m=document.getElementById('a2z-fm').value.trim();
-  if(!n||!s){alert('Please enter your name and select a service.');return;}
-  var t='Assalamu Alaikum%0A%0AName: '+encodeURIComponent(n)+'%0APhone: '+encodeURIComponent(p||'Not provided')+'%0AService: '+encodeURIComponent(s)+'%0AMessage: '+encodeURIComponent(m||'No message');
-  document.getElementById('a2z-ok').style.display='block';
-  setTimeout(function(){window.open('https://wa.me/918973109844?text='+t,'_blank');},700);
-}
-</script>
-<div class="footer"><div class="fg"><div><a class="logo" href="index.html"><img src="data:image/png;base64,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" alt="A to Z Travels Logo" width="40" height="40"><div><div class="ln">A to Z Travels</div><div class="ls">&amp; Umrah Service</div></div></a><p class="fd">Trusted travel agency in Kadayanallur since 2021. Gulf visit visas, Hajj &amp; Umrah, air tickets, e-services.</p><div class="fs"><a class="fsi" href="https://www.facebook.com/atoztravel" target="_blank" aria-label="Facebook">📘</a><a class="fsi" href="https://www.instagram.com/atozonlineservicestravels/" target="_blank" aria-label="Instagram">📸</a><a class="fsi" href="https://wa.me/918973109844" target="_blank" aria-label="WhatsApp">💬</a><a class="fsi" href="https://www.linkedin.com/company/travelsatoz/posts/?feedView=all" target="_blank" aria-label="LinkedIn">🔗</a></div></div><div class="fc"><h3>Services</h3><ul><li><a href="services.html">Air Ticket Booking</a></li><li><a href="services.html">Passport Services</a></li><li><a href="gulf-services.html">Gulf Visit Visa</a></li><li><a href="hajj-umrah.html">Hajj &amp; Umrah</a></li><li><a href="eservices.html">TN e-Services</a></li><li><a href="social-media.html">Social Media</a></li></ul></div><div class="fc"><h3>Gulf Countries</h3><ul><li><a href="gulf-services.html">🇦🇪 UAE</a></li><li><a href="gulf-services.html">🇸🇦 Saudi Arabia</a></li><li><a href="gulf-services.html">🇶🇦 Qatar</a></li><li><a href="gulf-services.html">🇰🇼 Kuwait</a></li><li><a href="gulf-services.html">🇧🇭 Bahrain</a></li><li><a href="gulf-services.html">🇴🇲 Oman</a></li></ul></div><div class="fc"><h3>Contact</h3><ul><li><a href="tel:+918973109844">📞 8973109844</a></li><li><a href="tel:+918300985240">📞 8300985240</a></li><li><a href="https://wa.me/918973109844" target="_blank">💬 WhatsApp</a></li><li><a href="https://www.linkedin.com/company/travelsatoz/posts/?feedView=all" target="_blank">🔗 LinkedIn</a></li><li><a href="contact.html">📍 Our Office</a></li><li style="font-size:11.5px;color:rgba(255,255,255,0.55);" id="ftr-em">✉ <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6504571f0e010b09250208040c094b060a08">[email&#160;protected]</a></li></ul><div class="fh"><strong style="color:#C9A84C;">Hours</strong><br>Mon–Sat: 9AM–7PM<br>Sun: 10AM–2PM</div></div></div><div class="fb"><p class="fcp">© 2025 A to Z Travels &amp; Umrah Service · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail=
+        .mobile-menu { display: none; position: fixed; top: 0; right: 0; width: 280px; height: 100vh; background: var(--bg-dark); box-shadow: -10px 0 30px rgba(0,0,0,0.5); padding: 80px 25px; flex-direction: column; gap: 15px; z-index: 1001; }
+        .mobile-menu.active { display: flex; }
+        .mobile-menu a { color: #fff; font-size: 16px; font-weight: 600; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px; }
+
+        .lang-switch { display: flex; background: rgba(255, 255, 255, 0.05); border-radius: 20px; padding: 2px; border: 1px solid rgba(201,168,76,0.3); }
+        .lang-btn { padding: 3px 10px; border-radius: 18px; font-size: 10px; cursor: pointer; border: none; background: transparent; color: #fff; font-weight: 600; }
+        .lang-btn.active { background: var(--primary-gold); color: var(--bg-dark); }
+
+        /* --- HERO --- */
+        .hero { min-height: 40vh; width: 100%; display: flex; align-items: center; background: url('https://images.unsplash.com/photo-1534536281715-e28d76689b4d?w=1600&q=80') no-repeat center center; background-size: cover; position: relative; }
+        .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(7,14,26,0.95), rgba(7,14,26,0.7)); backdrop-filter: blur(3px); z-index: 2; }
+        .hero-container { width: 100%; max-width: 1200px; padding: 0 5%; position: relative; z-index: 10; text-align: center; }
+        .h1 { font-family: Georgia, serif; font-size: clamp(32px, 5vw, 62px); color: #fff; margin-bottom: 10px; }
+        .h1 span { color: var(--primary-gold); font-style: italic; }
+
+        /* --- CONTACT GRID --- */
+        section { padding: 80px 5%; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px; max-width: 1300px; margin: 0 auto; }
+
+        .info-card { background: var(--bg-accent); border: 1px solid var(--glass-border); border-radius: 15px; padding: 40px; }
+        .info-item { display: flex; gap: 20px; margin-bottom: 35px; }
+        .info-icon { width: 50px; height: 50px; background: rgba(201,168,76,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .info-icon svg { width: 24px; height: 24px; fill: var(--primary-gold); }
+        .info-text h4 { color: var(--primary-gold); font-family: Georgia, serif; font-size: 18px; margin-bottom: 5px; }
+        .info-text p { font-size: 15px; color: var(--text-gray); }
+
+        /* Directions Button */
+        .btn-directions { 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 8px; 
+            background: rgba(201, 168, 76, 0.1); 
+            border: 1px solid var(--primary-gold); 
+            color: var(--primary-gold); 
+            padding: 10px 20px; 
+            border-radius: 4px; 
+            font-size: 13px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            margin-top: 15px; 
+            transition: 0.3s;
+        }
+        .btn-directions:hover { background: var(--primary-gold); color: var(--bg-dark); transform: translateY(-2px); }
+        .btn-directions svg { width: 16px; height: 16px; fill: currentColor; }
+
+        /* FORM STYLE */
+        .form-card { background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); border-radius: 15px; padding: 40px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-size: 13px; color: var(--text-gray); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+        .form-control { width: 100%; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 12px 15px; color: #fff; font-size: 15px; outline: none; transition: 0.3s; }
+        .form-control:focus { border-color: var(--primary-gold); box-shadow: 0 0 10px rgba(201,168,76,0.2); }
+        .btn-submit { background: var(--whatsapp-green); color: #fff; width: 100%; border: none; padding: 15px; border-radius: 6px; font-weight: 800; font-size: 14px; text-transform: uppercase; cursor: pointer; transition: 0.3s; margin-top: 10px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .btn-submit:hover { opacity: 0.9; transform: scale(1.01); }
+
+        /* MAP SECTION */
+        .map-wrapper { position: relative; margin-top: 20px; text-align: center; }
+        .map-frame { width: 100%; height: 450px; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); background: #000; }
+        .btn-map-overlay { 
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #fff;
+            color: #000;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 14px;
+            margin-top: -30px;
+            position: relative;
+            z-index: 5;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+        .btn-map-overlay:hover { background: var(--primary-gold); transform: translateY(-3px); }
+
+        /* --- FOOTER --- */
+        .footer { background: #030811; border-top: 1px solid var(--glass-border); padding: 80px 5% 40px; color: #f0f0f0; }
+        .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1.2fr 1.3fr; gap: 40px; margin-bottom: 60px; }
+        .f-col h4 { color: var(--primary-gold); font-family: Georgia, serif; font-size: 16px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; position: relative; padding-bottom: 10px; }
+        .f-col h4::after { content: ''; position: absolute; bottom: 0; left: 0; width: 30px; height: 2px; background: var(--primary-gold); }
+        .f-about .f-logo-text { font-family: Georgia, serif; font-size: 24px; color: var(--primary-gold); font-weight: 700; display: block; margin-bottom: 20px; }
+        .f-about p { font-size: 14px; color: var(--text-gray); line-height: 1.8; }
+        .f-socials { display: flex; gap: 12px; margin-top: 20px; }
+        .f-social-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .f-social-icon svg { width: 18px; height: 18px; fill: var(--text-gray); }
+        .f-social-icon:hover { background: var(--primary-gold); transform: translateY(-3px); }
+        .f-social-icon:hover svg { fill: var(--bg-dark); }
+        .f-links a { font-size: 14px; color: var(--text-gray); display: block; margin-bottom: 12px; }
+        .f-links a:hover { color: var(--primary-gold); padding-left: 5px; }
+
+        .f-contact-item { display: flex; gap: 15px; margin-bottom: 20px; }
+        .f-contact-icon { width: 32px; height: 32px; background: rgba(201,168,76,0.1); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .f-contact-icon svg { width: 16px; height: 16px; fill: var(--primary-gold); }
+        .f-contact-text { font-size: 13.5px; color: var(--text-gray); line-height: 1.5; }
+        .f-contact-text strong { color: #fff; display: block; font-size: 12px; text-transform: uppercase; margin-bottom: 2px; }
+
+        /* Floating WhatsApp */
+        .floating-wa { position: fixed; bottom: 30px; right: 30px; background: var(--whatsapp-green); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 9999; animation: pulse 2s infinite; }
+        .floating-wa svg { width: 35px; height: 35px; fill: white; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .nav-links { display: none; }
+            .menu-toggle { display: block; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .footer-top { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body class="a2z">
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/918973109844" class="floating-wa" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.891 11.891-11.891 3.181 0 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.481 8.403 0 6.556-5.332 11.891-11.891 11.891-2.015 0-3.991-.51-5.747-1.474l-6.247 1.692zm6.75-4.414c1.554.921 3.03 1.385 4.603 1.385 5.481 0 9.941-4.459 9.941-9.941 0-2.648-1.031-5.143-2.906-7.018-1.875-1.875-4.37-2.906-7.035-2.906-5.481 0-9.941 4.459-9.941 9.941 0 1.847.51 3.528 1.474 4.864l-.97 3.543 3.734-.928zm11.367-7.38c-.066-.109-.241-.175-.506-.307-.264-.132-1.562-.77-1.804-.858-.241-.088-.418-.132-.594.132-.176.265-.682.858-.836 1.034-.154.176-.308.198-.573.066-.264-.132-1.117-.412-2.126-1.313-.785-.7-1.314-1.564-1.468-1.828-.154-.264-.016-.407.117-.539.12-.12.264-.308.396-.462.132-.154.176-.264.264-.44.088-.176.044-.33-.022-.462-.066-.132-.594-1.431-.814-1.963-.214-.517-.433-.448-.594-.456-.153-.008-.33-.008-.506-.008-.176 0-.462.066-.704.33-.242.264-.924.903-.924 2.199 0 1.296.946 2.552 1.078 2.728.132.176 1.861 2.842 4.508 3.986.63.27 1.12.432 1.503.553.633.201 1.21.172 1.665.105.508-.074 1.562-.638 1.782-1.254.22-.616.22-1.144.154-1.254z"/></svg>
+    </a>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <span data-i18n="top_address">📍 Main Road, Kadayanallur – 627 751</span>
+        <div class="top-contact">
+            <a href="tel:+918973109844">📞 8973109844</a>
+            <a href="https://wa.me/918973109844">💬 WhatsApp</a>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="nav">
+        <a class="logo" href="index.html">
+            <img src="logo.jpg" alt="A to Z Travels Logo">
+            <div class="logo-text">
+                <div class="ln">A to Z Travels</div>
+                <div class="ls">Umrah & Gulf Services</div>
+            </div>
+        </a>
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+                <li><a href="about.html" data-i18n="nav_about">About Us</a></li>
+                <li><a href="hajj-umrah.html" data-i18n="nav_hajj">Hajj & Umrah</a></li>
+                <li><a href="services.html" data-i18n="nav_services">Services</a></li>
+                <li><a href="gulf-services.html" data-i18n="nav_gulf">Gulf Services</a></li>
+                <li><a href="eservices.html" data-i18n="nav_eservices">e-Services</a></li>
+                <li><a href="social-media.html" data-i18n="nav_social">Social Media</a></li>
+                <li><a href="contact.html" class="active" data-i18n="nav_contact">Contact Us</a></li>
+            </ul>
+            <div class="lang-switch">
+                <button class="lang-btn active" onclick="switchLanguage('en')" id="btn-en">EN</button>
+                <button class="lang-btn" onclick="switchLanguage('ta')" id="btn-ta">தமிழ்</button>
+            </div>
+            <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html" onclick="toggleMenu()" data-i18n="nav_home">Home</a>
+            <a href="about.html" onclick="toggleMenu()" data-i18n="nav_about">About Us</a>
+            <a href="hajj-umrah.html" onclick="toggleMenu()" data-i18n="nav_hajj">Hajj & Umrah</a>
+            <a href="services.html" onclick="toggleMenu()" data-i18n="nav_services">Services</a>
+            <a href="gulf-services.html" onclick="toggleMenu()" data-i18n="nav_gulf">Gulf Services</a>
+            <a href="eservices.html" onclick="toggleMenu()" data-i18n="nav_eservices">e-Services</a>
+            <a href="social-media.html" onclick="toggleMenu()" data-i18n="nav_social">Social Media</a>
+            <a href="contact.html" onclick="toggleMenu()" data-i18n="nav_contact">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-container">
+            <h1 class="h1"><span data-i18n="nav_contact">Contact Us</span></h1>
+            <p class="hsub" data-i18n="co_hsub">Visit our office or message us directly for premium travel solutions.</p>
+        </div>
+    </section>
+
+    <!-- CONTACT GRID -->
+    <section>
+        <div class="contact-grid">
+            <!-- Info Side -->
+            <div class="info-card">
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    </div>
+                    <div class="info-text">
+                        <h4 data-i18n="f_office">Main Office</h4>
+                        <p>445/9, First Floor, Mohideen Pallivasal Complex, Main Road, Kadayanallur – 627 751.</p>
+                        <!-- GET DIRECTIONS BUTTON: verified location -->
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=A+To+Z+Tours+%26+Travels%2C+Kadayanallur&destination_place_id=ChIJXb7H_VvNBjsRcWDh_Yfr-E8" target="_blank" class="btn-directions">
+                            <svg viewBox="0 0 24 24"><path d="M21.71 11.29l-9-9c-.39-.39-1.02-.39-1.41 0l-9 9c-.39.39-.39 1.02 0 1.41l9 9c.39.39 1.02.39 1.41 0l9-9c.39-.38.39-1.01 0-1.41zM14 14.5V12h-4v3H8v-4c0-.55.45-1 1-1h5V7.5l3.5 3.5-3.5 3.5z"/></svg>
+                            <span data-i18n="co_directions">Get Directions</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.82 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1H3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    </div>
+                    <div class="info-text">
+                        <h4 data-i18n="f_phone">Phone Support</h4>
+                        <p>+91 8973109844<br>+91 8300985240</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    </div>
+                    <div class="info-text">
+                        <h4 data-i18n="f_email">Email Enquiries</h4>
+                        <p>a2zkdnl@gmail.com</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                    </div>
+                    <div class="info-text">
+                        <h4 data-i18n="f_hours">Business Hours</h4>
+                        <p>Monday – Saturday: 9:00 AM – 7:30 PM<br>Sunday: Closed</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WhatsApp Integrated Form Side -->
+            <div class="form-card">
+                <form id="whatsappForm">
+                    <div class="form-group">
+                        <label data-i18n="co_name">Your Name</label>
+                        <input type="text" id="cust_name" class="form-control" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="f_phone">Phone Number</label>
+                        <input type="tel" id="cust_phone" class="form-control" placeholder="e.g. 98765 43210" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="co_service">Service Interested In</label>
+                        <select id="cust_service" class="form-control">
+                            <option value="Air Ticket Booking">Air Ticket Booking</option>
+                            <option value="Hajj & Umrah Packages">Hajj & Umrah Packages</option>
+                            <option value="Gulf Visit Visas">Gulf Visit Visas</option>
+                            <option value="e-Services (Certificates)">e-Services (Certificates)</option>
+                            <option value="College Admissions">College Admissions</option>
+                            <option value="Other Enquiry">Other Enquiry</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="co_msg">Message</label>
+                        <textarea id="cust_msg" class="form-control" rows="4" placeholder="How can we help you?"></textarea>
+                    </div>
+                    <button type="button" class="btn-submit" onclick="sendWhatsApp()" data-i18n="co_btn">
+                        <svg style="width:20px; height:20px; fill:#fff;" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.891 11.891-11.891 3.181 0 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.481 8.403 0 6.556-5.332 11.891-11.891 11.891-2.015 0-3.991-.51-5.747-1.474l-6.247 1.692zm6.75-4.414c1.554.921 3.03 1.385 4.603 1.385 5.481 0 9.941-4.459 9.941-9.941 0-2.648-1.031-5.143-2.906-7.018-1.875-1.875-4.37-2.906-7.035-2.906-5.481 0-9.941 4.459-9.941 9.941 0 1.847.51 3.528 1.474 4.864l-.97 3.543 3.734-.928zm11.367-7.38c-.066-.109-.241-.175-.506-.307-.264-.132-1.562-.77-1.804-.858-.241-.088-.418-.132-.594.132-.176.265-.682.858-.836 1.034-.154.176-.308.198-.573.066-.264-.132-1.117-.412-2.126-1.313-.785-.7-1.314-1.564-1.468-1.828-.154-.264-.016-.407.117-.539.12-.12.264-.308.396-.462.132-.154.176-.264.264-.44.088-.176.044-.33-.022-.462-.066-.132-.594-1.431-.814-1.963-.214-.517-.433-.448-.594-.456-.153-.008-.33-.008-.506-.008-.176 0-.462.066-.704.33-.242.264-.924.903-.924 2.199 0 1.296.946 2.552 1.078 2.728.132.176 1.861 2.842 4.508 3.986.63.27 1.12.432 1.503.553.633.201 1.21.172 1.665.105.508-.074 1.562-.638 1.782-1.254.22-.616.22-1.144.154-1.254z"/></svg>
+                        Send WhatsApp Inquiry
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- VERIFIED GOOGLE MAP SECTION -->
+    <div class="map-wrapper">
+        <div class="map-frame">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d490.8!2d77.3476120!3d9.0856019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0685831847d6cb%3A0x4f48ab47c761e071!2sA%20To%20Z%20Tours%20%26%20Travels%2C%20Kadayanallur!5e0!3m2!1sen!2sin!4v1741440000000" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <!-- OVERLAY BUTTON: direct place link as requested -->
+        <a href="https://www.google.com/maps/place/A+To+Z+Tours+%26+Travels/@9.0856378,77.3468857,18.5z/data=!4m6!3m5!1s0x3b0685831847d6cb:0x4f48ab47c761e071!8m2!3d9.0856019!4d77.347612!16s%2Fg%2F11nry661wp" target="_blank" class="btn-map-overlay">
+            <svg style="width:18px; height:18px;" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            Open in Google Maps →
+        </a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="f-col f-about">
+                <span class="f-logo-text">A to Z Travels</span>
+                <p data-i18n="footer_desc">Kadayanallur's premier travel consultancy since 2021. Bridging global travel standards with personalized local care for every Tamil family.</p>
+                <div class="f-socials">
+                    <a href="https://www.facebook.com/atoztravel" class="f-social-icon" target="_blank" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/atozonlineservicestravels/" class="f-social-icon" target="_blank" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="https://wa.me/918973109844" class="f-social-icon" target="_blank" aria-label="WhatsApp">
+                        <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.891 11.891-11.891 3.181 0 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.481 8.403 0 6.556-5.332 11.891-11.891 11.891-2.015 0-3.991-.51-5.747-1.474l-6.247 1.692zm6.75-4.414c1.554.921 3.03 1.385 4.603 1.385 5.481 0 9.941-4.459 9.941-9.941 0-2.648-1.031-5.143-2.906-7.018-1.875-1.875-4.37-2.906-7.035-2.906-5.481 0-9.941 4.459-9.941 9.941 0 1.847.51 3.528 1.474 4.864l-.97 3.543 3.734-.928zm11.367-7.38c-.066-.109-.241-.175-.506-.307-.264-.132-1.562-.77-1.804-.858-.241-.088-.418-.132-.594.132-.176.265-.682.858-.836 1.034-.154.176-.308.198-.573.066-.264-.132-1.117-.412-2.126-1.313-.785-.7-1.314-1.564-1.468-1.828-.154-.264-.016-.407.117-.539.12-.12.264-.308.396-.462.132-.154.176-.264.264-.44.088-.176.044-.33-.022-.462-.066-.132-.594-1.431-.814-1.963-.214-.517-.433-.448-.594-.456-.153-.008-.33-.008-.506-.008-.176 0-.462.066-.704.33-.242.264-.924.903-.924 2.199 0 1.296.946 2.552 1.078 2.728.132.176 1.861 2.842 4.508 3.986.63.27 1.12.432 1.503.553.633.201 1.21.172 1.665.105.508-.074 1.562-.638 1.782-1.254.22-.616.22-1.144.154-1.254z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/travelsatoz/posts/?feedView=all" class="f-social-icon" target="_blank" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="f-col">
+                <h4 data-i18n="f_travel">Travel Excellence</h4>
+                <ul class="f-links">
+                    <li><a href="services.html" data-i18n="svc_t1">Air Ticket Booking</a></li>
+                    <li><a href="gulf-services.html" data-i18n="svc_t3">Gulf Visit Visas</a></li>
+                    <li><a href="hajj-umrah.html" data-i18n="nav_hajj">Hajj & Umrah</a></li>
+                    <li><a href="services.html" data-i18n="svc_t4_p">Passport Services</a></li>
+                </ul>
+            </div>
+
+            <div class="f-col">
+                <h4 data-i18n="f_digital">Digital e-Services</h4>
+                <ul class="f-links">
+                    <li><a href="eservices.html" data-i18n="es_c1_t">Revenue Certificates</a></li>
+                    <li><a href="eservices.html" data-i18n="es_c2_t">Smart Card Services</a></li>
+                    <li><a href="eservices.html" data-i18n="es_edu_t">College Admissions</a></li>
+                    <li><a href="eservices.html" data-i18n="es_con_t">Building Elevation</a></li>
+                </ul>
+            </div>
+
+            <div class="f-col">
+                <h4 data-i18n="f_touch">Connect with Us</h4>
+                <div class="f-contact-item">
+                    <div class="f-contact-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    </div>
+                    <div class="f-contact-text">
+                        <strong data-i18n="f_office">Main Office</strong>
+                        445/9, First Floor, Mohideen Pallivasal Complex, Main Road, Kadayanallur – 627 751.
+                    </div>
+                </div>
+                <div class="f-contact-item">
+                    <div class="f-contact-icon">
+                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.82 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1H3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    </div>
+                    <div class="f-contact-text">
+                        <strong data-i18n="f_phone">Phone Support</strong>
+                        +91 8973109844
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+            <div class="f-copy" data-i18n="footer_copy">
+                &copy; 2025 A to Z Travels & Umrah Service. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            'en': {
+                'nav_home': 'Home', 'nav_about': 'About Us', 'nav_hajj': 'Hajj & Umrah', 'nav_services': 'Services', 'nav_gulf': 'Gulf Services', 'nav_eservices': 'e-Services', 'nav_social': 'Social Media', 'nav_contact': 'Contact Us',
+                'co_hsub': 'Visit our office or message us directly for premium travel solutions.',
+                'f_office': 'Main Office', 'f_phone': 'Phone Support', 'f_email': 'Email Enquiries', 'f_hours': 'Business Hours',
+                'co_name': 'Your Name', 'co_service': 'Service Interested In', 'co_msg': 'Message', 'co_btn': 'Send WhatsApp Inquiry',
+                'co_directions': 'Get Directions',
+                'footer_desc': 'Kadayanallur\'s premier travel consultancy since 2021. Bridging global travel standards with personalized local care.',
+                'f_travel': 'Travel Excellence', 'f_digital': 'Digital e-Services', 'f_touch': 'Connect with Us', 'footer_copy': '© 2025 A to Z Travels & Umrah Service.',
+                'svc_t4_p': 'Passport Services', 'es_c1_t': 'Revenue Certificates', 'es_c2_t': 'Smart Card Services', 'es_edu_t': 'College Admissions', 'es_con_t': 'Building Elevation', 'svc_t1': 'Air Ticket Booking', 'svc_t3': 'Gulf Visit Visas'
+            },
+            'ta': {
+                'nav_home': 'முகப்பு', 'nav_about': 'எங்களைப் பற்றி', 'nav_hajj': 'ஹஜ் & உம்ரா', 'nav_services': 'சேவைகள்', 'nav_gulf': 'வளைகுடா சேவைகள்', 'nav_eservices': 'மின் சேவைகள்', 'nav_social': 'சமூக ஊடகம்', 'nav_contact': 'தொடர்பு கொள்ள',
+                'co_hsub': 'நேரடியாக எமது அலுவலகத்திற்கு வரலாம் அல்லது வாட்ஸ்அப் மூலம் எங்களைத் தொடர்பு கொள்ளலாம்.',
+                'f_office': 'தலைமை அலுவலகம்', 'f_phone': 'தொலைபேசி உதவி', 'f_email': 'மின்னஞ்சல்', 'f_hours': 'வேலை நேரம்',
+                'co_name': 'உங்கள் பெயர்', 'co_service': 'தேவைப்படும் சேவை', 'co_msg': 'தகவல்', 'co_btn': 'வாட்ஸ்அப்பில் விசாரிக்க',
+                'co_directions': 'திசைகளைப் பெறுக',
+                'footer_desc': '2021 முதல் கடையநல்லூரில் சிறந்த சேவை. உலகளாவிய தரத்தையும் உள்ளூர் மக்களின் தேவையையும் அறிந்து சேவை செய்கிறோம்.',
+                'f_travel': 'சிறந்த பயணச் சேவைகள்', 'f_digital': 'டிஜிட்டல் மின்-சேவைகள்', 'f_touch': 'எங்களைத் தொடர்பு கொள்ள', 'footer_copy': '© 2025 A to Z Travels & Umrah Service.',
+                'svc_t4_p': 'பாஸ்போர்ட் சேவை', 'es_c1_t': 'வருவாய்த்துறை சான்றிதழ்', 'es_c2_t': 'ரேஷன் கார்டு சேவை', 'es_edu_t': 'கல்லூரி சேர்க்கை', 'es_con_t': 'வீட்டு வரைபடம்', 'svc_t1': 'விமான டிக்கெட்', 'svc_t3': 'வளைகுடா விசா'
+            }
+        };
+
+        function switchLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) el.innerText = translations[lang][key];
+            });
+            document.body.className = 'a2z lang-' + lang;
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`btn-${lang}`).classList.add('active');
+            localStorage.setItem('preferredLang', lang);
+        }
+
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
+        function sendWhatsApp() {
+            const name = document.getElementById('cust_name').value;
+            const phone = document.getElementById('cust_phone').value;
+            const service = document.getElementById('cust_service').value;
+            const msg = document.getElementById('cust_msg').value;
+
+            if(!name || !phone) {
+                alert("Please enter your Name and Phone number.");
+                return;
+            }
+
+            const wpMsg = `*A to Z Travels - New Inquiry*%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Service:* ${service}%0A*Message:* ${msg}`;
+            const wpUrl = `https://wa.me/918973109844?text=${wpMsg}`;
+            
+            window.open(wpUrl, '_blank');
+        }
+
+        window.onload = () => {
+            switchLanguage(localStorage.getItem('preferredLang') || 'en');
+        };
+    </script>
+</body>
+</html>
