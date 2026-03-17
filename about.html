@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | A to Z Travels Kadayanallur</title>
     
-    <!-- FAVICON LINK: Using your logo.jpg as the site icon -->
+    <!-- FAVICON: Using your logo.jpg -->
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     <link rel="shortcut icon" href="logo.jpg">
     
@@ -38,7 +38,7 @@
         /* Navigation */
         .nav { background: rgba(7, 14, 26, 0.98); padding: 15px 5%; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--glass-border); position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(10px); }
         
-        /* LOGO VISIBILITY FIX: Ensuring dark logo is visible on dark theme */
+        /* LOGO VISIBILITY FIX */
         .logo { display: flex; align-items: center; gap: 12px; min-width: 220px; }
         .logo img { 
             height: 38px !important; 
@@ -68,23 +68,24 @@
         .lang-btn { padding: 3px 10px; border-radius: 18px; font-size: 10px; cursor: pointer; border: none; background: transparent; color: #fff; font-weight: 600; }
         .lang-btn.active { background: var(--primary-gold); color: var(--bg-dark); }
 
-        /* --- HERO SECTION WITH BACKGROUND --- */
+        /* --- HERO SECTION WITH FIXED IMAGE --- */
         .hero { 
             min-height: 60vh; 
             width: 100%; 
             display: flex; 
             align-items: center; 
-            background: url('kadayanallur.jpg') no-repeat center center; 
+            /* Using a remote Unsplash image for preview. Replace with 'kadayanallur.jpg' on your server. */
+            background: url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1600&q=80') no-repeat center center; 
             background-size: cover; 
             position: relative; 
             overflow: hidden;
         }
-        /* Gradient and Blur overlay to ensure text legibility */
         .hero-overlay { 
             position: absolute; 
             inset: 0; 
-            background: linear-gradient(to bottom, rgba(7,14,26,0.95) 10%, rgba(7,14,26,0.6) 100%); 
-            backdrop-filter: blur(3px); 
+            /* Multi-layer gradient for depth and text focus */
+            background: linear-gradient(to bottom, rgba(7,14,26,0.92) 0%, rgba(7,14,26,0.5) 100%); 
+            backdrop-filter: blur(2px); 
             z-index: 2; 
         }
         .hero-container { width: 100%; max-width: 1200px; padding: 0 5%; position: relative; z-index: 10; text-align: center; }
@@ -106,7 +107,7 @@
         .story-image-wrap img { width: 100%; border-radius: 12px; border: 1px solid var(--glass-border); box-shadow: 0 15px 40px rgba(0,0,0,0.4); }
         .brand-badge { position: absolute; bottom: 0; right: -20px; background: var(--primary-gold); color: var(--bg-dark); padding: 12px 24px; border-radius: 6px; font-weight: 900; box-shadow: 0 10px 20px rgba(0,0,0,0.3); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Team Focus Section */
+        /* Team Focus Strip */
         .team-section { background: rgba(13, 27, 46, 0.5); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); }
         .team-content { max-width: 900px; margin: 0 auto; text-align: center; }
         .team-content h3 { font-family: Georgia, serif; color: var(--primary-gold); font-size: 28px; margin-bottom: 20px; }
@@ -228,7 +229,7 @@
                 <span data-i18n="ab_h1_p1">Serving the Heart of</span><br>
                 <span class="hl" data-i18n="ab_h1_p2">Kadayanallur</span>
             </h1>
-            <p class="hsub" data-i18n="ab_h1_sub">Your trusted gateway to the world since 2021</p>
+            <p class="hsub" data-i18n="ab_h1_sub">Your trusted gateway to the world since 2021.</p>
         </div>
     </section>
 
@@ -273,7 +274,7 @@
             <div class="mission-card">
                 <span class="m-icon">💎</span>
                 <h3 data-i18n="ab_v2_t">Our Vision</h3>
-                <p data-i18n="ab_v2_d">To become the undisputed regional leader in travel consultancy and e-services, recognized for our integrity, local roots, and top-tier service standards.</p>
+                <p data-i18n="ab_v2_d">To become the undisputed regional leader in travel consultancy and offer top quality service to the people of Kadayanallur through integrity and local roots.</p>
             </div>
         </div>
     </section>
@@ -360,7 +361,7 @@
                 'ab_team_t': 'The New Generation of Service', 'ab_team_p': '"Our main goal is to open a world-class service point for our local people, combining the energy of young professionals with an unwavering commitment to affordable high quality."',
                 'ab_exp_badge': 'Established 2021', 'ab_m_sl': 'Our Philosophy', 'ab_m_st': 'Vision & Mission',
                 'ab_v1_t': 'Our Mission', 'ab_m_desc': 'To provide a world-class service point for local people, delivering premium travel and documentation solutions with the perfect balance of high quality and affordable pricing.',
-                'ab_v2_t': 'Our Vision', 'ab_v2_d': 'To become the undisputed regional leader in travel consultancy and e-services, recognized for our integrity, local roots, and top-tier service standards.',
+                'ab_v2_t': 'Our Vision', 'ab_v2_d': 'To become the undisputed regional leader in travel consultancy and offer top quality service to the people of Kadayanallur through integrity and local roots.',
                 'footer_desc': 'Kadayanallur\'s premier travel consultancy since 2021.', 'footer_copy': '© 2025 A to Z Travels & Umrah Service.',
                 'f_travel': 'Travel Excellence', 'f_digital': 'Digital e-Services', 'f_touch': 'Connect with Us', 'f_office': 'Main Office', 'f_phone': 'Phone Support',
                 'svc_t4_p': 'Passport Services', 'es_c1_t': 'Revenue Certificates', 'es_c2_t': 'Smart Card Services', 'es_edu_t': 'College Admissions', 'es_con_t': 'Building Elevation', 'svc_t3': 'Gulf Visit Visas'
